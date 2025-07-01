@@ -1,0 +1,22 @@
+# macOS system files
+.DS_Store
+._*
+
+# Temporary files
+*.tmp
+.!*
+
+# IDE files
+.vscode/
+.idea/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Node
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log* 
