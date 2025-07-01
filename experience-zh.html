@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>实践经验 - 张思远</title>
+    <link rel="icon" type="image/svg+xml" href="images/sylvester_robot_icon.svg">
+    <link rel="stylesheet" href="styles.css?v=2025010833">
+</head>
+<body class="experience-page">
+    <!-- 导航栏 -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="index-zh.html">
+                    <img src="images/sylvester_robot_icon.svg" alt="张思远">
+                </a>
+            </div>
+            <div class="nav-toggle" onclick="toggleMobileMenu()">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index-zh.html">主页</a></li>
+                <li class="resume-dropdown">
+                    <div class="resume-btn-container">
+                        <a href="research-zh.html" class="resume-btn-text">研究方向</a>
+                        <button class="resume-btn-arrow" type="button" aria-label="展开研究菜单"></button>
+                    </div>
+                    <div class="resume-dropdown-content">
+                        <a href="self-reproducing-robot-zh.html" class="resume-option">自复制机器人</a>
+                        <a href="rehabilitation-robot-zh.html" class="resume-option">康复机器人</a>
+                        <a href="soft-robotics-zh.html" class="resume-option">软体机器人</a>
+                    </div>
+                </li>
+                <li><a href="publications-zh.html">学术论文</a></li>
+                <li><a href="projects-zh.html">项目展示</a></li>
+                <li><a href="experience-zh.html" class="active">实践经验</a></li>
+                <li class="resume-dropdown">
+                    <div class="resume-btn-container">
+                        <span class="resume-btn-text">简历</span>
+                        <button class="resume-btn-arrow" type="button" aria-label="展开简历菜单"></button>
+                    </div>
+                    <div class="resume-dropdown-content">
+                        <a href="resume-en.html" class="resume-option">Resume</a>
+                        <a href="resume-zh.html" class="resume-option">简历</a>
+                    </div>
+                </li>
+                <li><a href="contact-zh.html">联系方式</a></li>
+                <li class="language-switcher">
+                    <div class="lang-toggle zh" onclick="switchLanguage('experience.html')">
+                        <div class="lang-slider"></div>
+                        <div class="lang-labels">
+                            <span class="lang-label en">EN</span>
+                            <span class="lang-label zh">中</span>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="nav-overlay" onclick="toggleMobileMenu()"></div>
+        <div class="resume-overlay" onclick="closeResumeMenu()"></div>
+    </nav>
+
+    <!-- 页面标题 -->
+    <section class="page-header">
+        <div class="container">
+            <h1 class="page-title">实践经验</h1>
+        </div>
+    </section>
+
+    <!-- 经历概览 -->
+    <section class="section">
+        <div class="container">
+            <div class="impact-metrics">
+                <div class="metric-card">
+                    <div class="metric-number">3+</div>
+                    <div class="metric-label">年工作经验</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-number">6</div>
+                    <div class="metric-label">个工作职位</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-number">3</div>
+                    <div class="metric-label">篇发表论文</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-number">15+</div>
+                    <div class="metric-label">个原型作品</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-number">30+</div>
+                    <div class="metric-label">名指导学生</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 专业经历 -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2>专业经历</h2>
+                <p class="section-subtitle">3年多时间里在研究、工业和教育领域担任6个职位</p>
+            </div>
+            
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-date">2025年1月 - 至今</div>
+                    <div class="timeline-content">
+                        <h3>研究生科研助理</h3>
+                        <div class="company">哥伦比亚大学工程学院 - 创意机器实验室</div>
+                        <div class="location">美国纽约都市区</div>
+                        <p>在创意机器实验室<strong style="color: #1a1a1a;">Hod Lipson教授</strong>指导下设计自复制机器人。开发具有<strong style="color: #1a1a1a;">六自由度模块化架构</strong>的自主系统，探索在太空应用的可能性。</p>
+                        <div class="achievements">
+                            <div class="achievement">• 设计了由<strong style="color: #1a1a1a;">10多个相同模块</strong>组成的模块化自复制机器人系统</div>
+                            <div class="achievement">• 开发了具有<strong style="color: #1a1a1a;">多轴旋转能力</strong>的磁性连接机构</div>
+                            <div class="achievement">• 实现了带有<strong style="color: #1a1a1a;">结构保真度测试</strong>的递归复制算法</div>
+                            <div class="achievement">• 正在准备向<strong style="color: #1a1a1a;">Science Robotics</strong>期刊投稿的手稿</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-date">2025年1月 - 2025年6月</div>
+                    <div class="timeline-content">
+                        <h3>助教</h3>
+                        <div class="company">哥伦比亚大学工程学院</div>
+                        <div class="location">美国</div>
+                        <p>担任Hod Lipson教授<strong style="color: #1a1a1a;">机器人工作室</strong>课程2025年春季学期助教。支持<strong style="color: #1a1a1a;">30多名</strong>本科生和研究生进行实践机器人项目。</p>
+                        <div class="achievements">
+                            <div class="achievement">• 每学期支持<strong style="color: #1a1a1a;">30多名学生</strong>完成机器人项目</div>
+                            <div class="achievement">• 协助开展多个小组的<strong style="color: #1a1a1a;">每周实验课程</strong></div>
+                            <div class="achievement">• 协助开发涵盖<strong style="color: #1a1a1a;">ROS、Python和嵌入式系统</strong>的课程材料</div>
+                            <div class="achievement">• 在课程评估中保持积极的学生反馈</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-date">2024年12月 - 2025年5月</div>
+                    <div class="timeline-content">
+                        <h3>健身中心服务员</h3>
+                        <div class="company">哥伦比亚大学</div>
+                        <div class="location">美国纽约都市区</div>
+                        <p>在为<strong style="color: #1a1a1a;">日常用户</strong>提供服务的大学健身设施中提供客户服务和运营支持。兼职工作确保设施运营和安全合规。</p>
+                        <div class="achievements">
+                            <div class="achievement">• 为日常设施用户提供<strong style="color: #1a1a1a;">专业客户服务</strong></div>
+                            <div class="achievement">• 维护设备并确保<strong style="color: #1a1a1a;">安全协议合规</strong></div>
+                            <div class="achievement">• 处理日常入场登记和设施使用申请</div>
+                            <div class="achievement">• 在保持全日制学业负担的同时完成<strong style="color: #1a1a1a;">兼职工作</strong></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-date">2022年5月 - 2024年6月</div>
+                    <div class="timeline-content">
+                        <h3>本科生科研助理</h3>
+                        <div class="company">中山大学</div>
+                        <div class="location">中国广东深圳</div>
+                        <p>在2年多时间里研究<strong style="color: #1a1a1a;">软体机器人和仿生系统</strong>的末端执行器设计。参与实验设计和仿真分析，为<strong style="color: #1a1a1a;">3篇</strong>同行评议期刊论文做出贡献。</p>
+                        <div class="achievements">
+                            <div class="achievement">• 设计软体抓手，在<strong style="color: #1a1a1a;">多种物体类型</strong>上进行测试</div>
+                            <div class="achievement">• 进行<strong style="color: #1a1a1a;">实验试验</strong>，测试抓取多样性和效率</div>
+                            <div class="achievement">• 在IEEE TRO和Advanced Intelligent Systems期刊共同发表<strong style="color: #1a1a1a;">3篇论文</strong></div>
+                            <div class="achievement">• 开发机器人原型的<strong style="color: #1a1a1a;">SOLIDWORKS模型</strong>并进行仿真验证</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-date">2024年1月 - 2024年3月</div>
+                    <div class="timeline-content">
+                        <h3>结构设计工程师（实习）</h3>
+                        <div class="company">影石Insta360</div>
+                        <div class="location">中国广东深圳</div>
+                        <p>为<strong style="color: #1a1a1a;">消费电子产品</strong>进行需求分析和结构设计。参与相机配件的研发项目，包括热管理和防护组件。</p>
+                        <div class="achievements">
+                            <div class="achievement">• 参与<strong style="color: #1a1a1a;">Insta360 X4散热附件</strong>研发项目开发</div>
+                            <div class="achievement">• 参与<strong style="color: #1a1a1a;">Insta360 Ace Pro 2防水镜头保护盖</strong>设计和开发</div>
+                            <div class="achievement">• 创建符合<strong style="color: #1a1a1a;">制造合规性</strong>要求的技术图纸</div>
+                            <div class="achievement">• 支持<strong style="color: #1a1a1a;">热管理和防护功能</strong>的设计优化</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-date">2022年3月 - 2022年9月</div>
+                    <div class="timeline-content">
+                        <h3>机械与空气动力学设计师</h3>
+                        <div class="company">中山大学</div>
+                        <div class="location">中国广东深圳</div>
+                        <p>设计和优化<strong style="color: #1a1a1a;">无人飞行器</strong>的空气动力学模型。通过<strong style="color: #1a1a1a;">CFD分析和原型测试</strong>改进飞行效率。</p>
+                        <div class="achievements">
+                            <div class="achievement">• 设计具有<strong style="color: #1a1a1a;">飞行效率改进</strong>的无人机原型</div>
+                            <div class="achievement">• 使用ANSYS Fluent进行<strong style="color: #1a1a1a;">CFD仿真</strong>优化</div>
+                            <div class="achievement">• 制作和测试<strong style="color: #1a1a1a;">飞行器原型</strong>并进行飞行测试</div>
+                            <div class="achievement">• 专注于在保持安全系数的同时<strong style="color: #1a1a1a;">减轻结构重量</strong></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 技能与专长 -->
+    <section class="section section-gray">
+        <div class="container">
+            <div class="section-header">
+                <h2>技术技能</h2>
+                <p class="section-subtitle">在多个软件平台和工程领域具备专业技能</p>
+            </div>
+            
+            <div class="skills-categories">
+                <div class="skill-category">
+                    <h3>编程与软件</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag advanced"><strong style="color: #1a1a1a;">Python</strong> (3年+)</span>
+                        <span class="skill-tag advanced"><strong style="color: #1a1a1a;">MATLAB</strong> (3年+)</span>
+                        <span class="skill-tag intermediate"><strong style="color: #1a1a1a;">C/C++</strong> (2年+)</span>
+                        <span class="skill-tag intermediate"><strong style="color: #1a1a1a;">ROS</strong> (1年+)</span>
+                        <span class="skill-tag intermediate"><strong style="color: #1a1a1a;">Linux</strong> (2年+)</span>
+                        <span class="skill-tag beginner"><strong style="color: #1a1a1a;">Arduino</strong> (1年+)</span>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3>设计与仿真</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag advanced"><strong style="color: #1a1a1a;">SOLIDWORKS</strong> (3年+)</span>
+                        <span class="skill-tag advanced"><strong style="color: #1a1a1a;">ANSYS</strong> (2年+)</span>
+                        <span class="skill-tag advanced"><strong style="color: #1a1a1a;">PTC Creo</strong> (1年+)</span>
+                        <span class="skill-tag advanced"><strong style="color: #1a1a1a;">AutoCAD</strong> (2年+)</span>
+                        <span class="skill-tag intermediate"><strong style="color: #1a1a1a;">CATIA</strong> (1年+)</span>
+                        <span class="skill-tag intermediate"><strong style="color: #1a1a1a;">NX</strong> (1年+)</span>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3>工程专业领域</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag advanced"><strong style="color: #1a1a1a;">机器人学</strong> (3年+)</span>
+                        <span class="skill-tag advanced"><strong style="color: #1a1a1a;">软体机器人</strong> (2年+)</span>
+                        <span class="skill-tag advanced"><strong style="color: #1a1a1a;">仿生设计</strong> (2年+)</span>
+                        <span class="skill-tag intermediate"><strong style="color: #1a1a1a;">航空航天工程</strong> (1年+)</span>
+                        <span class="skill-tag intermediate"><strong style="color: #1a1a1a;">空气动力学</strong> (1年+)</span>
+                        <span class="skill-tag intermediate"><strong style="color: #1a1a1a;">结构设计</strong> (1年+)</span>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3>研究与开发</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag advanced"><strong style="color: #1a1a1a;">科研能力</strong> (3年+)</span>
+                        <span class="skill-tag advanced"><strong style="color: #1a1a1a;">高等教育研究</strong> (2年+)</span>
+                        <span class="skill-tag intermediate"><strong style="color: #1a1a1a;">原型制作</strong> (2年+)</span>
+                        <span class="skill-tag intermediate"><strong style="color: #1a1a1a;">测试与分析</strong> (2年+)</span>
+                        <span class="skill-tag intermediate"><strong style="color: #1a1a1a;">学术写作</strong> (3篇论文)</span>
+                        <span class="skill-tag beginner"><strong style="color: #1a1a1a;">专利开发</strong></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 核心能力 -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2>核心能力</h2>
+                <p class="section-subtitle">在研究、工业和学术环境中展现的关键优势</p>
+            </div>
+            
+            <div class="overview-grid">
+                <div class="overview-card">
+                    <h3>研究与创新</h3>
+                    <p><strong style="color: #1a1a1a;">3年+</strong>机器人学研究经验，在同行评议期刊（IEEE TRO、Advanced Intelligent Systems）发表<strong style="color: #1a1a1a;">3篇论文</strong>。参与实验工作并为机器人原型开发做出贡献。</p>
+                </div>
+
+                <div class="overview-card">
+                    <h3>设计与开发</h3>
+                    <p>具备<strong style="color: #1a1a1a;">多种CAD平台</strong>经验，包括SOLIDWORKS和ANSYS建模仿真。在工业项目中为设计改进和成本优化做出贡献。</p>
+                </div>
+
+                <div class="overview-card">
+                    <h3>教学与指导</h3>
+                    <p>目前担任助教，支持<strong style="color: #1a1a1a;">30多名学生</strong>完成机器人项目并获得积极反馈。协助开发涵盖<strong style="color: #1a1a1a;">ROS、Python和嵌入式系统</strong>的课程材料。</p>
+                </div>
+
+                <div class="overview-card">
+                    <h3>跨职能协作</h3>
+                    <p>在<strong style="color: #1a1a1a;">学术研究、工业界和大学运营</strong>方面具有丰富经验。成功平衡兼职工作与全日制学业和研究承诺。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-social-links">
+                <a href="https://github.com/SylvesterZHANG007" class="social-icon github-icon" title="GitHub" target="_blank">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="#4a4a4a">
+                        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.30.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                    </svg>
+                </a>
+                <a href="https://www.linkedin.com/in/siyuan-zhang-columbia/" class="social-icon linkedin-icon" title="LinkedIn" target="_blank">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="#4a4a4a">
+                        <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                    </svg>
+                </a>
+                <a href="https://www.instagram.com/siyuan.zh/" class="social-icon instagram-icon" title="Instagram" target="_blank">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="#4a4a4a">
+                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.40s-.644-1.44-1.439-1.40z"/>
+                    </svg>
+                </a>
+                <a href="https://www.youtube.com/@sylvesterzhang" class="social-icon youtube-icon" title="YouTube" target="_blank">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="#4a4a4a">
+                        <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                    </svg>
+                </a>
+                <a href="https://space.bilibili.com/641605796?spm_id_from=333.337.0.0" class="social-icon bilibili-icon" title="Bilibili" target="_blank">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="#4a4a4a">
+                        <path d="M17.813 4.653h.854c1.51.054 2.769.578 3.773 1.574 1.004.995 1.524 2.249 1.56 3.76v7.36c-.036 1.51-.556 2.769-1.56 3.773s-2.262 1.524-3.773 1.56H5.333c-1.51-.036-2.769-.556-3.773-1.56S.036 18.858 0 17.347v-7.36c.036-1.511.556-2.765 1.56-3.76 1.004-.996 2.262-1.52 3.773-1.574h.774l-1.174-1.12a1.234 1.234 0 0 1-.373-.906c0-.356.124-.658.373-.907l.027-.027c.267-.249.573-.373.92-.373.347 0 .653.124.92.373L9.653 4.44c.071.071.134.142.187.213h4.267a.836.836 0 0 1 .16-.213l2.853-2.747c.267-.249.573-.373.92-.373.347 0 .662.151.929.4.267.249.391.551.391.907 0 .356-.124.657-.373.906l-1.174 1.12zM5.333 7.24c-.746.018-1.373.276-1.88.773-.506.498-.769 1.13-.789 1.894v7.52c.02.764.283 1.396.789 1.894.507.497 1.134.755 1.88.773h13.334c.746-.018 1.373-.276 1.88-.773.506-.498.769-1.13.789-1.894v-7.52c-.02-.765-.283-1.396-.789-1.894-.507-.497-1.134-.755-1.88-.773H5.333zM8 11.107c.373 0 .684.124.933.373.25.249.383.569.4.96v1.173c-.017.391-.15.711-.4.96-.249.25-.56.374-.933.374s-.684-.125-.933-.374c-.25-.249-.383-.569-.4-.96V12.44c.017-.391.15-.711.4-.96.249-.249.56-.373.933-.373zm8 0c.373 0 .684.124.933.373.25.249.383.569.4.96v1.173c-.017.391-.15.711-.4.96-.249.25-.56.374-.933.374s-.684-.125-.933-.374c-.25-.249-.383-.569-.4-.96V12.44c.017-.391.15-.711.4-.96.249-.249.56-.373.933-.373z"/>
+                    </svg>
+                </a>
+            
+            </div>
+            <p>&copy; 2025 张思远 (Siyuan Zhang). 版权所有.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html> 

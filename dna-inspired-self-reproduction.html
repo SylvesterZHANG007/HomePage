@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Helical Genesis: DNA-Inspired Self-Reproduction - Siyuan Zhang</title>
+    <link rel="icon" type="image/svg+xml" href="images/sylvester_robot_icon.svg">
+    <link rel="stylesheet" href="styles.css?v=2025010847">
+    <style>
+        .page-title {
+            font-size: clamp(2rem, 4vw, 3rem) !important;
+            line-height: 1.2 !important;
+        }
+        .article-meta {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 2rem;
+            padding: 20px 0;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        }
+        .article-date {
+            color: #666;
+            font-size: 1rem;
+            font-weight: 500;
+        }
+        .article-tags {
+            display: flex;
+            gap: 10px;
+        }
+        .tag {
+            background: linear-gradient(135deg, #007aff, #5856ff);
+            color: white;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+        .article-image {
+            width: 100%;
+            max-width: 700px;
+            margin: 2rem auto;
+        }
+        .article-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 16px;
+        }
+        .figure-caption {
+            text-align: center;
+            color: #666;
+            font-size: 0.95rem;
+            font-style: italic;
+            margin-top: 0.8rem;
+            line-height: 1.4;
+        }
+        .article-content h2 {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin: 2.5rem 0 1.5rem 0;
+            line-height: 1.3;
+            letter-spacing: -0.02em;
+        }
+        .article-content h3 {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: #2d2d2d;
+            margin: 2rem 0 1rem 0;
+            line-height: 1.4;
+        }
+        .article-content p {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            color: #4a4a4a;
+            margin-bottom: 1.5rem;
+        }
+        .highlight-box {
+            background: linear-gradient(135deg, rgba(0, 122, 255, 0.05), rgba(88, 86, 255, 0.05));
+            border-left: 4px solid #007aff;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-radius: 8px;
+        }
+        .breadcrumb {
+            margin-bottom: 2rem;
+            font-size: 0.95rem;
+        }
+        .breadcrumb a {
+            color: #007aff;
+            text-decoration: none;
+        }
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+        .breadcrumb span {
+            color: #666;
+            margin: 0 8px;
+        }
+        .dual-image-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        .dual-image-item {
+            text-align: center;
+        }
+        .dual-image-item img {
+            width: 100%;
+            height: auto;
+            border-radius: 12px;
+        }
+        @media (max-width: 768px) {
+            .dual-image-container {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+        }
+        .small-image {
+            max-width: 350px !important;
+        }
+        .small-image img {
+            max-width: 100% !important;
+        }
+        .large-image {
+            max-width: 2100px !important;
+        }
+        .large-image img {
+            max-width: 100% !important;
+        }
+        .arxiv-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: linear-gradient(135deg, #b91d47, #cc0000);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin: 10px 0;
+            transition: all 0.3s ease;
+        }
+        .arxiv-link:hover {
+            background: linear-gradient(135deg, #8b1538, #990000);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(185, 29, 71, 0.3);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="index.html">
+                    <img src="images/sylvester_robot_icon.svg" alt="Sylvester Zhang">
+                </a>
+            </div>
+            <div class="nav-toggle" onclick="toggleMobileMenu()">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li class="resume-dropdown">
+                    <a href="research.html" class="resume-btn active">Research</a>
+                    <div class="resume-dropdown-content">
+                        <a href="self-reproducing-robot.html" class="resume-option active">Self-Reproducing Robot</a>
+                        <a href="rehabilitation-robot.html" class="resume-option">Rehabilitation Robot</a>
+                        <a href="soft-robotics.html" class="resume-option">Soft Robotics</a>
+                    </div>
+                </li>
+                <li><a href="publications.html">Publication</a></li>
+                <li><a href="projects.html">Project</a></li>
+                <li><a href="experience.html">Experience</a></li>
+                <li class="resume-dropdown">
+                    <span class="resume-btn">Resume</span>
+                    <div class="resume-dropdown-content">
+                        <a href="resume-en.html" class="resume-option">Resume</a>
+                        <a href="resume-zh.html" class="resume-option">简历</a>
+                    </div>
+                </li>
+                <li><a href="contact.html">Contact</a></li>
+                <li class="language-switcher">
+                    <div class="lang-toggle" onclick="switchLanguage('dna-inspired-self-reproduction-zh.html')">
+                        <div class="lang-slider"></div>
+                        <div class="lang-labels">
+                            <span class="lang-label en">EN</span>
+                            <span class="lang-label zh">中</span>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="nav-overlay" onclick="toggleMobileMenu()"></div>
+        <div class="resume-overlay" onclick="closeResumeMenu()"></div>
+    </nav>
+
+    <!-- Article Content -->
+    <section class="section">
+        <div class="container">
+            <!-- Breadcrumb -->
+            <div class="breadcrumb">
+                <a href="research.html">Research</a>
+                <span>›</span>
+                <a href="self-reproducing-robot.html">Self-Reproducing Robot</a>
+                <span>›</span>
+                <span>DNA-Inspired Self-Reproduction</span>
+            </div>
+
+            <!-- Article Header -->
+            <header class="article-header">
+                <h1 class="page-title">Helical Genesis: DNA-Inspired Self-Reproduction</h1>
+                
+                <div class="article-meta">
+                    <div class="article-date">Published: June 11, 2025</div>
+                    <div class="article-tags">
+                        <span class="tag">Self-Reproducing Robots</span>
+                        <span class="tag">DNA-Inspired Design</span>
+                        <span class="tag">Modular Robotics</span>
+                    </div>
+                </div>
+                
+
+            </header>
+
+            <!-- Article Content -->
+            <article class="article-content">
+                <div class="highlight-box">
+                    <p><strong>Research Progress:</strong> This post presents our DNA-inspired self-reproducing robot research progress. Having successfully completed Stage I (concept construction and geometric transformation studies), we are now actively developing physical prototypes in Stage II, transitioning from theoretical concepts to tangible robotic systems.</p>
+                </div>
+
+                <h2>Introduction</h2>
+                <p>The quest to create machines capable of self-reproduction has long been a cornerstone of advanced robotics research. Drawing inspiration from the elegant simplicity and reliability of biological DNA replication, this research presents the first stage of a groundbreaking approach to autonomous robotic self-reproduction that mimics the fundamental principles of genetic material duplication.</p>
+
+                <p>Our DNA-inspired self-reproducing robot research follows a systematic multi-stage approach, progressing from geometric concept construction through 3D-to-2D transformations toward full autonomous replication capabilities. Having completed Stage I, we present the foundational framework that will guide subsequent development stages toward creating truly self-reproducing robotic systems.</p>
+
+
+
+                <h2>Target Applications: Extreme Environment Deployment</h2>
+                <p>The robust design of our DNA-inspired robots makes them ideal for deployment in extreme environments where human intervention is impossible or dangerous. From deep space missions to hazardous industrial environments, these robots can establish self-sustaining colonies through autonomous reproduction and adaptation.</p>
+
+                <div class="article-image large-image">
+                    <img src="images/self-reproducing-robot/extreme environment robot.png" alt="Extreme Environment Deployment" />
+                    <div class="figure-caption">Figure 1: Self-reproducing robot deployment in extreme environments, demonstrating autonomous operation and reproduction capabilities in challenging conditions where human intervention is not feasible.</div>
+                </div>
+
+                <div class="article-image">
+                    <img src="images/self-reproducing-robot/dna.png" alt="DNA-Inspired Architecture" />
+                    <div class="figure-caption">Figure 2: DNA double helix structure inspiring the modular robot architecture, showing the helical arrangement and complementary pairing principles adapted for robotic self-assembly.</div>
+                </div>
+
+                <h2>Biological Inspiration: From Cell Division to Digital Genesis</h2>
+                <p>The remarkable process of cell division serves as the primary biological inspiration for our self-reproducing robotic system. During mitosis, a single cell precisely duplicates its genetic material and cellular components before dividing into two identical daughter cells. This fundamental biological mechanism demonstrates nature's mastery of self-replication with extraordinary fidelity and efficiency.</p>
+
+                <p>Our robotic design directly translates the principles observed in cell division into mechanical systems. Just as cellular organelles coordinate to ensure proper chromosome separation and cytoplasm distribution, our modular robotic components employ sophisticated magnetic coupling and intelligent assembly algorithms to achieve precise replication. The cellular process of growth, duplication, and division provides the conceptual framework for our digital genesis approach.</p>
+
+                <div class="article-image">
+                    <img src="images/self-reproducing-robot/cell division.png" alt="Cell Division Process" />
+                    <div class="figure-caption">Figure 3: Cell division process demonstrating the biological foundation for robotic self-reproduction, illustrating how genetic information is duplicated and distributed to create identical offspring through mitosis.</div>
+                </div>
+
+                <h2>Modular Architecture Design</h2>
+                <p>The core of our self-reproducing robot lies in its modular architecture, where each module functions as both a structural component and an information carrier. This design philosophy mirrors the dual role of DNA as both genetic information storage and the blueprint for cellular machinery.</p>
+
+                <div class="article-image">
+                    <img src="images/self-reproducing-robot/version1module.png" alt="Version 1 Module Design" />
+                    <div class="figure-caption">Figure 4: First generation module design showing the integrated sensors, actuators, and magnetic coupling interfaces that enable autonomous assembly and disassembly operations.</div>
+                </div>
+
+                <h3>Connection and Disconnection Mechanisms</h3>
+                <p>The ability to form and break connections autonomously is crucial for self-reproduction. Our modules feature sophisticated magnetic coupling systems that can establish strong bonds during assembly while allowing controlled disconnection when reconfiguration is required.</p>
+
+                <div class="article-image">
+                    <img src="images/self-reproducing-robot/connection-desconnection.png" alt="Connection-Disconnection Mechanism" />
+                    <div class="figure-caption">Figure 5: Magnetic connection and disconnection mechanism enabling autonomous assembly and disassembly operations with precise control over bonding strength and release timing.</div>
+                </div>
+
+                <h2>Transformation and Mobility - Stage I Achievement</h2>
+                <p>The cornerstone achievement of Stage I is the successful conceptualization and validation of geometric transformations from complex 3D structures to compact 2D configurations. This fundamental capability enables our DNA-inspired robot to transition between operational and storage states, mimicking the way DNA unfolds and refolds during replication processes.</p>
+
+                <div class="article-image">
+                    <img src="images/self-reproducing-robot/transformation from 2d to 3d.png" alt="2D to 3D Transformation" />
+                    <div class="figure-caption">Figure 6: Transformation sequence from compact 2D configuration to operational 3D structure, demonstrating the robot's ability to reconfigure itself for different operational modes.</div>
+                </div>
+
+                <h3>Folding Capabilities</h3>
+                <p>The folding mechanism allows the robot to achieve compact storage configurations and deploy into working configurations as needed. This capability is essential for efficient material usage during the reproduction process.</p>
+
+                <div class="article-image">
+                    <img src="images/self-reproducing-robot/folding.png" alt="Folding Mechanism" />
+                    <div class="figure-caption">Figure 7: Advanced folding mechanism enabling compact storage and efficient deployment, inspired by protein folding processes in biological systems.</div>
+                </div>
+
+                <h2>Advanced Mobility and Manipulation</h2>
+                <p>The self-reproducing robot exhibits remarkable mobility through its six-degree-of-freedom (6DOF) actuation system, allowing precise manipulation of components during the assembly process.</p>
+
+                <div class="article-image">
+                    <img src="images/self-reproducing-robot/6dof.png" alt="Six Degrees of Freedom" />
+                    <div class="figure-caption">Figure 8: Six-degree-of-freedom actuation system providing complete spatial manipulation capabilities for precise component handling and assembly operations.</div>
+                </div>
+
+                <h3>Multi-Directional Rotation</h3>
+                <p>The robot's ability to rotate about different axes enables complex assembly sequences and allows access to all connection points during the reproduction process.</p>
+
+                <div class="article-image">
+                    <img src="images/self-reproducing-robot/Rotation about Different Directions.png" alt="Multi-Directional Rotation" />
+                    <div class="figure-caption">Figure 9: Multi-directional rotation capabilities enabling complex assembly sequences and comprehensive access to all component interfaces during self-reproduction.</div>
+                </div>
+
+                <div class="article-image small-image">
+                    <img src="images/self-reproducing-robot/bend 360.png" alt="360-Degree Bending" />
+                    <div class="figure-caption">Figure 10: 360-degree bending capability providing exceptional flexibility for component manipulation and assembly in constrained environments.</div>
+                </div>
+
+                <h2>Self-Reproduction Process</h2>
+                <p>The core concept of our DNA-inspired system demonstrates a sophisticated self-reproduction process that mirrors biological cell division. This process involves two distinct stages: an intermediate state where the original robot expands while constructing a new individual, and a final state where a complete mirrored copy has been successfully generated.</p>
+
+                <div class="article-image">
+                    <img src="images/self-reproducing-robot/self-reproduction-process.png" alt="Self-Reproduction Process Overview" />
+                    <div class="figure-caption">Figure 11: Overall view of the Self-Reproduction process. (a) Intermediate State: the original robot enlarges itself by absorbing environmental modules while constructing a new robot; (b) Final Reproducing State: the original robot has successfully generated a mirrored new individual through self-reproduction. Each robot consists of 10 modules.</div>
+                </div>
+
+                <h3>Intermediate State</h3>
+                <p>During the intermediate stage, the original robot actively absorbs available modules from the environment, simultaneously expanding its own structure while initiating the construction of a new robotic entity. This stage demonstrates the system's ability to gather resources and manage dual construction processes - self-enhancement and offspring creation.</p>
+
+                <h3>Final Reproducing State</h3>
+                <p>The final state represents the successful completion of the self-reproduction cycle. The original robot has generated a complete mirrored copy of itself, each consisting of precisely 10 modules. This achievement demonstrates the system's capability to maintain structural integrity while creating functionally identical offspring.</p>
+
+                <h2>Structural Diversity and Adaptability</h2>
+                <p>Beyond the fundamental self-reproduction process, our DNA-inspired system demonstrates remarkable versatility in assembling modules into various structural configurations, showing adaptability to different operational requirements.</p>
+
+                <div class="article-image">
+                    <img src="images/self-reproducing-robot/Modules Assemble into Various Structures.png" alt="Various Structural Assemblies" />
+                    <div class="figure-caption">Figure 12: Demonstration of modular versatility showing how identical components can assemble into diverse structural configurations for different operational requirements.</div>
+                </div>
+
+                <h2>Evolutionary Capabilities</h2>
+                <p>Beyond simple replication, our system demonstrates evolutionary capabilities, allowing for gradual improvements and adaptations across generations. This evolutionary aspect mirrors the way biological systems adapt and improve over time.</p>
+
+                <div class="article-image">
+                    <img src="images/self-reproducing-robot/evolution.png" alt="Evolutionary Development" />
+                    <div class="figure-caption">Figure 13: Evolutionary development process showing how successive generations of self-reproducing robots can incorporate improvements and adaptations for enhanced performance.</div>
+                </div>
+
+                <h2>Research Methodology & Development Pipeline</h2>
+                <p>Our comprehensive research approach follows a systematic six-stage development pipeline, designed to progressively advance from theoretical concepts to real-world implementation. This methodology ensures rigorous validation at each stage while maintaining scientific rigor throughout the development process.</p>
+
+                <div class="article-image small-image">
+                    <img src="images/self-reproducing-robot/pipeline.png" alt="Research Development Pipeline" />
+                    <div class="figure-caption">Figure 14: Comprehensive research development pipeline showing the systematic progression from conceptual design through to system validation. Current progress: Conceptual Design stage completed.</div>
+                </div>
+
+                <h3>Current Progress: Conceptual Design Completed</h3>
+                <p>We have successfully completed the <strong>Conceptual Design</strong> stage, which serves as the foundation for all subsequent research stages. This stage established the fundamental geometric transformation principles and theoretical framework that will guide the entire development process.</p>
+
+                <h3>Research Pipeline Stages:</h3>
+                <p><strong>Stage 1 - Conceptual Design (✅ Completed):</strong> Fundamental geometric transformations, 3D-to-2D structural transitions, and theoretical framework establishment.</p>
+                <p><strong>Stage 2 - Physical Prototyping (🔄 Next Stage):</strong> Development of physical modular components and validation of transformation mechanisms.</p>
+                <p><strong>Stage 3 - Simulation & Learning (MuJoCo):</strong> Computational modeling, behavior simulation, and machine learning integration for autonomous assembly.</p>
+                <p><strong>Stage 4 - Structural Complexity Exploration:</strong> Investigation of advanced configurations and adaptive structural variations.</p>
+                <p><strong>Stage 5 - Sim-to-Real:</strong> Translation of simulation results to physical robotic systems with real-world validation.</p>
+                <p><strong>Stage 6 - System Establishment & Validation:</strong> Complete system integration, performance evaluation, and comprehensive validation testing.</p>
+
+                <h2>Stage II Progress: Physical Prototyping</h2>
+                <p>Building upon the successful completion of Stage I, we have advanced into Stage II of our research, focusing on the physical realization of our DNA-inspired self-reproducing robot concepts. This stage marks a critical transition from theoretical design to tangible prototype development.</p>
+
+                <div class="article-image">
+                    <img src="images/self-reproducing-robot/self-reproducing robot real.jpg" alt="Physical Prototype 3D Model" />
+                    <div class="figure-caption">Figure 15: Physical prototype 3D model representing the transition from Stage I concepts to Stage II implementation. This prototype will integrate predefined electronic components and hardware systems for functional testing and validation.</div>
+                </div>
+
+                <h3>Current Stage II Activities</h3>
+                <p>Our current efforts in Stage II are concentrated on:</p>
+                <p><strong>3D Modeling and Design Refinement:</strong> Translating conceptual designs into detailed 3D models suitable for manufacturing and assembly.</p>
+                <p><strong>Electronic Integration Planning:</strong> Identifying and specifying electronic components, sensors, and actuators required for autonomous operation.</p>
+                <p><strong>Hardware Integration:</strong> Developing assembly protocols for integrating electronic systems with mechanical components.</p>
+                <p><strong>Functional Testing Preparation:</strong> Establishing testing frameworks to validate geometric transformation capabilities and modular assembly functions.</p>
+
+                <div class="highlight-box">
+                    <p><strong>Conclusion:</strong> The successful completion of Stage I in our DNA-inspired self-reproducing robot research represents a significant milestone in autonomous systems development. By establishing robust geometric transformation principles and fundamental design concepts, we have laid the groundwork for advancing toward truly autonomous self-replicating robotic systems. Currently in Stage II, we are actively translating theoretical concepts into physical prototypes. The development of 3D models and integration planning for electronic components and hardware systems marks substantial progress toward creating functional self-reproducing robotic systems. This prototype development stage will enable experimental verification and performance assessment of our conceptual framework.</p>
+                </div>
+
+
+            </article>
+
+            <!-- PDF Link -->
+            <div style="text-align: center; margin: 3rem 0;">
+                <a href="Self_Reproducing_Robot__Concept_Construction.pdf" class="arxiv-link" target="_blank">
+                    📄 Read Full Paper (PDF)
+                </a>
+            </div>
+
+            <!-- Back Navigation -->
+            <div style="text-align: center; margin-top: 2rem;">
+                <a href="self-reproducing-robot.html" class="btn-secondary">← Back to Self-Reproducing Robot</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-social-links">
+                <a href="https://github.com/SylvesterZHANG007" class="social-icon github-icon" title="GitHub" target="_blank">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="#4a4a4a">
+                        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.30.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                    </svg>
+                </a>
+                <a href="https://www.linkedin.com/in/siyuan-zhang-columbia/" class="social-icon linkedin-icon" title="LinkedIn" target="_blank">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="#4a4a4a">
+                        <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                    </svg>
+                </a>
+                <a href="https://www.instagram.com/siyuan.zh/" class="social-icon instagram-icon" title="Instagram" target="_blank">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="#4a4a4a">
+                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.40s-.644-1.44-1.439-1.40z"/>
+                    </svg>
+                </a>
+                <a href="https://www.youtube.com/@sylvesterzhang" class="social-icon youtube-icon" title="YouTube" target="_blank">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="#4a4a4a">
+                        <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                    </svg>
+                </a>
+                <a href="https://space.bilibili.com/641605796?spm_id_from=333.337.0.0" class="social-icon bilibili-icon" title="Bilibili" target="_blank">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="#4a4a4a">
+                        <path d="M17.813 4.653h.854c1.51.054 2.769.578 3.773 1.574 1.004.995 1.524 2.249 1.56 3.76v7.36c-.036 1.51-.556 2.769-1.56 3.773s-2.262 1.524-3.773 1.56H5.333c-1.51-.036-2.769-.556-3.773-1.56S.036 18.858 0 17.347v-7.36c.036-1.511.556-2.765 1.56-3.76 1.004-.996 2.262-1.52 3.773-1.574h.774l-1.174-1.12a1.234 1.234 0 0 1-.373-.906c0-.356.124-.658.373-.907l.027-.027c.267-.249.573-.373.92-.373.347 0 .653.124.92.373L9.653 4.44c.071.071.134.142.187.213h4.267a.836.836 0 0 1 .16-.213l2.853-2.747c.267-.249.573-.373.92-.373.347 0 .662.151.929.4.267.249.391.551.391.907 0 .356-.124.657-.373.906l-1.174 1.12zM5.333 7.24c-.746.018-1.373.276-1.88.773-.506.498-.769 1.13-.789 1.894v7.52c.02.764.283 1.396.789 1.894.507.497 1.134.755 1.88.773h13.334c.746-.018 1.373-.276 1.88-.773.506-.498.769-1.13.789-1.894v-7.52c-.02-.765-.283-1.396-.789-1.894-.507-.497-1.134-.755-1.88-.773H5.333zM8 11.107c.373 0 .684.124.933.373.25.249.383.569.4.96v1.173c-.017.391-.15.711-.4.96-.249.25-.56.374-.933.374s-.684-.125-.933-.374c-.25-.249-.383-.569-.4-.96V12.44c.017-.391.15-.711.4-.96.249-.249.56-.373.933-.373zm8 0c.373 0 .684.124.933.373.25.249.383.569.4.96v1.173c-.017.391-.15.711-.4.96-.249.25-.56.374-.933.374s-.684-.125-.933-.374c-.25-.249-.383-.569-.4-.96V12.44c.017-.391.15-.711.4-.96.249-.249.56-.373.933-.373z"/>
+                    </svg>
+                </a>
+            
+            </div>
+            <p>&copy; 2025 Siyuan (Sylvester) Zhang. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
+ 

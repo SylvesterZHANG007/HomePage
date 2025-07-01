@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Publication - Siyuan Zhang</title>
+    <link rel="icon" type="image/svg+xml" href="images/sylvester_robot_icon.svg">
+    <link rel="stylesheet" href="styles.css?v=2025010843">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="index.html">
+                    <img src="images/sylvester_robot_icon.svg" alt="Sylvester Zhang">
+                </a>
+            </div>
+            <div class="nav-toggle" onclick="toggleMobileMenu()">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li class="resume-dropdown">
+                    <div class="resume-btn-container">
+                        <a href="research.html" class="resume-btn-text">Research</a>
+                        <button class="resume-btn-arrow" type="button" aria-label="Expand research menu"></button>
+                    </div>
+                    <div class="resume-dropdown-content">
+                        <a href="self-reproducing-robot.html" class="resume-option">Self-Reproducing Robot</a>
+                        <a href="rehabilitation-robot.html" class="resume-option">Rehabilitation Robot</a>
+                        <a href="soft-robotics.html" class="resume-option">Soft Robotics</a>
+                    </div>
+                </li>
+                <li><a href="publications.html" class="active">Publication</a></li>
+                <li><a href="projects.html">Project</a></li>
+                <li><a href="experience.html">Experience</a></li>
+                <li class="resume-dropdown">
+                    <div class="resume-btn-container">
+                        <span class="resume-btn-text">Resume</span>
+                        <button class="resume-btn-arrow" type="button" aria-label="Expand resume menu"></button>
+                    </div>
+                    <div class="resume-dropdown-content">
+                        <a href="resume-en.html" class="resume-option">Resume</a>
+                        <a href="resume-zh.html" class="resume-option">简历</a>
+                    </div>
+                </li>
+                <li><a href="contact.html">Contact</a></li>
+                <li class="language-switcher">
+                    <div class="lang-toggle" onclick="switchLanguage('publications-zh.html')">
+                        <div class="lang-slider"></div>
+                        <div class="lang-labels">
+                            <span class="lang-label en">EN</span>
+                            <span class="lang-label zh">中</span>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="nav-overlay" onclick="toggleMobileMenu()"></div>
+        <div class="resume-overlay" onclick="closeResumeMenu()"></div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1 class="page-title">Publication</h1>
+        </div>
+    </section>
+
+    <!-- Publications Overview -->
+    <section class="section">
+        <div class="container">
+            <div class="about-content">
+                <h2 class="section-title">Publication Overview</h2>
+                <div class="about-description">
+                    <p>Spanning soft robotics, rehabilitation engineering, and self-reproducing systems, my publications embody a cross-disciplinary approach that merges mechanical design, material intelligence, and human-centered robotics. Each article represents a step toward creating more adaptive, scalable, and intelligent robotic architectures.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- Recent Publications -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Recent Publication</h2>
+            </div>
+            
+            <div class="publications-list">
+                <div class="publication-item">
+                    <div class="publication-year">2025</div>
+                    <div class="publication-content">
+                        <h3>"Enhancing Grasping Diversity With a Pinch-Suction and Soft-Rigid Hybrid Multimodal Gripper"</h3>
+                        <div class="publication-authors">Y. Zhao, J. Zhu, J. Zhang, <strong style="color: #000;">S. Zhang</strong>, M. Shao, Z. Chai, Y. Liu, J. Wu, Z. Wu, J. Zhang</div>
+                        <div class="publication-venue">IEEE Transactions on Robotics, Vol. 41, pp. 3890-3907</div>
+                        <div class="publication-abstract-toggle" onclick="toggleAbstract('abstract1')">
+                            <span class="abstract-label">Abstract</span>
+                            <span class="abstract-arrow">▼</span>
+                        </div>
+                        <div class="publication-abstract" id="abstract1">
+                            <p>Multimodal grasping has emerged as a promising strategy to enhance the grasping diversity of grippers in response to the rapid expansion of application scenarios. Among various designs, the pinch-suction hybrid mechanism and the soft-rigid hybrid structure have proved to be two practical strategies to achieve multimodality. However, existing research on these two strategies still lacks simple and effective collaborative mechanisms to fully leverage the advantages of each mode while ensuring mutual noninterference. In this article, we propose a pinch-suction and soft-rigid hybrid multimodal gripper (HMG), integrating four operating modes into a compact structure. Two simple and effective collaborative mechanisms are introduced to coordinate between pinch and suction operation and between soft and rigid components, respectively. Through the collaboration of different modes, the HMG exhibits a competitive grasping diversity across four aspects, including weight (from 0.2 g to 10 kg), fragility (from jelly to aluminum profile), size scale (from 0.46 mm to 0.55 m), and shape (from poorly pinchable to poorly suckable). We further demonstrate its adaptability and robustness in handling irregular-shaped objects, and its proficiency in executing complex real-world manipulation tasks, underwater operations, and closed-loop grasping. Its enhanced grasping diversity is poised to accelerate diverse applications in daily life, industrial settings, and underwater scenarios.</p>
+                        </div>
+                        <div class="citation-info" id="citation1" style="display: none;">
+                            <h4>Citation Formats:</h4>
+                            <div class="citation-format">
+                                <strong>APA:</strong><br>
+                                Zhao, Y., Zhu, J., Zhang, J., Zhang, S., Shao, M., Chai, Z., ... & Zhang, J. (2025). Enhancing Grasping Diversity With a Pinch-Suction and Soft-Rigid Hybrid Multimodal Gripper. <em>IEEE Transactions on Robotics</em>, 41, 3890-3907.
+                            </div>
+                            <div class="citation-format">
+                                <strong>IEEE:</strong><br>
+                                Y. Zhao et al., "Enhancing Grasping Diversity With a Pinch-Suction and Soft-Rigid Hybrid Multimodal Gripper," <em>IEEE Transactions on Robotics</em>, vol. 41, pp. 3890-3907, 2025.
+                            </div>
+                            <div class="citation-format">
+                                <strong>BibTeX:</strong><br>
+                                <code>@article{zhao2025enhancing,<br>
+                                &nbsp;&nbsp;title={Enhancing Grasping Diversity With a Pinch-Suction and Soft-Rigid Hybrid Multimodal Gripper},<br>
+                                &nbsp;&nbsp;author={Zhao, Yuwen and Zhu, Jiaqi and Zhang, Jie and Zhang, Siyuan and Shao, Maosen and Chai, Zhiping and Liu, Yimu and Wu, Jianing and Wu, Zhigang and Zhang, Jinxiu},<br>
+                                &nbsp;&nbsp;journal={IEEE Transactions on Robotics},<br>
+                                &nbsp;&nbsp;volume={41},<br>
+                                &nbsp;&nbsp;pages={3890--3907},<br>
+                                &nbsp;&nbsp;year={2025}<br>
+                                }</code>
+                            </div>
+                        </div>
+                        <div class="publication-links">
+                            <a href="https://scholar.google.com/citations?view_op=view_citation&hl=en&user=QDhqc2QAAAAJ&citation_for_view=QDhqc2QAAAAJ:qjMakFHDy7sC" class="pub-link" target="_blank">Scholar</a>
+                            <a href="https://doi.org/10.1109/TRO.2025.3577014" class="pub-link" target="_blank">DOI</a>
+                            <a href="javascript:void(0)" onclick="showCitation('citation1')" class="pub-link">Cite</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="publication-item">
+                    <div class="publication-year">2024</div>
+                    <div class="publication-content">
+                        <h3>"Synergizing Structural Stiffness Regulation with Compliance Contact Stiffness: Bioinspired Soft Stimuli-Responsive Materials Design for Soft Machines"</h3>
+                        <div class="publication-authors">K. Ma, J. Zhang, R. Sun, B. Chang, <strong style="color: #000;">S. Zhang</strong>, X. Wang, J. Wu, J. Zhang</div>
+                        <div class="publication-venue">Advanced Engineering Materials, Vol. 26, Issue 10, pp. 2400461</div>
+                        <div class="publication-abstract-toggle" onclick="toggleAbstract('abstract2')">
+                            <span class="abstract-label">Abstract</span>
+                            <span class="abstract-arrow">▼</span>
+                        </div>
+                        <div class="publication-abstract" id="abstract2">
+                            <p>Stiffness regulation strategies endow soft machines with stronger functionality to cope with diverse application requirements, for example manipulating heavy items by improving structural stiffness. However, most programmable stiffness strategies usually struggle to preserve the inherent compliant interaction capabilities following an enhancement in structural stiffness. In this study, inspired by the musculocutaneous system, we propose a soft stimuli-responsive material (SRM) by combining shape memory alloy into compliant materials. By characterizing the mechanical performance, the flexural modulus increases from 6.6 to 142.4 MPa under the action of active stimuli, crossing two orders of magnitude, while Young's modulus stays at 2.2 MPa during programming structural stiffness. This comparative result indicates that our SRMs can keep a lower contact stiffness for compliant interaction although structural stiffness increases. Then, we develop three diverse soft machines to show the application potential of this smart material, such as robotic grippers, wearable devices, and deployable mechanisms. By applying our materials, these machines possess stronger load-bearing capabilities. Meanwhile, these demonstrations also illustrate the efficacy of this paradigm in regulating the structural stiffness of soft machines while maintaining their compliant interaction capabilities.</p>
+                        </div>
+                        <div class="citation-info" id="citation2" style="display: none;">
+                            <h4>Citation Formats:</h4>
+                            <div class="citation-format">
+                                <strong>APA:</strong><br>
+                                Ma, K., Zhang, J., Sun, R., Chang, B., Zhang, S., Wang, X., ... & Zhang, J. (2024). Synergizing structural stiffness regulation with compliance contact stiffness: Bioinspired soft stimuli‐responsive materials design for soft machines. <em>Advanced Engineering Materials</em>, 26(18), 2400461.
+                            </div>
+                            <div class="citation-format">
+                                <strong>IEEE:</strong><br>
+                                K. Ma et al., "Synergizing structural stiffness regulation with compliance contact stiffness: Bioinspired soft stimuli‐responsive materials design for soft machines," <em>Advanced Engineering Materials</em>, vol. 26, no. 18, p. 2400461, 2024.
+                            </div>
+                            <div class="citation-format">
+                                <strong>BibTeX:</strong><br>
+                                <code>@article{ma2024synergizing,<br>
+                                &nbsp;&nbsp;title={Synergizing structural stiffness regulation with compliance contact stiffness: Bioinspired soft stimuli‐responsive materials design for soft machines},<br>
+                                &nbsp;&nbsp;author={Ma, Kailing and Zhang, Jie and Sun, Ruoyu and Chang, Bangli and Zhang, Siyuan and Wang, Xin and Wu, Jianing and Zhang, Jinxiu},<br>
+                                &nbsp;&nbsp;journal={Advanced Engineering Materials},<br>
+                                &nbsp;&nbsp;volume={26},<br>
+                                &nbsp;&nbsp;number={18},<br>
+                                &nbsp;&nbsp;pages={2400461},<br>
+                                &nbsp;&nbsp;year={2024}<br>
+                                }</code>
+                            </div>
+                        </div>
+                        <div class="publication-links">
+                            <a href="https://scholar.google.com/citations?view_op=view_citation&hl=en&user=QDhqc2QAAAAJ&citation_for_view=QDhqc2QAAAAJ:u-x6o8ySG0sC" class="pub-link" target="_blank">Scholar</a>
+                            <a href="https://doi.org/10.1002/adem.202400461" class="pub-link" target="_blank">DOI</a>
+                            <a href="javascript:void(0)" onclick="showCitation('citation2')" class="pub-link">Cite</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="publication-item">
+                    <div class="publication-year">2023</div>
+                    <div class="publication-content">
+                        <h3>"Transporting dispersed cylindrical granules: An intelligent strategy inspired by an elephant trunk"</h3>
+                        <div class="publication-authors">Y. Zhao, J. Zhang, <strong style="color: #000;">S. Zhang</strong>, P. Zhang, G. Dong, J. Wu, J. Zhang</div>
+                        <div class="publication-venue">Advanced Intelligent Systems, Vol. 5, Issue 10, pp. 2300182</div>
+                        <div class="publication-abstract-toggle" onclick="toggleAbstract('abstract3')">
+                            <span class="abstract-label">Abstract</span>
+                            <span class="abstract-arrow">▼</span>
+                        </div>
+                        <div class="publication-abstract" id="abstract3">
+                            <p>Manipulating granular materials is a crucial function of robotic grippers. However, the existing approaches always suffer from low efficiency when dealing with large quantities of dispersed granules. To overcome this challenge, inspiration is drawn from an African elephant (Loxodonta Africana), which can employ both fingertip extensions on the trunk tip to efficiently grasp dispersed granular food all at once by mediating state transition of granules. Herein, this bio-inspired intelligent strategy is integrated into a soft pneumatic gripper for transporting dispersed granules. To evaluate the critical actuation pressures while grasping granules, a library is constructed experimentally, and the effects of the initial relative height and relative lifting speed on the grasping success rate are examined. It is indicated in the experimental results that this trunk-inspired robotic strategy leads to a success rate of over 90% and saves ≈50% duration of manipulation compared to the individual gripping fashion. Herein, new insights may be offered in this study into a novel manipulation strategy for efficiently transporting dispersed granular materials.</p>
+                        </div>
+                        <div class="citation-info" id="citation3" style="display: none;">
+                            <h4>Citation Formats:</h4>
+                            <div class="citation-format">
+                                <strong>APA:</strong><br>
+                                Zhao, Y., Zhang, J., Zhang, S., Zhang, P., Dong, G., Wu, J., & Zhang, J. (2023). Transporting dispersed cylindrical granules: An intelligent strategy inspired by an elephant trunk. <em>Advanced Intelligent Systems</em>, 5(10), 2300182.
+                            </div>
+                            <div class="citation-format">
+                                <strong>IEEE:</strong><br>
+                                Y. Zhao et al., "Transporting dispersed cylindrical granules: An intelligent strategy inspired by an elephant trunk," <em>Advanced Intelligent Systems</em>, vol. 5, no. 10, p. 2300182, 2023.
+                            </div>
+                            <div class="citation-format">
+                                <strong>BibTeX:</strong><br>
+                                <code>@article{zhao2023transporting,<br>
+                                &nbsp;&nbsp;title={Transporting dispersed cylindrical granules: An intelligent strategy inspired by an elephant trunk},<br>
+                                &nbsp;&nbsp;author={Zhao, Yuwen and Zhang, Jie and Zhang, Siyuan and Zhang, Pengcheng and Dong, Guangkai and Wu, Jianing and Zhang, Jinxiu},<br>
+                                &nbsp;&nbsp;journal={Advanced Intelligent Systems},<br>
+                                &nbsp;&nbsp;volume={5},<br>
+                                &nbsp;&nbsp;number={10},<br>
+                                &nbsp;&nbsp;pages={2300182},<br>
+                                &nbsp;&nbsp;year={2023}<br>
+                                }</code>
+                            </div>
+                        </div>
+                        <div class="publication-links">
+                            <a href="https://scholar.google.com/citations?view_op=view_citation&hl=en&user=QDhqc2QAAAAJ&citation_for_view=QDhqc2QAAAAJ:u5HHmVD_uO8C" class="pub-link" target="_blank">Scholar</a>
+                            <a href="https://doi.org/10.1002/aisy.202300182" class="pub-link" target="_blank">DOI</a>
+                            <a href="javascript:void(0)" onclick="showCitation('citation3')" class="pub-link">Cite</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- Upcoming Publication -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Upcoming Publication</h2>
+            </div>
+            
+            <div class="under-review-list">
+                <div class="review-item">
+                    <h3>"Helical Genesis: An Intelligent Self-Reproducing Robot Evolving from 2-D Lattices into 3-D DNA-Inspired Architectures"</h3>
+                    <div class="review-authors"><strong style="color: #000;">S. Zhang</strong>, H. Lipson</div>
+                    <div class="review-venue">Target Journal: Science Robotics</div>
+                    <div class="publication-abstract-toggle" onclick="toggleAbstract('abstract4')">
+                        <span class="abstract-label">Abstract</span>
+                        <span class="abstract-arrow">▼</span>
+                    </div>
+                    <div class="publication-abstract" id="abstract4">
+                        <p>Self-reproduction is a foundational principle in biological systems, offering a path toward scalable and autonomous construction in engineered environments. Here, we present a conceptual framework for a modular self-reproducing robot designed for operation in extreme or inaccessible conditions where human intervention is limited or infeasible. Inspired by cellular division, the system comprises identical modules capable of magnetic connection, disconnection, and reconfiguration through hinge-aligned stacking mechanisms. This architecture enables smooth, continuous 3D transformations and recursive structural replication with multiple degrees of freedom, including DNA-like configurations. The proposed design supports dynamic reassembly and structural scalability, laying the groundwork for autonomous robotic systems capable of adaptive growth. Future work will focus on hardware prototyping, learning-based simulation in MuJoCo, structural complexity analysis, and sim-to-real transfer, aiming to systematically explore the feasibility of this biologically inspired strategy and to establish a theoretical foundation for future applications in space and other high-risk environments.</p>
+                    </div>
+                    <div class="review-status">Status: Manuscript in Preparation</div>
+                </div>
+
+                <div class="review-item">
+                    <h3>"From Structural Design to Dynamics Modeling: Control-Oriented Development of a 3-RRR Parallel Ankle Rehabilitation Robot"</h3>
+                    <div class="review-authors"><strong style="color: #000;">S. Zhang</strong>, Y. Zhang, J. Lyu, S. K. Agrawal</div>
+                    <div class="review-venue">Target Conference: IEEE International Conference on Robotics and Automation (ICRA)</div>
+                    <div class="review-venue">arXiv preprint: <a href="https://arxiv.org/html/2505.13762v1" target="_blank" style="color: #007aff;">arXiv:2505.13762</a></div>
+                    <div class="publication-abstract-toggle" onclick="toggleAbstract('abstract5')">
+                        <span class="abstract-label">Abstract</span>
+                        <span class="abstract-arrow">▼</span>
+                    </div>
+                    <div class="publication-abstract" id="abstract5">
+                        <p>This paper presents the development of a wearable ankle rehabilitation robot based on a 3-RRR spherical parallel mechanism (SPM) to support multi-DOF recovery through pitch, roll, and yaw motions. The system features a compact, ergonomic structure designed for comfort, safety, and compatibility with ankle biomechanics. A complete design-to-dynamics pipeline has been implemented, including structural design, kinematic modeling for motion planning, and Lagrangian-based dynamic modeling for torque estimation and simulation analysis. Preliminary simulations verify stable joint coordination and smooth motion tracking under representative rehabilitation trajectories. The control framework is currently being developed to enhance responsiveness across the workspace. Future work will focus on integrating personalized modeling and adaptive strategies to address kinematic singularities through model-based control. This work establishes a foundational platform for intelligent, personalized ankle rehabilitation, enabling both static training and potential extension to gait-phase-timed assistance.</p>
+                    </div>
+                    <div class="review-status">Status: Manuscript in Preparation</div>
+                </div>
+
+                <div class="review-item">
+                    <h3>"A Self-Evolving Design Framework for Personalized Wearable Robots from Human Motion"</h3>
+                    <div class="review-authors"><strong style="color: #000;">S. Zhang</strong>, Z. Nian</div>
+                    <div class="review-venue">Target Journal: Nature</div>
+                    <div class="publication-abstract-toggle" onclick="toggleAbstract('abstract6')">
+                        <span class="abstract-label">Abstract</span>
+                        <span class="abstract-arrow">▼</span>
+                    </div>
+                    <div class="publication-abstract" id="abstract6">
+                        <p>The design of wearable robots has traditionally relied on fixed templates and handcrafted engineering, limiting their adaptability to individual needs and their accessibility in low-resource settings. Here we introduce a self-evolving framework that generates personalized soft–rigid hybrid wearable robots directly from human motion. By capturing joint trajectories through commodity video and extracting task-specific kinematic subspaces, our system infers the minimal degrees of freedom required to reproduce individual movement. These constraints are embedded into a continuous design space that integrates multiple actuation modalities, including pneumatic, cable-driven, and phase-change elements. Using a differentiable optimization pipeline that combines finite-element modeling with reinforcement learning, the framework co-optimizes structure, material distribution, and control to minimize energy expenditure and mechanical complexity. Analysis of thousands of automatically generated morphologies reveals a generalizable relationship linking joint complexity, material composition, and metabolic efficiency. Prototypes fabricated within 24 hours demonstrate functional performance across multiple joints. This approach enables data-driven generation of customized rehabilitation devices and suggests a broader paradigm for human–machine co-adaptation grounded in individual biomechanics.</p>
+                    </div>
+                    <div class="review-status">Status: Manuscript in Preparation</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-social-links">
+                <a href="https://github.com/SylvesterZHANG007" class="social-icon github-icon" title="GitHub" target="_blank">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="#4a4a4a">
+                        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                    </svg>
+                </a>
+                <a href="https://www.linkedin.com/in/siyuan-zhang-columbia/" class="social-icon linkedin-icon" title="LinkedIn" target="_blank">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="#4a4a4a">
+                        <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                    </svg>
+                </a>
+                <a href="https://www.instagram.com/siyuan.zh/" class="social-icon instagram-icon" title="Instagram" target="_blank">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="#4a4a4a">
+                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.40s-.644-1.44-1.439-1.40z"/>
+                    </svg>
+                </a>
+                <a href="https://www.youtube.com/@sylvesterzhang" class="social-icon youtube-icon" title="YouTube" target="_blank">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="#4a4a4a">
+                        <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                    </svg>
+                </a>
+                <a href="https://space.bilibili.com/641605796?spm_id_from=333.337.0.0" class="social-icon bilibili-icon" title="Bilibili" target="_blank">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="#4a4a4a">
+                        <path d="M17.813 4.653h.854c1.51.054 2.769.578 3.773 1.574 1.004.995 1.524 2.249 1.56 3.76v7.36c-.036 1.51-.556 2.769-1.56 3.773s-2.262 1.524-3.773 1.56H5.333c-1.51-.036-2.769-.556-3.773-1.56S.036 18.858 0 17.347v-7.36c.036-1.511.556-2.765 1.56-3.76 1.004-.996 2.262-1.52 3.773-1.574h.774l-1.174-1.12a1.234 1.234 0 0 1-.373-.906c0-.356.124-.658.373-.907l.027-.027c.267-.249.573-.373.92-.373.347 0 .653.124.92.373L9.653 4.44c.071.071.134.142.187.213h4.267a.836.836 0 0 1 .16-.213l2.853-2.747c.267-.249.573-.373.92-.373.347 0 .662.151.929.4.267.249.391.551.391.907 0 .356-.124.657-.373.906l-1.174 1.12zM5.333 7.24c-.746.018-1.373.276-1.88.773-.506.498-.769 1.13-.789 1.894v7.52c.02.764.283 1.396.789 1.894.507.497 1.134.755 1.88.773h13.334c.746-.018 1.373-.276 1.88-.773.506-.498.769-1.13.789-1.894v-7.52c-.02-.765-.283-1.396-.789-1.894-.507-.497-1.134-.755-1.88-.773H5.333zM8 11.107c.373 0 .684.124.933.373.25.249.383.569.4.96v1.173c-.017.391-.15.711-.4.96-.249.25-.56.374-.933.374s-.684-.125-.933-.374c-.25-.249-.383-.569-.4-.96V12.44c.017-.391.15-.711.4-.96.249-.249.56-.373.933-.373zm8 0c.373 0 .684.124.933.373.25.249.383.569.4.96v1.173c-.017.391-.15.711-.4.96-.249.25-.56.374-.933.374s-.684-.125-.933-.374c-.25-.249-.383-.569-.4-.96V12.44c.017-.391.15-.711.4-.96.249-.249.56-.373.933-.373z"/>
+                    </svg>
+                </a>
+            
+            </div>
+            <p>&copy; 2025 Siyuan (Sylvester) Zhang. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js?v=2025010843"></script>
+</body>
+</html> 

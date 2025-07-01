@@ -67,7 +67,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         e.preventDefault();
         const target = document.querySelector(this.getAttribute('href'));
         if (target) {
-            const offsetTop = target.offsetTop - 60;
+            const offsetTop = target.offsetTop - 70; // Adjusted for new navbar height
             window.scrollTo({
                 top: offsetTop,
                 behavior: 'smooth'
@@ -76,19 +76,19 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// Enhanced navbar scroll effect
+// Simple navbar scroll effect
 window.addEventListener('scroll', () => {
     const navbar = document.querySelector('.navbar');
     if (navbar) {
         const scrolled = window.scrollY;
         if (scrolled > 50) {
-            navbar.style.background = 'rgba(20, 20, 20, 0.95)';
-            navbar.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.3)';
+            navbar.style.background = 'rgba(255, 255, 255, 0.98)';
+            navbar.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.15)';
             navbar.style.backdropFilter = 'blur(20px)';
         } else {
-            navbar.style.background = 'rgba(20, 20, 20, 0.9)';
-            navbar.style.boxShadow = 'none';
-            navbar.style.backdropFilter = 'blur(20px)';
+            navbar.style.background = 'rgba(255, 255, 255, 0.95)';
+            navbar.style.boxShadow = '0 8px 32px rgba(0, 0, 0, 0.1)';
+            navbar.style.backdropFilter = 'blur(30px) saturate(180%)';
         }
     }
 });
@@ -116,9 +116,6 @@ const observer = new IntersectionObserver((entries) => {
 document.addEventListener('DOMContentLoaded', () => {
     // Initialize page transitions
     PageTransition.init();
-    
-    // 强制设置导航栏为固定定位
-    // Fixed navbar positioning code has been removed
     
     // Add staggered animation to elements
     const animateElements = document.querySelectorAll('.card, .project-card, .timeline-item');
@@ -251,13 +248,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // Language switching function
 function switchLanguage(targetUrl) {
-    const toggle = document.querySelector('.lang-toggle');
-    if (toggle) {
-        PageTransition.handleLanguageSwitch(toggle);
-    } else {
-        // Direct navigation if no toggle found
+    // Add smooth transition effect
+    const body = document.body;
+    body.style.opacity = '0.7';
+    body.style.transform = 'scale(0.95)';
+    
+    // Navigate to target URL after brief animation
+    setTimeout(() => {
         window.location.href = targetUrl;
-    }
+    }, 150);
 }
 
 // Mobile menu toggle (for responsive design)
@@ -280,6 +279,24 @@ function toggleMobileMenu() {
     }
 }
 
+// Close resume dropdown menu
+function closeResumeMenu() {
+    const resumeOverlay = document.querySelector('.resume-overlay');
+    const resumeDropdowns = document.querySelectorAll('.resume-dropdown');
+    
+    resumeDropdowns.forEach(dropdown => {
+        dropdown.classList.remove('active');
+        const dropdownContent = dropdown.querySelector('.resume-dropdown-content');
+        if (dropdownContent) {
+            dropdownContent.classList.remove('active');
+        }
+    });
+    
+    if (resumeOverlay) {
+        resumeOverlay.classList.remove('active');
+    }
+}
+
 
 
 // Additional mobile menu functionality
@@ -287,9 +304,20 @@ document.addEventListener('DOMContentLoaded', () => {
     // Close mobile menu when clicking on a link
     document.querySelectorAll('.nav-menu a').forEach(link => {
         link.addEventListener('click', () => {
+            // Don't close menu if it's a dropdown text link in mobile
+            const dropdown = link.closest('.resume-dropdown');
+            const isDropdownTextLink = link.classList.contains('resume-btn-text');
+            const isMobile = window.innerWidth <= 1100;
+            
+            if (isDropdownTextLink && dropdown && isMobile) {
+                // For dropdown text links in mobile, we want normal link behavior
+                // so we don't return early here
+            }
+            
             const navToggle = document.querySelector('.nav-toggle');
             const navMenu = document.querySelector('.nav-menu');
             const navOverlay = document.querySelector('.nav-overlay');
+            const resumeOverlay = document.querySelector('.resume-overlay');
             
             if (navToggle && navMenu) {
                 navToggle.classList.remove('active');
@@ -297,7 +325,89 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (navOverlay) {
                     navOverlay.classList.remove('active');
                 }
+                if (resumeOverlay) {
+                    resumeOverlay.classList.remove('active');
+                }
                 document.body.style.overflow = '';
+                
+                // Close any open dropdowns
+                document.querySelectorAll('.resume-dropdown').forEach(dropdown => {
+                    dropdown.classList.remove('active');
+                    const dropdownContent = dropdown.querySelector('.resume-dropdown-content');
+                    if (dropdownContent) {
+                        dropdownContent.classList.remove('active');
+                    }
+                });
+            }
+        });
+    });
+    
+    // Handle dropdown arrow clicks (both desktop and mobile)
+    document.querySelectorAll('.resume-btn-arrow').forEach(arrow => {
+        arrow.addEventListener('click', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            
+            const dropdown = arrow.closest('.resume-dropdown');
+            const dropdownContent = dropdown.querySelector('.resume-dropdown-content');
+            const resumeOverlay = document.querySelector('.resume-overlay');
+            
+            // Close all other dropdowns first
+            document.querySelectorAll('.resume-dropdown').forEach(otherDropdown => {
+                if (otherDropdown !== dropdown) {
+                    otherDropdown.classList.remove('active');
+                    const otherContent = otherDropdown.querySelector('.resume-dropdown-content');
+                    if (otherContent) {
+                        otherContent.classList.remove('active');
+                    }
+                }
+            });
+            
+            // Toggle current dropdown
+            dropdown.classList.toggle('active');
+            if (dropdownContent) {
+                dropdownContent.classList.toggle('active');
+            }
+            
+            // Show overlay if dropdown is open (mainly for mobile)
+            if (resumeOverlay) {
+                if (dropdown.classList.contains('active')) {
+                    resumeOverlay.classList.add('active');
+                } else {
+                    resumeOverlay.classList.remove('active');
+                }
+            }
+        });
+    });
+    
+    // Handle dropdown option clicks in mobile
+    document.querySelectorAll('.resume-option').forEach(option => {
+        option.addEventListener('click', () => {
+            const navToggle = document.querySelector('.nav-toggle');
+            const navMenu = document.querySelector('.nav-menu');
+            const navOverlay = document.querySelector('.nav-overlay');
+            const resumeOverlay = document.querySelector('.resume-overlay');
+            
+            // Close mobile menu when clicking on dropdown options
+            if (navToggle && navMenu && navMenu.classList.contains('active')) {
+                navToggle.classList.remove('active');
+                navMenu.classList.remove('active');
+                if (navOverlay) {
+                    navOverlay.classList.remove('active');
+                }
+                if (resumeOverlay) {
+                    resumeOverlay.classList.remove('active');
+                }
+                document.body.style.overflow = '';
+                
+                // Close all dropdowns
+                document.querySelectorAll('.resume-dropdown').forEach(dropdown => {
+                    dropdown.classList.remove('active');
+                    const dropdownContent = dropdown.querySelector('.resume-dropdown-content');
+                    if (dropdownContent) {
+                        dropdownContent.classList.remove('active');
+                    }
+                });
             }
         });
     });
@@ -318,4 +428,63 @@ document.addEventListener('DOMContentLoaded', () => {
             document.body.style.overflow = '';
         }
     });
+    
+    // Close dropdown menus when clicking outside
+    document.addEventListener('click', (e) => {
+        const resumeDropdowns = document.querySelectorAll('.resume-dropdown');
+        const resumeOverlay = document.querySelector('.resume-overlay');
+        
+        // Check if click is outside any dropdown
+        let clickedInside = false;
+        resumeDropdowns.forEach(dropdown => {
+            if (dropdown.contains(e.target)) {
+                clickedInside = true;
+            }
+        });
+        
+        if (!clickedInside) {
+            resumeDropdowns.forEach(dropdown => {
+                dropdown.classList.remove('active');
+                const dropdownContent = dropdown.querySelector('.resume-dropdown-content');
+                if (dropdownContent) {
+                    dropdownContent.classList.remove('active');
+                }
+            });
+            
+            if (resumeOverlay) {
+                resumeOverlay.classList.remove('active');
+            }
+        }
+    });
 });
+
+// Abstract toggle functionality for publications
+function toggleAbstract(abstractId) {
+    const abstractElement = document.getElementById(abstractId);
+    const toggleElement = abstractElement.previousElementSibling;
+    const arrow = toggleElement.querySelector('.abstract-arrow');
+    
+    if (abstractElement.classList.contains('show')) {
+        // Hide abstract
+        abstractElement.classList.remove('show');
+        toggleElement.classList.remove('active');
+        arrow.style.transform = 'rotate(0deg)';
+    } else {
+        // Show abstract
+        abstractElement.classList.add('show');
+        toggleElement.classList.add('active');
+        arrow.style.transform = 'rotate(180deg)';
+    }
+}
+
+// Show citation information
+function showCitation(citationId) {
+    const citation = document.getElementById(citationId);
+    
+    if (citation.style.display === 'none' || citation.style.display === '') {
+        citation.style.display = 'block';
+        citation.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    } else {
+        citation.style.display = 'none';
+    }
+}

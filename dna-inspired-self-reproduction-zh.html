@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>螺旋基因：DNA启发的自复制技术 - 张思远</title>
+    <link rel="icon" type="image/svg+xml" href="images/sylvester_robot_icon.svg">
+    <link rel="stylesheet" href="styles.css?v=2025010847">
+    <style>
+        .page-title {
+            font-size: clamp(2rem, 4vw, 3rem) !important;
+            line-height: 1.2 !important;
+        }
+        .article-meta {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 2rem;
+            padding: 20px 0;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        }
+        .article-date {
+            color: #666;
+            font-size: 1rem;
+            font-weight: 500;
+        }
+        .article-tags {
+            display: flex;
+            gap: 10px;
+        }
+        .tag {
+            background: linear-gradient(135deg, #007aff, #5856ff);
+            color: white;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+        .article-image {
+            width: 100%;
+            max-width: 700px;
+            margin: 2rem auto;
+        }
+        .article-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 16px;
+        }
+        .figure-caption {
+            text-align: center;
+            color: #666;
+            font-size: 0.95rem;
+            font-style: italic;
+            margin-top: 0.8rem;
+            line-height: 1.4;
+        }
+        .article-content h2 {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin: 2.5rem 0 1.5rem 0;
+            line-height: 1.3;
+            letter-spacing: -0.02em;
+        }
+        .article-content h3 {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: #2d2d2d;
+            margin: 2rem 0 1rem 0;
+            line-height: 1.4;
+        }
+        .article-content p {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            color: #4a4a4a;
+            margin-bottom: 1.5rem;
+        }
+        .highlight-box {
+            background: linear-gradient(135deg, rgba(0, 122, 255, 0.05), rgba(88, 86, 255, 0.05));
+            border-left: 4px solid #007aff;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-radius: 8px;
+        }
+        .breadcrumb {
+            margin-bottom: 2rem;
+            font-size: 0.95rem;
+        }
+        .breadcrumb a {
+            color: #007aff;
+            text-decoration: none;
+        }
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+        .breadcrumb span {
+            color: #666;
+            margin: 0 8px;
+        }
+        .dual-image-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        .dual-image-item {
+            text-align: center;
+        }
+        .dual-image-item img {
+            width: 100%;
+            height: auto;
+            border-radius: 12px;
+        }
+        @media (max-width: 768px) {
+            .dual-image-container {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+        }
+        .small-image {
+            max-width: 350px !important;
+        }
+        .small-image img {
+            max-width: 100% !important;
+        }
+        .large-image {
+            max-width: 2100px !important;
+        }
+        .large-image img {
+            max-width: 100% !important;
+        }
+        .arxiv-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: linear-gradient(135deg, #b91d47, #cc0000);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin: 10px 0;
+            transition: all 0.3s ease;
+        }
+        .arxiv-link:hover {
+            background: linear-gradient(135deg, #8b1538, #990000);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(185, 29, 71, 0.3);
+        }
+    </style>
+</head>
+<body class="zh">
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="index-zh.html">
+                    <img src="images/sylvester_robot_icon.svg" alt="张思远">
+                </a>
+            </div>
+            <div class="nav-toggle" onclick="toggleMobileMenu()">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index-zh.html">首页</a></li>
+                <li class="resume-dropdown">
+                    <a href="research-zh.html" class="resume-btn active">研究方向</a>
+                    <div class="resume-dropdown-content">
+                        <a href="self-reproducing-robot-zh.html" class="resume-option active">自复制机器人</a>
+                        <a href="rehabilitation-robot-zh.html" class="resume-option">康复机器人</a>
+                        <a href="soft-robotics-zh.html" class="resume-option">软体机器人</a>
+                    </div>
+                </li>
+                <li><a href="publications-zh.html">学术发表</a></li>
+                <li><a href="projects-zh.html">项目经历</a></li>
+                <li><a href="experience-zh.html">实践经验</a></li>
+                <li class="resume-dropdown">
+                    <span class="resume-btn">简历</span>
+                    <div class="resume-dropdown-content">
+                        <a href="resume-en.html" class="resume-option">Resume</a>
+                        <a href="resume-zh.html" class="resume-option">简历</a>
+                    </div>
+                </li>
+                <li><a href="contact-zh.html">联系方式</a></li>
+                <li class="language-switcher">
+                    <div class="lang-toggle zh" onclick="switchLanguage('dna-inspired-self-reproduction.html')">
+                        <div class="lang-slider"></div>
+                        <div class="lang-labels">
+                            <span class="lang-label en">EN</span>
+                            <span class="lang-label zh">中</span>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="nav-overlay" onclick="toggleMobileMenu()"></div>
+        <div class="resume-overlay" onclick="closeResumeMenu()"></div>
+    </nav>
+
+    <!-- Article Content -->
+    <section class="section">
+        <div class="container">
+            <!-- Breadcrumb -->
+            <div class="breadcrumb">
+                <a href="research-zh.html">研究方向</a>
+                <span>›</span>
+                <a href="self-reproducing-robot-zh.html">自复制机器人</a>
+                <span>›</span>
+                <span>DNA启发的自复制技术</span>
+            </div>
+
+            <!-- Article Header -->
+            <header class="article-header">
+                <h1 class="page-title">螺旋基因：DNA启发的自复制技术</h1>
+                
+                <div class="article-meta">
+                    <div class="article-date">发布时间：2024年1月15日</div>
+                    <div class="article-tags">
+                        <span class="tag">自复制机器人</span>
+                        <span class="tag">DNA启发设计</span>
+                        <span class="tag">模块化机器人</span>
+                    </div>
+                </div>
+                
+
+            </header>
+
+            <!-- Article Content -->
+            <article class="article-content">
+                <div class="highlight-box">
+                    <p><strong>研究进展：</strong> 本文展示我们DNA启发自复制机器人研究的进展情况。我们已成功完成第一阶段（概念构建和几何变换研究），现在正在第二阶段积极开发物理原型，从理论概念转向实体机器人系统。</p>
+                </div>
+
+                <h2>引言</h2>
+                <p>创造能够自我复制的机器的探索长期以来一直是先进机器人技术研究的基石。本研究从生物DNA复制的优雅简洁性和可靠性中汲取灵感，提出了模仿遗传物质复制基本原理的自主机器人自复制研究的第一阶段突破性方法。</p>
+
+                <p>我们的DNA启发自复制机器人研究遵循系统化的多阶段方法，从几何概念构建开始，通过3D到2D变换，最终实现完全自主复制能力。在完成第一阶段后，我们提出了指导后续开发阶段的基础框架，旨在创建真正的自复制机器人系统。</p>
+
+                <h2>目标应用：极端环境部署</h2>
+                <p>我们DNA启发机器人的坚固设计使其非常适合部署在人类干预不可能或危险的极端环境中。从深空任务到危险工业环境，这些机器人可以通过自主复制和适应建立自维持群体。</p>
+
+                <div class="article-image large-image">
+                    <img src="images/self-reproducing-robot/extreme environment robot.png" alt="极端环境部署" />
+                    <div class="figure-caption">图1：自复制机器人在极端环境中的部署，展示了在人类干预不可行的挑战性条件下的自主操作和复制能力。</div>
+                </div>
+
+                <div class="article-image">
+                    <img src="images/self-reproducing-robot/dna.png" alt="DNA启发架构" />
+                    <div class="figure-caption">图2：启发模块化机器人架构的DNA双螺旋结构，展示了适用于机器人自组装的螺旋排列和互补配对原理。</div>
+                </div>
+
+                <h2>生物学启发：从细胞分裂到数字创世</h2>
+                <p>细胞分裂的非凡过程是我们自复制机器人系统的主要生物学灵感来源。在有丝分裂过程中，单个细胞精确复制其遗传物质和细胞组件，然后分裂成两个相同的子细胞。这一基本生物机制展示了自然界在自我复制方面的卓越保真度和效率。</p>
+
+                <p>我们的机器人设计直接将细胞分裂中观察到的原理转化为机械系统。正如细胞器协调工作以确保染色体正确分离和细胞质分配一样，我们的模块化机器人组件采用复杂的磁性耦合和智能装配算法来实现精确复制。细胞生长、复制和分裂过程为我们的数字创世方法提供了概念框架。</p>
+
+                <div class="article-image">
+                    <img src="images/self-reproducing-robot/cell division.png" alt="细胞分裂过程" />
+                    <div class="figure-caption">图3：细胞分裂过程展示了机器人自复制的生物学基础，说明了遗传信息如何通过有丝分裂被复制和分配以创造相同的后代。</div>
+                </div>
+
+                <h2>模块化架构设计</h2>
+                <p>我们自复制机器人的核心在于其模块化架构，每个模块既是结构组件又是信息载体。这种设计理念反映了DNA作为遗传信息存储和细胞机器蓝图的双重作用。</p>
+
+                <div class="article-image">
+                    <img src="images/self-reproducing-robot/version1module.png" alt="第一代模块设计" />
+                    <div class="figure-caption">图4：第一代模块设计，展示了集成传感器、执行器和磁性耦合接口，使自主组装和拆卸操作成为可能。</div>
+                </div>
+
+                <h3>连接和断开机制</h3>
+                <p>自主形成和断开连接的能力对于自复制至关重要。我们的模块具有复杂的磁性耦合系统，可以在组装过程中建立强连接，同时在需要重新配置时允许受控断开。</p>
+
+                <div class="article-image">
+                    <img src="images/self-reproducing-robot/connection-desconnection.png" alt="连接-断开机制" />
+                    <div class="figure-caption">图5：磁性连接和断开机制，能够进行自主组装和拆卸操作，并精确控制连接强度和释放时机。</div>
+                </div>
+
+                <h2>变形和移动性 - 第一阶段成果</h2>
+                <p>第一阶段的核心成就是成功概念化和验证了从复杂3D结构到紧凑2D配置的几何变换。这一基本能力使我们的DNA启发机器人能够在操作状态和存储状态之间转换，模仿了DNA在复制过程中展开和重新折叠的方式。</p>
+
+                <div class="article-image">
+                    <img src="images/self-reproducing-robot/transformation from 2d to 3d.png" alt="2D到3D变换" />
+                    <div class="figure-caption">图6：从紧凑2D配置到操作3D结构的变换序列，展示了机器人为不同操作模式重新配置自身的能力。</div>
+                </div>
+
+                <h3>折叠能力</h3>
+                <p>折叠机制允许机器人实现紧凑的存储配置，并根据需要部署到工作配置。这种能力对于复制过程中的高效材料使用至关重要。</p>
+
+                <div class="article-image">
+                    <img src="images/self-reproducing-robot/folding.png" alt="折叠机制" />
+                    <div class="figure-caption">图7：先进的折叠机制能够实现紧凑存储和高效部署，灵感来自生物系统中的蛋白质折叠过程。</div>
+                </div>
+
+                <h2>先进移动性和操控</h2>
+                <p>自复制机器人通过其六自由度（6DOF）驱动系统展现出卓越的移动性，在装配过程中能够精确操控组件。</p>
+
+                <div class="article-image">
+                    <img src="images/self-reproducing-robot/6dof.png" alt="六自由度" />
+                    <div class="figure-caption">图8：六自由度驱动系统提供完整的空间操控能力，用于精确的组件处理和装配操作。</div>
+                </div>
+
+                <h3>多方向旋转</h3>
+                <p>机器人绕不同轴旋转的能力使复杂的装配序列成为可能，并允许在复制过程中访问所有连接点。</p>
+
+                <div class="article-image">
+                    <img src="images/self-reproducing-robot/Rotation about Different Directions.png" alt="多方向旋转" />
+                    <div class="figure-caption">图9：多方向旋转能力使复杂装配序列成为可能，在自复制过程中能够全面访问所有组件接口。</div>
+                </div>
+
+                <div class="article-image small-image">
+                    <img src="images/self-reproducing-robot/bend 360.png" alt="360度弯曲" />
+                    <div class="figure-caption">图10：360度弯曲能力为受限环境中的组件操控和装配提供了卓越的灵活性。</div>
+                </div>
+
+                <h2>自复制过程</h2>
+                <p>我们DNA启发系统的核心概念展示了一个复杂的自复制过程，该过程模仿生物细胞分裂。这个过程包含两个不同的阶段：中间状态，原始机器人在构建新个体的同时进行扩展；最终状态，成功生成完整镜像副本。</p>
+
+                <div class="article-image">
+                    <img src="images/self-reproducing-robot/self-reproduction-process.png" alt="自复制过程概览" />
+                    <div class="figure-caption">图11：自复制过程总览。(a) 中间状态：原始机器人通过吸收环境模块来扩大自身，同时构建新机器人；(b) 最终复制状态：原始机器人通过自复制成功生成了镜像新个体。每个机器人由10个模块组成。</div>
+                </div>
+
+                <h3>中间状态</h3>
+                <p>在中间阶段，原始机器人主动从环境中吸收可用模块，同时扩展自身结构并启动新机器人实体的构建。这一阶段展示了系统收集资源和管理双重构建过程的能力——自我增强和后代创造。</p>
+
+                <h3>最终复制状态</h3>
+                <p>最终状态代表自复制循环的成功完成。原始机器人生成了自身的完整镜像副本，每个都由精确的10个模块组成。这一成就展示了系统在创造功能相同后代的同时保持结构完整性的能力。</p>
+
+                <h2>结构多样性和适应性</h2>
+                <p>除了基本的自复制过程外，我们的DNA启发系统在将模块组装成各种结构配置方面展现出卓越的多样性，显示出对不同操作要求的适应性。</p>
+
+                <div class="article-image">
+                    <img src="images/self-reproducing-robot/Modules Assemble into Various Structures.png" alt="各种结构组装" />
+                    <div class="figure-caption">图12：模块化多功能性演示，展示了相同组件如何组装成多样化的结构配置以满足不同的操作要求。</div>
+                </div>
+
+                <h2>进化能力</h2>
+                <p>除了简单复制外，我们的系统还展示了进化能力，允许跨代的渐进改进和适应。这种进化方面反映了生物系统随时间适应和改进的方式。</p>
+
+                <div class="article-image">
+                    <img src="images/self-reproducing-robot/evolution.png" alt="进化发展" />
+                    <div class="figure-caption">图13：进化发展过程，展示了连续世代的自复制机器人如何整合改进和适应以增强性能。</div>
+                </div>
+
+                <h2>研究方法论与开发流程</h2>
+                <p>我们的综合研究方法遵循系统化的六阶段开发流程，旨在从理论概念逐步推进到实际应用。这一方法论确保在整个开发过程中每个阶段都得到严格验证，同时保持科学严谨性。</p>
+
+                <div class="article-image small-image">
+                    <img src="images/self-reproducing-robot/pipeline.png" alt="研究开发流程" />
+                    <div class="figure-caption">图14：综合研究开发流程，展示了从概念设计到系统验证的系统化进展。当前进度：概念设计阶段已完成。</div>
+                </div>
+
+                <h3>当前进度：概念设计已完成</h3>
+                <p>我们已成功完成<strong>概念设计</strong>阶段，这为所有后续研究阶段奠定了基础。该阶段建立了基本的几何变换原理和理论框架，将指导整个开发过程。</p>
+
+                <h3>研究流程各阶段：</h3>
+                <p><strong>阶段1 - 概念设计（✅ 已完成）：</strong> 基础几何变换、3D到2D结构转换和理论框架建立。</p>
+                <p><strong>阶段2 - 物理原型制作（🔄 下一阶段）：</strong> 物理模块化组件开发和变换机制验证。</p>
+                <p><strong>阶段3 - 仿真与学习（MuJoCo）：</strong> 计算建模、行为仿真和机器学习集成用于自主装配。</p>
+                <p><strong>阶段4 - 结构复杂性探索：</strong> 先进配置研究和自适应结构变化。</p>
+                <p><strong>阶段5 - 仿真到现实：</strong> 仿真结果转化为物理机器人系统并进行实际验证。</p>
+                <p><strong>阶段6 - 系统建立与验证：</strong> 完整系统集成、性能评估和全面验证测试。</p>
+
+                <h2>第二阶段进展：物理原型开发</h2>
+                <p>在成功完成第一阶段的基础上，我们已进入研究的第二阶段，专注于DNA启发自复制机器人概念的物理实现。这一阶段标志着从理论设计向实体原型开发的关键转变。</p>
+
+                <div class="article-image">
+                    <img src="images/self-reproducing-robot/self-reproducing robot real.jpg" alt="物理原型3D模型" />
+                    <div class="figure-caption">图15：物理原型3D模型，展现从第一阶段概念向第二阶段实施的转变。该原型将集成预定义的电子元件和硬件系统，用于功能测试和验证。</div>
+                </div>
+
+                <h3>当前第二阶段活动</h3>
+                <p>我们在第二阶段的当前工作集中在：</p>
+                <p><strong>3D建模和设计优化：</strong> 将概念设计转化为适合制造和组装的详细3D模型。</p>
+                <p><strong>电子集成规划：</strong> 识别和指定自主运行所需的电子元件、传感器和执行器。</p>
+                <p><strong>硬件集成：</strong> 开发电子系统与机械组件集成的组装协议。</p>
+                <p><strong>功能测试准备：</strong> 建立测试框架以验证几何变换能力和模块化组装功能。</p>
+
+                <div class="highlight-box">
+                    <p><strong>结论：</strong> 我们DNA启发自复制机器人研究第一阶段的成功完成代表了自主系统开发的重要里程碑。通过建立稳健的几何变换原理和基本设计概念，我们为推进真正自主自复制机器人系统奠定了基础。目前在第二阶段中，我们正在积极将理论概念转化为物理原型。3D模型的开发以及电子元件和硬件系统的集成规划标志着在创建功能性自复制机器人系统方面取得了实质性进展。这一原型开发阶段将使我们能够对概念框架进行实验验证和性能评估。</p>
+                </div>
+
+
+            </article>
+
+            <!-- PDF Link -->
+            <div style="text-align: center; margin: 3rem 0;">
+                <a href="Self_Reproducing_Robot__Concept_Construction.pdf" class="arxiv-link" target="_blank">
+                    📄 阅读完整论文 (PDF)
+                </a>
+            </div>
+
+            <!-- Back Navigation -->
+            <div style="text-align: center; margin-top: 2rem;">
+                <a href="self-reproducing-robot-zh.html" class="btn-secondary">← 返回自复制机器人</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-social-links">
+                <a href="https://github.com/SylvesterZHANG007" class="social-icon github-icon" title="GitHub" target="_blank">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="#4a4a4a">
+                        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.30.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                    </svg>
+                </a>
+                <a href="https://www.linkedin.com/in/siyuan-zhang-columbia/" class="social-icon linkedin-icon" title="LinkedIn" target="_blank">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="#4a4a4a">
+                        <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                    </svg>
+                </a>
+                <a href="https://www.instagram.com/siyuan.zh/" class="social-icon instagram-icon" title="Instagram" target="_blank">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="#4a4a4a">
+                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.40s-.644-1.44-1.439-1.40z"/>
+                    </svg>
+                </a>
+                <a href="https://www.youtube.com/@sylvesterzhang" class="social-icon youtube-icon" title="YouTube" target="_blank">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="#4a4a4a">
+                        <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                    </svg>
+                </a>
+                <a href="https://space.bilibili.com/641605796?spm_id_from=333.337.0.0" class="social-icon bilibili-icon" title="Bilibili" target="_blank">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="#4a4a4a">
+                        <path d="M17.813 4.653h.854c1.51.054 2.769.578 3.773 1.574 1.004.995 1.524 2.249 1.56 3.76v7.36c-.036 1.51-.556 2.769-1.56 3.773s-2.262 1.524-3.773 1.56H5.333c-1.51-.036-2.769-.556-3.773-1.56S.036 18.858 0 17.347v-7.36c.036-1.511.556-2.765 1.56-3.76 1.004-.996 2.262-1.52 3.773-1.574h.774l-1.174-1.12a1.234 1.234 0 0 1-.373-.906c0-.356.124-.658.373-.907l.027-.027c.267-.249.573-.373.92-.373.347 0 .653.124.92.373L9.653 4.44c.071.071.134.142.187.213h4.267a.836.836 0 0 1 .16-.213l2.853-2.747c.267-.249.573-.373.92-.373.347 0 .662.151.929.4.267.249.391.551.391.907 0 .356-.124.657-.373.906l-1.174 1.12zM5.333 7.24c-.746.018-1.373.276-1.88.773-.506.498-.769 1.13-.789 1.894v7.52c.02.764.283 1.396.789 1.894.507.497 1.134.755 1.88.773h13.334c.746-.018 1.373-.276 1.88-.773.506-.498.769-1.13.789-1.894v-7.52c-.02-.765-.283-1.396-.789-1.894-.507-.497-1.134-.755-1.88-.773H5.333zM8 11.107c.373 0 .684.124.933.373.25.249.383.569.4.96v1.173c-.017.391-.15.711-.4.96-.249.25-.56.374-.933.374s-.684-.125-.933-.374c-.25-.249-.383-.569-.4-.96V12.44c.017-.391.15-.711.4-.96.249-.249.56-.373.933-.373zm8 0c.373 0 .684.124.933.373.25.249.383.569.4.96v1.173c-.017.391-.15.711-.4.96-.249.25-.56.374-.933.374s-.684-.125-.933-.374c-.25-.249-.383-.569-.4-.96V12.44c.017-.391.15-.711.4-.96.249-.249.56-.373.933-.373z"/>
+                    </svg>
+                </a>
+            
+            </div>
+            <p>&copy; 2025 张思远 (Siyuan Zhang). 保留所有权利。</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html> 

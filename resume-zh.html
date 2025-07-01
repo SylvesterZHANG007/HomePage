@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>简历 - 文泽凯</title>
-    <link rel="icon" type="image/png" href="images/Chihiro_favicon.png">
-    <link rel="stylesheet" href="styles.css?v=2025010801">
+    <title>简历 - 张思远</title>
+    <link rel="icon" type="image/svg+xml" href="images/sylvester_robot_icon.svg">
+    <link rel="stylesheet" href="styles.css?v=2025010833">
     <style>
         .resume-container {
             max-width: 100%;
@@ -39,7 +39,7 @@
         <div class="nav-container">
             <div class="nav-logo">
                 <a href="index-zh.html">
-                    <img src="images/Chihiro.png" alt="Chihiro">
+                    <img src="images/sylvester_robot_icon.svg" alt="张思远">
                 </a>
             </div>
             <div class="nav-toggle" onclick="toggleMobileMenu()">
@@ -49,15 +49,25 @@
             </div>
             <ul class="nav-menu">
                 <li><a href="index-zh.html">首页</a></li>
-                <li><a href="projects-zh.html">项目</a></li>
                 <li class="resume-dropdown">
-                    <span class="resume-btn">简历</span>
+                    <a href="research-zh.html" class="resume-btn">研究方向</a>
                     <div class="resume-dropdown-content">
-                        <a href="resume-en.html" class="resume-option">Resume</a>
-                        <a href="resume-zh.html" class="resume-option">简历</a>
+                        <a href="self-reproducing-robot-zh.html" class="resume-option">自复制机器人</a>
+                        <a href="rehabilitation-robot-zh.html" class="resume-option">康复机器人</a>
+                        <a href="soft-robotics-zh.html" class="resume-option">软体机器人</a>
                     </div>
                 </li>
-                <li><a href="contact-zh.html">联系</a></li>
+                <li><a href="publications-zh.html">学术发表</a></li>
+                <li><a href="projects-zh.html">项目经历</a></li>
+                <li><a href="experience-zh.html">实践经验</a></li>
+                <li class="resume-dropdown">
+                    <span class="resume-btn active">简历</span>
+                    <div class="resume-dropdown-content">
+                        <a href="resume-en.html" class="resume-option">Resume</a>
+                        <a href="resume-zh.html" class="resume-option active">简历</a>
+                    </div>
+                </li>
+                <li><a href="contact-zh.html">联系方式</a></li>
                 <li class="language-switcher">
                     <div class="lang-toggle zh" onclick="switchLanguage('resume-en.html')">
                         <div class="lang-slider"></div>
@@ -89,10 +99,12 @@
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <p>&copy; 2025 文泽凯 (Zekai Wen). 版权所有。</p>
+            <p>&copy; 2025 张思远. 保留所有权利。</p>
             <div class="footer-links">
-                <a href="projects-zh.html">项目</a>
-                <a href="contact-zh.html">联系</a>
+                <a href="index-zh.html">首页</a>
+                <a href="research-zh.html">研究方向</a>
+                <a href="projects-zh.html">项目经历</a>
+                <a href="contact-zh.html">联系方式</a>
             </div>
         </div>
     </footer>

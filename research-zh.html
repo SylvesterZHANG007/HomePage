@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>研究方向 - 张思远</title>
+    <link rel="icon" type="image/svg+xml" href="images/sylvester_robot_icon.svg">
+    <link rel="stylesheet" href="styles.css?v=2025010847">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="index-zh.html">
+                    <img src="images/sylvester_robot_icon.svg" alt="张思远">
+                </a>
+            </div>
+            <div class="nav-toggle" onclick="toggleMobileMenu()">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index-zh.html">首页</a></li>
+                <li class="resume-dropdown">
+                    <div class="resume-btn-container">
+                        <a href="research-zh.html" class="resume-btn-text active">研究方向</a>
+                        <button class="resume-btn-arrow" type="button" aria-label="展开研究方向菜单"></button>
+                    </div>
+                    <div class="resume-dropdown-content">
+                        <a href="self-reproducing-robot-zh.html" class="resume-option">自复制机器人</a>
+                        <a href="rehabilitation-robot-zh.html" class="resume-option">康复机器人</a>
+                        <a href="soft-robotics-zh.html" class="resume-option">软体机器人</a>
+                    </div>
+                </li>
+                <li><a href="publications-zh.html">学术发表</a></li>
+                <li><a href="projects-zh.html">项目经历</a></li>
+                <li><a href="experience-zh.html">实践经验</a></li>
+                <li class="resume-dropdown">
+                    <div class="resume-btn-container">
+                        <span class="resume-btn-text">简历</span>
+                        <button class="resume-btn-arrow" type="button" aria-label="展开简历菜单"></button>
+                    </div>
+                    <div class="resume-dropdown-content">
+                        <a href="resume-en.html" class="resume-option">Resume</a>
+                        <a href="resume-zh.html" class="resume-option">简历</a>
+                    </div>
+                </li>
+                <li><a href="contact-zh.html">联系方式</a></li>
+                <li class="language-switcher">
+                    <div class="lang-toggle zh" onclick="switchLanguage('research.html')">
+                        <div class="lang-slider"></div>
+                        <div class="lang-labels">
+                            <span class="lang-label en">EN</span>
+                            <span class="lang-label zh">中</span>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="nav-overlay" onclick="toggleMobileMenu()"></div>
+        <div class="resume-overlay" onclick="closeResumeMenu()"></div>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="page-header">
+        <div class="container">
+            <h1 class="page-title">研究方向</h1>
+        </div>
+    </header>
+
+    <!-- Research Overview -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">研究概览</h2>
+                <p class="overview-text">我的研究聚焦于软体机器人、康复机器人和自复制机器人等前沿领域，将计算设计与仿生设计相结合，致力于创造具备多模态驱动能力和智能形态适应性的先进机器人系统。通过融合尖端的建模、仿真、机器学习和优化技术，我立志开发能够主动感知环境、智能适应变化并与人类协同进化的类生命机器人。</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Research Fields -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2>研究领域</h2>
+            </div>
+            
+            <div class="research-fields-grid">
+                <a href="self-reproducing-robot-zh.html" class="research-field-card" style="background-image: url('images/Self-Reproducing Robot.png');">
+                    <div class="field-overlay">
+                        <h3>自复制机器人</h3>
+                    </div>
+                </a>
+
+                <a href="rehabilitation-robot-zh.html" class="research-field-card" style="background-image: url('images/Rehabilitation Robot.png');">
+                    <div class="field-overlay">
+                        <h3>康复机器人</h3>
+                    </div>
+                </a>
+
+                <a href="soft-robotics-zh.html" class="research-field-card" style="background-image: url('images/Soft Robotics.png');">
+                    <div class="field-overlay">
+                        <h3>软体机器人</h3>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 张思远 (Siyuan Zhang). 保留所有权利.</p>
+            <div class="footer-links">
+                <a href="index-zh.html">首页</a>
+                <a href="research-zh.html">研究方向</a>
+                <a href="projects-zh.html">项目经历</a>
+                <a href="contact-zh.html">联系方式</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js?v=2025010833"></script>
+</body>
+</html> 

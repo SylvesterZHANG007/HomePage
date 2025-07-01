@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256">
+    <!-- Circular background -->
+    <circle cx="128" cy="128" r="128" fill="#000000"/>
+
+    <!-- Stylised robotic 'S' -->
+    <g fill="#ffffff">
+        <!-- Top antenna -->
+        <rect x="122" y="28" width="12" height="28" rx="4" ry="4"/>
+        <circle cx="128" cy="20" r="10"/>
+
+        <!-- Upper curved segment -->
+        <path d="
+            M64 64
+            Q64 32 96 32
+            L160 32
+            Q192 32 192 64
+            L192 72
+            Q192 104 160 104
+            L112 104
+            Q96 104 96 120
+            Q96 136 112 136
+            L160 136
+            Q192 136 192 168
+            L192 176
+            Q192 208 160 208
+            L96 208
+            Q64 208 64 176
+            L64 168
+            Q64 136 96 136
+            L144 136
+            Q160 136 160 120
+            Q160 104 144 104
+            L96 104
+            Q64 104 64 72
+            Z"/>
+
+        <!-- Central joint -->
+        <circle cx="128" cy="128" r="18"/>
+
+        <!-- Bottom claw -->
+        <g transform="translate(128 228) scale(1) translate(-128 -228)">
+            <polygon points="108,228 118,256 138,256 148,228"/>
+        </g>
+    </g>
+</svg>
