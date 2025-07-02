@@ -1,5 +1,3 @@
-
-
 // Page transition animation
 const PageTransition = {
     init() {
@@ -131,119 +129,114 @@ document.addEventListener('DOMContentLoaded', () => {
         emailjs.init("YOUR_PUBLIC_KEY"); // You need to replace this with your actual EmailJS public key
     }
 
-    // Form submission handling with FormSubmit (improved method)
-    const contactForm = document.querySelector('.contact-form form');
-    if (contactForm) {
-        contactForm.addEventListener('submit', function(e) {
+    // Form submission handling with FormSubmit (simplified and improved method)
+    const contactForms = document.querySelectorAll('form[action*="formsubmit.co"]');
+    contactForms.forEach(form => {
+        form.addEventListener('submit', function(e) {
             e.preventDefault(); // Prevent default form submission
             
             const submitBtn = this.querySelector('button[type="submit"]');
             const originalText = submitBtn.textContent;
             
             // Get form data
-            const name = this.querySelector('input[name="name"]').value;
-            const email = this.querySelector('input[name="email"]').value;
-            const subject = this.querySelector('select[name="subject"]').value;
-            const message = this.querySelector('textarea[name="message"]').value;
+            const formData = new FormData(this);
             
-            // Validate required fields
-            if (!name || !email || !subject || !message) {
-                // Show shake animation for validation
-                this.classList.add('shake');
-                setTimeout(() => this.classList.remove('shake'), 500);
-                
-                // Highlight empty fields
-                [this.querySelector('input[name="name"]'), 
-                 this.querySelector('input[name="email"]'), 
-                 this.querySelector('select[name="subject"]'), 
-                 this.querySelector('textarea[name="message"]')].forEach(field => {
-                    if (!field.value) {
-                        field.style.borderColor = '#ff3b30';
-                        setTimeout(() => field.style.borderColor = '', 3000);
-                    }
-                });
+            // Basic validation
+            const name = formData.get('name');
+            const email = formData.get('email');
+            const message = formData.get('message') || formData.get('website_feedback');
+            
+            if (name && !name.trim()) {
+                alert('Please enter your name');
+                return;
+            }
+            if (email && !email.trim()) {
+                alert('Please enter your email');
+                return;
+            }
+            if (message && !message.trim()) {
+                alert('Please enter a message');
                 return;
             }
             
             // Show loading state
-            submitBtn.innerHTML = '<span style="opacity: 0.7;">Sending...</span>';
+            submitBtn.innerHTML = 'Sending...';
             submitBtn.disabled = true;
-            submitBtn.style.transform = 'scale(0.95)';
+            submitBtn.style.opacity = '0.7';
             
-            // Create a temporary form with all data for submission
-            const tempForm = document.createElement('form');
-            tempForm.action = this.action;
-            tempForm.method = 'POST';
-            tempForm.style.display = 'none';
-            
-            // Add all form fields
-            const fields = {
-                'name': name,
-                'email': email,
-                'subject': subject,
-                'message': message,
-                '_subject': this.querySelector('input[name="_subject"]').value,
-                '_captcha': 'false',
-                '_template': 'table',
-                '_autoresponse': this.querySelector('input[name="_autoresponse"]').value
-            };
-            
-            Object.keys(fields).forEach(key => {
-                const input = document.createElement('input');
-                input.type = 'hidden';
-                input.name = key;
-                input.value = fields[key];
-                tempForm.appendChild(input);
-            });
-            
-            // Add target iframe for submission (prevents page navigation)
-            const iframe = document.createElement('iframe');
-            iframe.name = 'submitFrame';
-            iframe.style.display = 'none';
-            document.body.appendChild(iframe);
-            
-            tempForm.target = 'submitFrame';
-            document.body.appendChild(tempForm);
-            
-            // Handle iframe load event to detect completion
-            iframe.onload = function() {
-                // Success - show confirmation
-                submitBtn.innerHTML = '✓ Message Sent Successfully!';
-                submitBtn.style.background = '#34c759';
-                submitBtn.style.transform = 'scale(1)';
+            // Use fetch to submit the form
+            fetch(this.action, {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            })
+            .then(response => {
+                if (response.ok || response.status === 200) {
+                    // Success
+                    submitBtn.innerHTML = '✓ Message Sent Successfully!';
+                    submitBtn.style.background = '#34c759';
+                    submitBtn.style.opacity = '1';
+                    
+                    // Reset form
+                    this.reset();
+                    
+                    // Redirect to thank you page
+                    setTimeout(() => {
+                        const isChinesePage = window.location.pathname.includes('-zh');
+                        const thankYouPage = isChinesePage ? 'thank-you-zh.html' : 'thank-you.html';
+                        window.location.href = thankYouPage;
+                    }, 2000);
+                } else {
+                    throw new Error('Form submission failed');
+                }
+            })
+            .catch(error => {
+                console.log('Fetch failed, using fallback method:', error);
                 
-                // Clean up
+                // Fallback: Try direct form submission
+                submitBtn.innerHTML = 'Redirecting...';
+                
+                // Remove the hidden _next field temporarily to prevent redirect loop
+                const nextField = this.querySelector('input[name="_next"]');
+                const nextValue = nextField ? nextField.value : '';
+                if (nextField) nextField.remove();
+                
+                // Submit the form normally
+                const tempForm = document.createElement('form');
+                tempForm.action = this.action;
+                tempForm.method = 'POST';
+                tempForm.target = '_blank'; // Open in new tab to prevent navigation away
+                
+                // Copy all form data
+                for (let [key, value] of formData.entries()) {
+                    const input = document.createElement('input');
+                    input.type = 'hidden';
+                    input.name = key;
+                    input.value = value;
+                    tempForm.appendChild(input);
+                }
+                
+                document.body.appendChild(tempForm);
+                tempForm.submit();
                 document.body.removeChild(tempForm);
-                document.body.removeChild(iframe);
                 
-                // Redirect to thank you page after showing success
+                // Show success message and redirect
                 setTimeout(() => {
-                    const isChinesePage = window.location.pathname.includes('-zh');
-                    const thankYouPage = isChinesePage ? 'thank-you-zh.html' : 'thank-you.html';
-                    window.location.href = thankYouPage;
-                }, 2000);
-            };
-            
-            // Handle potential errors
-            setTimeout(() => {
-                if (submitBtn.innerHTML.includes('Sending...')) {
-                    // If still showing "Sending..." after 10 seconds, assume success
                     submitBtn.innerHTML = '✓ Message Sent!';
                     submitBtn.style.background = '#34c759';
-                    submitBtn.style.transform = 'scale(1)';
+                    submitBtn.style.opacity = '1';
                     
                     setTimeout(() => {
                         const isChinesePage = window.location.pathname.includes('-zh');
                         const thankYouPage = isChinesePage ? 'thank-you-zh.html' : 'thank-you.html';
                         window.location.href = thankYouPage;
                     }, 2000);
-                }
-            }, 10000);
-            
-            // Submit the form
-            tempForm.submit();
+                }, 1000);
+            });
         });
-    }
+    });
 });
 
 // Language switching function
@@ -296,8 +289,6 @@ function closeResumeMenu() {
         resumeOverlay.classList.remove('active');
     }
 }
-
-
 
 // Additional mobile menu functionality
 document.addEventListener('DOMContentLoaded', () => {
