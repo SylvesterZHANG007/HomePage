@@ -182,12 +182,12 @@ document.addEventListener('DOMContentLoaded', () => {
                     // Reset form
                     this.reset();
                     
-                    // Redirect to thank you page
+                    // Show success message instead of redirecting
                     setTimeout(() => {
-                        const isChinesePage = window.location.pathname.includes('-zh');
-                        const thankYouPage = isChinesePage ? 'thank-you-zh.html' : 'thank-you.html';
-                        window.location.href = thankYouPage;
-                    }, 2000);
+                        submitBtn.innerHTML = 'Send Message';
+                        submitBtn.style.background = '';
+                        submitBtn.disabled = false;
+                    }, 3000);
                 } else {
                     throw new Error('Form submission failed');
                 }
@@ -228,11 +228,13 @@ document.addEventListener('DOMContentLoaded', () => {
                     submitBtn.style.background = '#34c759';
                     submitBtn.style.opacity = '1';
                     
+                    // Reset form and restore button after showing success
                     setTimeout(() => {
-                        const isChinesePage = window.location.pathname.includes('-zh');
-                        const thankYouPage = isChinesePage ? 'thank-you-zh.html' : 'thank-you.html';
-                        window.location.href = thankYouPage;
-                    }, 2000);
+                        this.reset();
+                        submitBtn.innerHTML = 'Send Message';
+                        submitBtn.style.background = '';
+                        submitBtn.disabled = false;
+                    }, 3000);
                 }, 1000);
             });
         });
