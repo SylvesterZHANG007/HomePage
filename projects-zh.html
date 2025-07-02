@@ -6,6 +6,47 @@
     <title>技术项目 - 张思远</title>
     <link rel="icon" type="image/svg+xml" href="images/sylvester_robot_icon.svg">
     <link rel="stylesheet" href="styles.css?v=2025010833">
+    <style>
+        /* Enhanced project image styling */
+        .project-image {
+            position: relative;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(248, 250, 252, 0.95)) !important;
+            border-radius: 16px !important;
+            overflow: hidden;
+        }
+        
+        .project-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at center, rgba(0, 123, 255, 0.05) 0%, transparent 70%);
+            border-radius: 16px;
+            z-index: 1;
+        }
+        
+        .project-image img {
+            width: 90% !important;
+            height: 90% !important;
+            object-fit: contain !important;
+            object-position: center !important;
+            transition: all 0.3s ease !important;
+            border-radius: 12px !important;
+            filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.1)) !important;
+            background: rgba(255, 255, 255, 0.8) !important;
+            backdrop-filter: blur(10px) !important;
+            padding: 8px !important;
+            position: relative !important;
+            z-index: 2 !important;
+            margin: 5% !important;
+        }
+        
+        .project-card:hover .project-image img {
+            transform: scale(1.05) !important;
+        }
+    </style>
 </head>
 <body class="projects-page">
     <!-- Navigation -->
