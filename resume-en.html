@@ -93,7 +93,10 @@
             <ul class="nav-menu">
                 <li><a href="index.html">Home</a></li>
                 <li class="resume-dropdown">
-                    <a href="research.html" class="resume-btn">Research</a>
+                    <div class="resume-btn-container">
+                        <a href="research.html" class="resume-btn-text">Research</a>
+                        <button class="resume-btn-arrow" type="button" aria-label="Expand research menu"></button>
+                    </div>
                     <div class="resume-dropdown-content">
                         <a href="self-reproducing-robot.html" class="resume-option">Self-Reproducing Robot</a>
                         <a href="rehabilitation-robot.html" class="resume-option">Rehabilitation Robot</a>
@@ -103,16 +106,10 @@
                 <li><a href="publications.html">Publication</a></li>
                 <li><a href="projects.html">Project</a></li>
                 <li><a href="experience.html">Experience</a></li>
-                <li class="resume-dropdown">
-                    <span class="resume-btn active">Resume</span>
-                    <div class="resume-dropdown-content">
-                        <a href="resume-en.html" class="resume-option active">Resume</a>
-                        <a href="resume-zh.html" class="resume-option">简历</a>
-                    </div>
-                </li>
+                <li><a href="resume-en.html" class="active">Resume</a></li>
                 <li><a href="contact.html">Contact</a></li>
                 <li class="language-switcher">
-                    <div class="lang-toggle" onclick="switchLanguage('resume-zh.html')">
+                    <div class="lang-toggle" onclick="switchLanguage('index-zh.html')">
                         <div class="lang-slider"></div>
                         <div class="lang-labels">
                             <span class="lang-label en">EN</span>
@@ -130,22 +127,9 @@
     <section class="section">
         <div class="container">
             <div class="resume-container">
-                <!-- Resume placeholder - replace with your actual PDF -->
-                <div class="resume-placeholder">
-                    <h2>Resume - Siyuan (Sylvester) Zhang</h2>
-                    <p>Master's Student in Mechanical Engineering<br>
-                    Specializing in Robotics and Control Systems</p>
-                    <p>Please upload your resume PDF to replace this placeholder.<br>
-                    Save your resume as "Siyuan_Zhang_Resume.pdf" in the root directory.</p>
-                    <a href="#" class="download-btn">Upload Your Resume PDF</a>
-                </div>
-                
-                <!-- Uncomment and update the path below when you have your resume PDF ready -->
-                <!--
-                <iframe src="Siyuan_Zhang_Resume.pdf" class="resume-embed" type="application/pdf">
-                    <p>Your browser does not support PDF viewing. Please <a href="Siyuan_Zhang_Resume.pdf" class="download-btn">download the PDF</a> to view it.</p>
+                <iframe src="resume_ZSY_academic.pdf" class="resume-embed" type="application/pdf">
+                    <p>Your browser does not support PDF viewing. Please <a href="resume_ZSY_academic.pdf" class="download-btn">download the PDF</a> to view it.</p>
                 </iframe>
-                -->
             </div>
         </div>
     </section>

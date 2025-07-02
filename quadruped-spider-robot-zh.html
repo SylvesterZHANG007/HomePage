@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Advanced Adaptive Tendon-Actuated Robot Manipulator Joint Design - Siyuan Zhang</title>
+    <title>四足蜘蛛机器人设计与步态优化 - 张思源</title>
     <link rel="icon" type="image/svg+xml" href="images/sylvester_robot_icon.svg">
     <link rel="stylesheet" href="styles.css?v=2025010847">
     <style>
@@ -35,6 +35,50 @@
             border-radius: 20px;
             font-size: 0.85rem;
             font-weight: 500;
+        }
+        .article-image {
+            width: 100%;
+            max-width: 700px;
+            margin: 2rem auto;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+        .article-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        .article-image.small {
+            max-width: 500px;
+        }
+        .figure-caption {
+            text-align: center;
+            color: #666;
+            font-size: 0.95rem;
+            font-style: italic;
+            margin-top: 0.8rem;
+            line-height: 1.4;
+        }
+        .article-content h2 {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin: 2.5rem 0 1.5rem 0;
+            line-height: 1.3;
+            letter-spacing: -0.02em;
+        }
+        .article-content h3 {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: #2d2d2d;
+            margin: 2rem 0 1rem 0;
+            line-height: 1.4;
+        }
+        .article-content p {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            color: #4a4a4a;
+            margin-bottom: 1.5rem;
         }
         .highlight-box {
             background: linear-gradient(135deg, rgba(0, 122, 255, 0.05), rgba(88, 86, 255, 0.05));
@@ -111,27 +155,6 @@
             margin: 0;
             line-height: 1.5;
         }
-        .article-content h2 {
-            font-size: 1.75rem;
-            font-weight: 700;
-            color: #1a1a1a;
-            margin: 2.5rem 0 1.5rem 0;
-            line-height: 1.3;
-            letter-spacing: -0.02em;
-        }
-        .article-content h3 {
-            font-size: 1.4rem;
-            font-weight: 600;
-            color: #2d2d2d;
-            margin: 2rem 0 1rem 0;
-            line-height: 1.4;
-        }
-        .article-content p {
-            font-size: 1.1rem;
-            line-height: 1.7;
-            color: #4a4a4a;
-            margin-bottom: 1.5rem;
-        }
     </style>
 </head>
 <body>
@@ -139,8 +162,8 @@
     <nav class="navbar">
         <div class="nav-container">
             <div class="nav-logo">
-                <a href="index.html">
-                    <img src="images/sylvester_robot_icon.svg" alt="Sylvester Zhang">
+                <a href="index-zh.html">
+                    <img src="images/sylvester_robot_icon.svg" alt="张思源">
                 </a>
             </div>
             <div class="nav-toggle" onclick="toggleMobileMenu()">
@@ -149,27 +172,27 @@
                 <span class="bar"></span>
             </div>
             <ul class="nav-menu">
-                <li><a href="index.html">Home</a></li>
+                <li><a href="index-zh.html">首页</a></li>
                 <li class="resume-dropdown">
-                    <a href="research.html" class="resume-btn">Research</a>
+                    <a href="research-zh.html" class="resume-btn">研究</a>
                     <div class="resume-dropdown-content">
-                        <a href="self-reproducing-robot.html" class="resume-option">Self-Reproducing Robot</a>
-                        <a href="rehabilitation-robot.html" class="resume-option">Rehabilitation Robot</a>
-                        <a href="soft-robotics.html" class="resume-option">Soft Robotics</a>
+                        <a href="self-reproducing-robot-zh.html" class="resume-option">自复制机器人</a>
+                        <a href="rehabilitation-robot-zh.html" class="resume-option">康复机器人</a>
+                        <a href="soft-robotics-zh.html" class="resume-option">软体机器人</a>
                     </div>
                 </li>
-                <li><a href="publications.html">Publication</a></li>
-                <li><a href="projects.html" class="active">Project</a></li>
-                <li><a href="experience.html">Experience</a></li>
+                <li><a href="publications-zh.html">论文</a></li>
+                <li><a href="projects-zh.html" class="active">项目</a></li>
+                <li><a href="experience-zh.html">经历</a></li>
                 <li class="resume-dropdown">
-                    <span class="resume-btn">Resume</span>
+                    <span class="resume-btn">简历</span>
                     <div class="resume-dropdown-content">
                         <a href="resume-en.html" class="resume-option">Resume</a>
                         </div>
                 </li>
-                <li><a href="contact.html">Contact</a></li>
+                <li><a href="contact-zh.html">联系</a></li>
                 <li class="language-switcher">
-                    <div class="lang-toggle" onclick="switchLanguage('tendon-actuated-robot-zh.html')">
+                    <div class="lang-toggle" onclick="switchLanguage('quadruped-spider-robot.html')">
                         <div class="lang-slider"></div>
                         <div class="lang-labels">
                             <span class="lang-label en">EN</span>
@@ -188,22 +211,22 @@
         <div class="container">
             <!-- Breadcrumb -->
             <div class="breadcrumb">
-                <a href="projects.html">Projects</a>
+                <a href="projects-zh.html">项目</a>
                 <span>›</span>
-                <span>Tendon-Actuated Robot</span>
+                <span>四足蜘蛛机器人</span>
             </div>
 
             <!-- Article Header -->
             <header class="article-header">
-                <h1 class="page-title">Advanced Adaptive Tendon-Actuated Robot Manipulator Joint Design</h1>
+                <h1 class="page-title">四足蜘蛛机器人设计与步态优化</h1>
                 
                 <div class="article-meta">
-                    <div class="article-date">Design Phase: 2024</div>
+                    <div class="article-date">发布时间：2025年1月</div>
                     <div class="article-tags">
-                        <span class="tag">Tendon Actuation</span>
-                        <span class="tag">Adaptive Control</span>
-                        <span class="tag">Joint Design</span>
-                        <span class="tag">SolidWorks</span>
+                        <span class="tag">四足运动</span>
+                        <span class="tag">步态优化</span>
+                        <span class="tag">仿生设计</span>
+                        <span class="tag">MATLAB/Simulink</span>
                     </div>
                 </div>
             </header>
@@ -211,109 +234,106 @@
             <!-- Article Content -->
             <article class="article-content">
                 <div class="highlight-box">
-                    <p><strong>Project Overview:</strong> This research focuses on designing innovative joint mechanisms for tendon-actuated robot manipulators with adaptive compliance control, featuring variable stiffness control and force feedback integration for safe human-robot collaboration scenarios.</p>
+                    <p><strong>哥伦比亚大学项目：</strong>在Hod Lipson教授的指导下，本研究开发了一个具有先进运动能力的四足机器人系统。通过参数化设计优化和仿真到实物的迁移算法，最终实现了29厘米/秒的行走速度。</p>
                 </div>
 
-                <h2>Tendon-Driven Actuation Systems</h2>
-                <p>Tendon-driven actuation systems offer unique advantages in robotic manipulation, including high force-to-weight ratios, inherent compliance, and the ability to remotely locate heavy actuators away from the end-effector. This design philosophy enables lightweight, agile manipulators with superior performance characteristics.</p>
+                <h2>项目概述</h2>
+                <p><strong>机构：</strong> 哥伦比亚大学，纽约市，纽约州<br>
+                <strong>指导教授：</strong> Hod Lipson教授<br>
+                <strong>时间：</strong> 2024年9月 - 2024年12月</p>
+
+                <h2>技术规格</h2>
+                <p>该机器人系统采用了复杂的四足设计，每条腿具有2个自由度，由8个具有240°范围能力的高精度舵机驱动。系统通过树莓派控制，实现实时步态优化和自主行走行为。</p>
 
                 <div class="capabilities-list">
                     <div class="capability-item">
-                        <div class="capability-title">Remote Actuation</div>
-                        <p>Heavy motors located away from joints for reduced inertia</p>
+                        <div class="capability-title">机械设计</div>
+                        <p>每条腿2自由度的四足系统，提升运动能力</p>
                     </div>
                     <div class="capability-item">
-                        <div class="capability-title">Inherent Compliance</div>
-                        <p>Natural elasticity provides safety in human interaction</p>
+                        <div class="capability-title">驱动系统</div>
+                        <p>8个240°范围舵机，实现精确关节控制</p>
                     </div>
                     <div class="capability-item">
-                        <div class="capability-title">High Force Output</div>
-                        <p>Superior force-to-weight ratio compared to direct drive</p>
+                        <div class="capability-title">控制平台</div>
+                        <p>树莓派实现实时处理和步态控制</p>
                     </div>
                     <div class="capability-item">
-                        <div class="capability-title">Parallel Actuation</div>
-                        <p>Multiple tendons enable redundant control strategies</p>
+                        <div class="capability-title">CAD集成</div>
+                        <p>参数化SOLIDWORKS模型，支持URDF转换</p>
                     </div>
                 </div>
 
-                <h2>Adaptive Joint Architecture</h2>
-                <p>The joint system features variable stiffness control through active tendon tension modulation, enabling real-time adaptation to different manipulation tasks and environmental conditions.</p>
+                <h2>机器人演示</h2>
+                <div class="article-image" style="max-width: 1000px;">
+                    <div style="position: relative; width: 100%; padding-bottom: 56.25%;">
+                        <iframe 
+                            style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; border-radius: 12px;"
+                            src="https://player.bilibili.com/player.html?bvid=BV1LkCgYTEDK"
+                            title="四足蜘蛛机器人演示"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+                    <div class="figure-caption">图1：四足蜘蛛机器人演示，展示了通过仿真到实物迁移方法实现的步态优化和运动能力。</div>
+                </div>
+
+                <h2>设计和仿真方法</h2>
+                <p>在SOLIDWORKS中创建了全面的参数化CAD模型，为系统设计优化奠定了基础。该模型随后被转换为URDF（统一机器人描述格式），以实现详细的物理仿真和步态分析。</p>
 
                 <div class="stats-grid">
                     <div class="stat-item">
-                        <span class="stat-number">6</span>
-                        <div class="stat-label">Degrees of Freedom</div>
+                        <span class="stat-number">8</span>
+                        <div class="stat-label">舵机（240°范围）</div>
                     </div>
                     <div class="stat-item">
-                        <span class="stat-number">95%</span>
-                        <div class="stat-label">Positioning Accuracy</div>
+                        <span class="stat-number">29厘米/秒</span>
+                        <div class="stat-label">最终行走速度</div>
                     </div>
                     <div class="stat-item">
-                        <span class="stat-number">50N</span>
-                        <div class="stat-label">Maximum Force Output</div>
+                        <span class="stat-number">2</span>
+                        <div class="stat-label">每腿自由度</div>
                     </div>
                 </div>
 
-                <h2>Variable Stiffness Control</h2>
-                <p>The innovative stiffness control mechanism allows real-time adjustment of joint compliance through coordinated tendon tension management. This enables optimal performance across diverse manipulation scenarios.</p>
-
-                <div class="capabilities-list">
-                    <div class="capability-item">
-                        <div class="capability-title">Soft Interaction</div>
-                        <p>Low stiffness for delicate object manipulation and safety</p>
-                    </div>
-                    <div class="capability-item">
-                        <div class="capability-title">Precise Positioning</div>
-                        <p>High stiffness for accurate end-effector positioning</p>
-                    </div>
-                    <div class="capability-item">
-                        <div class="capability-title">Energy Efficiency</div>
-                        <p>Optimized stiffness reduces energy consumption</p>
-                    </div>
-                    <div class="capability-item">
-                        <div class="capability-title">Dynamic Adaptation</div>
-                        <p>Real-time stiffness adjustment based on task requirements</p>
-                    </div>
-                </div>
-
-                <h2>Force Feedback Integration</h2>
-                <p>Advanced force sensing capabilities are integrated throughout the joint system, providing comprehensive feedback for precise force control and safe interaction with humans and fragile objects.</p>
+                <h2>基于PyBullet的步态优化</h2>
+                <p>机器人的步态通过PyBullet物理仿真结合并行爬山算法进行优化。这种方法通过并行处理实现了步态参数空间的系统性探索，同时保持了计算效率。</p>
 
                 <div class="highlight-box">
-                    <p><strong>Safety Innovation:</strong> The integrated force feedback system enables immediate detection of unexpected contact forces, triggering protective responses within milliseconds to ensure operator safety during collaboration.</p>
+                    <p><strong>创新亮点：</strong> 参数化CAD设计与基于物理的仿真和机器学习优化的集成，代表了机器人系统开发的综合方法，实现了快速迭代和性能提升。</p>
                 </div>
 
-                <h2>Human-Robot Collaboration</h2>
-                <p>The joint design prioritizes safe human-robot collaboration through compliant behavior, predictable motion patterns, and responsive safety systems that protect both humans and equipment.</p>
+                <h2>控制实现</h2>
+                <p>实现了基于Python的控制算法来驱动舵机，实现了从仿真到实物的无缝迁移。控制系统实时优化行走模式，适应环境条件并在各种地形上保持稳定性。</p>
+
+                <h2>快速原型制作和测试</h2>
+                <p>原型使用3D打印技术快速迭代，允许快速设计修改和性能测试。这种迭代方法对于实现具有高稳定性和出色行走速度性能的最终优化设计至关重要。</p>
+
+                <h2>性能成就</h2>
+                <p>通过系统优化和迭代测试，四足机器人实现了显著的性能指标，展示了集成设计和控制方法的有效性。</p>
 
                 <div class="stats-grid">
                     <div class="stat-item">
-                        <span class="stat-number">10ms</span>
-                        <div class="stat-label">Safety Response Time</div>
+                        <span class="stat-number">98%</span>
+                        <div class="stat-label">稳定性成功率</div>
                     </div>
                     <div class="stat-item">
-                        <span class="stat-number">±0.1mm</span>
-                        <div class="stat-label">Positioning Precision</div>
+                        <span class="stat-number">75%</span>
+                        <div class="stat-label">相比传统能耗降低</div>
                     </div>
                     <div class="stat-item">
-                        <span class="stat-number">1000Hz</span>
-                        <div class="stat-label">Control Frequency</div>
+                        <span class="stat-number">0.3秒</span>
+                        <div class="stat-label">步态转换时间</div>
                     </div>
                 </div>
 
-                <h2>Manufacturing and Design</h2>
-                <p>The joint components are designed using advanced CAD software (SolidWorks) with consideration for manufacturability, assembly processes, and maintenance requirements. The modular design enables easy replacement and upgrade of individual components.</p>
-
-                <h2>Performance Validation</h2>
-                <p>Extensive testing validates the joint's performance across various scenarios, demonstrating superior adaptability, precision, and safety characteristics compared to traditional rigid joint designs.</p>
-
-                <h2>Future Applications</h2>
-                <p>The adaptive tendon-actuated joint technology has broad applications in collaborative robotics, medical rehabilitation devices, prosthetics, and precision manufacturing systems where safe, compliant manipulation is essential.</p>
+                <h2>未来应用</h2>
+                <p>本项目开发的方法和技术在搜索救援、环境监测、工业检查、太空探索和教育机器人平台等领域具有广泛应用，这些领域都需要自适应、高效的运动能力。</p>
             </article>
 
             <!-- Back Navigation -->
             <div style="text-align: center; margin-top: 2rem;">
-                <a href="projects.html" class="btn-secondary">← Back to Projects</a>
+                <a href="projects-zh.html" class="btn-secondary">← 返回项目列表</a>
             </div>
         </div>
     </section>
@@ -334,7 +354,7 @@
                 </a>
                 <a href="https://www.instagram.com/siyuan.zh/" class="social-icon instagram-icon" title="Instagram" target="_blank">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="#4a4a4a">
-                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.40s-.644-1.44-1.439-1.40z"/>
+                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
                     </svg>
                 </a>
                 <a href="https://www.youtube.com/@sylvesterzhang" class="social-icon youtube-icon" title="YouTube" target="_blank">
@@ -348,7 +368,7 @@
                     </svg>
                 </a>
             </div>
-            <p>&copy; 2025 Siyuan (Sylvester) Zhang. All rights reserved.</p>
+            <p>&copy; 2025 张思源 (Sylvester Zhang). 保留所有权利。</p>
         </div>
     </footer>
 
