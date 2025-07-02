@@ -234,8 +234,16 @@
             <!-- Article Content -->
             <article class="article-content">
                 <div class="highlight-box">
-                    <p><strong>Columbia University Project:</strong> Under the guidance of Prof. Hod Lipson, this research developed a 4-legged robotic system with advanced locomotion capabilities, achieving a final walking speed of 29 cm/s through parametric design optimization and sim-to-real transfer algorithms.</p>
+                    <p><strong>Columbia University Project:</strong> The project came from the course "Robotics Studio". Under the guidance of Prof. Hod Lipson, I developed a 4-legged robotic system named "X" with advanced capabilities, achieving a final walking speed of 29 cm/s through parametric design optimization with Parallel Hill Climber algorithms.</p>
                 </div>
+
+                <h2>Project Overview</h2>
+                <p><strong>Institution:</strong> Columbia University, New York City, NY<br>
+                <strong>Advisor:</strong> Prof. Hod Lipson<br>
+                <strong>Duration:</strong> September 2024 - December 2024<br>
+                <strong>Robot Name:</strong> "X" - A quadruped exploration platform</p>
+
+                <p>Robot "X" represents an experimental approach to quadruped locomotion, featuring a sophisticated 4-legged design with 2 degrees of freedom per leg. The system is powered by 8 high-precision servomotors with 240° range capability and controlled via a Raspberry Pi for autonomous walking behaviors and gait optimization.</p>
 
                 <h2>Breaking Away from Biomimicry: A New Way to Think About Robots</h2>
                 <p>Most robots today are still designed based on biological models—we look at how animals move and try to copy that. It makes sense: nature has spent millions of years refining these systems, so why not learn from the best?</p>
@@ -244,16 +252,9 @@
 
                 <p>Of course, that introduces new problems. There's no natural reference for how a five-legged robot should walk. Traditional gait planning doesn't work well—and gets painfully slow with too many legs. So I started thinking: what if we let the robot learn its own gait in simulation? Let it figure out what works, instead of us trying to script it manually.</p>
 
-                <p>This idea became the starting point for a small experimental project of mine.</p>
+                <p>This idea became the starting point for Robot "X"—a small experimental project that explores these unconventional design possibilities.</p>
 
-                <h2>Project Overview</h2>
-                <p><strong>Institution:</strong> Columbia University, New York City, NY<br>
-                <strong>Advisor:</strong> Prof. Hod Lipson<br>
-                <strong>Duration:</strong> September 2024 - December 2024</p>
-
-                <h2>Technical Specifications</h2>
-                <p>The robotic system features a sophisticated 4-legged design with 2 degrees of freedom per leg, powered by 8 high-precision servomotors with 240° range capability. The system is controlled via a Raspberry Pi, enabling real-time gait optimization and autonomous walking behaviors.</p>
-
+                <h2>Technical Specifications of Robot "X"</h2>
                 <div class="capabilities-list">
                     <div class="capability-item">
                         <div class="capability-title">Mechanical Design</div>
@@ -265,7 +266,7 @@
                     </div>
                     <div class="capability-item">
                         <div class="capability-title">Control Platform</div>
-                        <p>Raspberry Pi for real-time processing and gait control</p>
+                        <p>Raspberry Pi for processing and gait control algorithms</p>
                     </div>
                     <div class="capability-item">
                         <div class="capability-title">CAD Integration</div>
@@ -273,22 +274,27 @@
                     </div>
                 </div>
 
-                <h2>Robot Demonstration</h2>
+                <h2>Robot "X" Demonstration</h2>
                 <div class="article-image" style="max-width: 1000px;">
                     <div style="position: relative; width: 100%; padding-bottom: 56.25%;">
                         <iframe 
                             style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; border-radius: 12px;"
                             src="https://www.youtube.com/embed/MEgXcAhMBZw"
-                            title="Quadruped Spider Robot Demonstration"
+                            title="Robot X Quadruped Demonstration"
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                             allowfullscreen>
                         </iframe>
                     </div>
-                    <div class="figure-caption">Figure 1: Quadruped spider robot demonstration showing gait optimization and locomotion capabilities achieved through sim-to-real transfer methods.</div>
+                    <div class="figure-caption">Figure 1: Robot "X" demonstration showing optimized locomotion capabilities achieved through simulation-based gait learning and sim-to-real transfer methods.</div>
                 </div>
 
                 <h2>Design and Simulation Methodology</h2>
-                <p>A comprehensive parametric CAD model was created in SOLIDWORKS, providing the foundation for systematic design optimization. The model was then converted to URDF (Unified Robot Description Format) to enable detailed physics simulations and gait analysis.</p>
+                <p>A comprehensive parametric CAD model was created in SOLIDWORKS for Robot "X", providing the foundation for systematic design optimization. The model was then converted to URDF (Unified Robot Description Format) to enable detailed physics simulations and gait analysis in virtual environments.</p>
+
+                <div class="article-image">
+                    <img src="images/spider robot.jpg" alt="Robot X Physical Prototype" style="background: transparent; border-radius: 20px;">
+                    <div class="figure-caption">Figure 2: Robot "X" physical prototype showing the 4-legged design with 3D-printed components and integrated servo motors for each joint.</div>
+                </div>
 
                 <div class="stats-grid">
                     <div class="stat-item">
@@ -305,33 +311,35 @@
                     </div>
                 </div>
 
-                <h2>Gait Optimization with PyBullet</h2>
-                <p>The robot's gait was optimized using PyBullet physics simulations combined with parallel hill climber algorithms. This approach enabled systematic exploration of the gait parameter space while maintaining computational efficiency through parallel processing.</p>
+                <h2>Gait Learning with PyBullet Simulation</h2>
+                <p>Robot "X"'s gait was developed using PyBullet physics simulations combined with parallel hill climber algorithms. This approach enabled systematic exploration of the gait parameter space while maintaining computational efficiency through parallel processing. Rather than programming predefined walking patterns, the system learned optimal gaits through iterative simulation trials.</p>
 
                 <div class="highlight-box">
-                    <p><strong>Innovation Highlight:</strong> The integration of parametric CAD design with physics-based simulation and machine learning optimization represents a comprehensive approach to robotic system development, enabling rapid iteration and performance enhancement.</p>
+                    <p><strong>Innovation Highlight:</strong> The integration of parametric CAD design with physics-based simulation and machine learning optimization represents a comprehensive approach to robotic system development, enabling rapid iteration and performance enhancement without relying on biological templates.</p>
                 </div>
 
-                <h2>Control Implementation</h2>
-                <p>Python-based control algorithms were implemented to actuate the servomotors, enabling seamless sim-to-real transfer. The control system optimizes walking patterns in real-time, adapting to environmental conditions and maintaining stability across diverse terrains.</p>
+                <h2>Control Implementation and Sim-to-Real Transfer</h2>
+                <p>Python-based control algorithms were implemented to actuate Robot "X"'s servomotors, enabling seamless sim-to-real transfer. The control system applies optimized walking patterns learned in simulation, adapting to environmental conditions and maintaining stability across diverse terrains.</p>
 
                 <h2>Rapid Prototyping and Testing</h2>
-                <p>The prototype was built using 3D printing technology for rapid iterations, allowing for quick design modifications and performance testing. This iterative approach was crucial in achieving the final optimized design with high stability and impressive walking speed performance.</p>
+                <p>Robot "X" was built using 3D printing technology for rapid iterations, allowing for quick design modifications and performance testing. This iterative approach was crucial in achieving the final optimized design with high stability and impressive walking speed performance.</p>
 
                 <h2>Performance Achievements</h2>
-                <p>Through systematic optimization and iterative testing, the quadruped robot achieved remarkable performance metrics that demonstrate the effectiveness of the integrated design and control approach. The robot consistently maintained high stability during locomotion while achieving energy-efficient movement patterns and rapid gait transitions.</p>
+                <p>Through systematic optimization and iterative testing, Robot "X" achieved remarkable performance metrics that demonstrate the effectiveness of the integrated design and control approach. The robot consistently maintained high stability during locomotion while achieving energy-efficient movement patterns and smooth gait transitions.</p>
 
-                <h2>Future Applications</h2>
-                <p>The methodologies and technologies developed in this project have broad applications in search and rescue operations, environmental monitoring, industrial inspection, space exploration, and educational robotics platforms where adaptive, efficient locomotion is essential.</p>
+                <h2>Future Applications and Scalability</h2>
+                <p>The methodologies and technologies developed for Robot "X" have broad applications in search and rescue operations, environmental monitoring, industrial inspection, space exploration, and educational robotics platforms where adaptive, efficient locomotion is essential. The simulation-based learning approach could be particularly valuable for designing robots with unconventional leg configurations.</p>
 
                 <h2>The Power of Co-Design: Thinking About Everything Together</h2>
-                <p>Working on this also led me to another big realization: robot design is too often done in silos. Mechanical structure, control algorithms, sensing, material choice—each is handled separately, then stitched together later.</p>
+                <p>Working on Robot "X" also led me to another big realization: robot design is too often done in silos. Mechanical structure, control algorithms, sensing, material choice—each is handled separately, then stitched together later.</p>
 
                 <p>But what if we co-designed everything at once?</p>
 
                 <p>Co-design means thinking about all parts of the robot together, as one system—how the actuators are placed, how many legs there are, how the limbs are connected (parallel or serial), how fast it needs to move—all optimized in one unified process.</p>
 
-                <p>It's a complex but exciting idea. And if we can crack it, I think it could lead to a whole new generation of smarter, more capable robots.</p>
+                <p>Robot "X" was a step in this direction, but there's so much more we could explore. Imagine optimizing not just the gait, but simultaneously the leg count, joint placement, and even the robot's overall morphology for specific tasks.</p>
+
+                <p>It's a complex but exciting idea. And if we can crack it, I think it could lead to a whole new generation of smarter, more capable robots that aren't constrained by biological precedents.</p>
 
                 <p>It's definitely something I'd love to dive deeper into in future research.</p>
             </article>
