@@ -7,24 +7,249 @@
     <link rel="icon" type="image/svg+xml" href="images/sylvester_robot_icon.svg">
     <link rel="stylesheet" href="styles.css?v=2025010833">
     <style>
-        /* Enhanced project image styling */
-        .project-image {
-            background: transparent !important;
+        /* Enhanced project cards with images */
+        .project-card-with-image {
+            display: flex;
+            flex-direction: column;
+            height: 100% !important;
+            background: linear-gradient(135deg, 
+                rgba(235, 245, 255, 0.85), 
+                rgba(245, 240, 255, 0.85)) !important;
+            border: none !important;
             border-radius: 20px !important;
             overflow: hidden;
+            transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
+            box-shadow: 0 2px 8px rgba(0, 123, 255, 0.08) !important;
         }
         
-        .project-image img {
-            width: 100% !important;
-            height: 100% !important;
-            object-fit: contain !important;
-            object-position: center !important;
-            transition: transform 0.3s ease !important;
-            border-radius: 20px !important;
+        .project-card-with-image:hover {
+            transform: translateY(-4px) !important;
+            background: linear-gradient(135deg, 
+                rgba(200, 235, 255, 0.95), 
+                rgba(220, 210, 255, 0.95)) !important;
+            border: none !important;
+            box-shadow: 0 8px 25px rgba(0, 123, 255, 0.2) !important;
         }
         
-        .project-card:hover .project-image img {
-            transform: scale(1.05) !important;
+        .card-image {
+            width: 100%;
+            height: 200px;
+            overflow: hidden;
+            background: linear-gradient(135deg, #f8faff 0%, #f0f4ff 100%);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+            border-radius: 20px;
+            margin: 8px;
+            width: calc(100% - 16px);
+            height: 184px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #999;
+            font-size: 1rem;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        
+        .card-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, 
+                rgba(0, 123, 255, 0.05) 0%, 
+                rgba(88, 86, 255, 0.05) 50%,
+                rgba(0, 123, 255, 0.05) 100%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            border-radius: 20px;
+        }
+        
+        .project-card-with-image:hover .card-image::before {
+            opacity: 1;
+        }
+        
+        .card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            transition: all 0.3s ease;
+            border-radius: 20px;
+            filter: brightness(1) contrast(1.05) saturate(1.1);
+            opacity: 0;
+            animation: imageLoad 0.6s ease-out 0.2s forwards;
+        }
+        
+        @keyframes imageLoad {
+            from {
+                opacity: 0;
+                transform: scale(1.1);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+        
+        .card-image img:not([src]),
+        .card-image img[src=""] {
+            display: none;
+        }
+        
+        .project-card-with-image:hover .card-image img {
+            transform: scale(1.08);
+            filter: brightness(1.05) contrast(1.1) saturate(1.2);
+        }
+        
+        /* Placeholder styling for cards without images */
+        .card-image span {
+            font-size: 0.9rem;
+            color: #6b7280;
+            text-align: center;
+            padding: 20px;
+            line-height: 1.5;
+            font-weight: 500;
+            background: linear-gradient(135deg, #e2e8f0 0%, #cbd5e1 100%);
+            border-radius: 15px;
+            width: 90%;
+            height: 70%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        
+        .project-card-with-image:hover .card-image span {
+            background: linear-gradient(135deg, #d1d9e5 0%, #b8c4d1 100%);
+            color: #4a5568;
+            transform: scale(1.02);
+            box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.15);
+        }
+        
+        .card-content {
+            padding: 28px 24px 24px 24px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .project-card-with-image h3 {
+            font-size: 1.25rem !important;
+            font-weight: 700 !important;
+            color: #1a1a1a !important;
+            line-height: 1.4 !important;
+            margin-bottom: 16px !important;
+            letter-spacing: -0.01em !important;
+        }
+        
+        .project-card-with-image p {
+            font-size: 1rem !important;
+            line-height: 1.6 !important;
+            color: #4a5568 !important;
+            margin-bottom: 20px !important;
+            flex: 1;
+            font-weight: 400 !important;
+        }
+        
+        .project-tags {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            margin-bottom: 20px;
+            align-items: center;
+        }
+        
+        .tag {
+            background: linear-gradient(135deg, #007aff, #5856ff) !important;
+            color: white !important;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            letter-spacing: 0.3px;
+            border: none;
+            transition: all 0.3s ease;
+        }
+        
+        .tag:hover {
+            background: linear-gradient(135deg, #0056cc, #4642d6) !important;
+            color: white !important;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(0, 122, 255, 0.2);
+        }
+        
+        .project-card-with-image .project-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px 20px !important;
+            background: linear-gradient(135deg, #007aff, #5856ff) !important;
+            color: white !important;
+            text-decoration: none !important;
+            border-radius: 25px !important;
+            font-weight: 600 !important;
+            font-size: 0.95rem !important;
+            transition: all 0.3s ease !important;
+            align-self: center;
+            letter-spacing: 0.01em;
+        }
+        
+        .project-card-with-image .project-link:hover {
+            background: linear-gradient(135deg, #0056cc, #4642d6) !important;
+            transform: translateY(-2px) !important;
+            box-shadow: 0 6px 20px rgba(0, 122, 255, 0.3) !important;
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .card-image {
+                height: 160px;
+                margin: 6px;
+                width: calc(100% - 12px);
+            }
+            
+            .card-image span {
+                font-size: 0.85rem;
+                padding: 15px;
+                height: 75%;
+            }
+            
+            .card-content {
+                padding: 18px 16px 16px 16px;
+            }
+            
+            .project-card-with-image h3 {
+                font-size: 1.125rem !important;
+            }
+            
+            .project-card-with-image p {
+                font-size: 0.95rem !important;
+            }
+            
+            .project-card-with-image:hover .card-image img {
+                transform: scale(1.05);
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .card-image {
+                height: 140px;
+                margin: 4px;
+                width: calc(100% - 8px);
+            }
+            
+            .card-image span {
+                font-size: 0.8rem;
+                padding: 12px;
+                height: 80%;
+            }
+            
+            .card-content {
+                padding: 16px 14px 14px 14px;
+            }
         }
     </style>
 </head>
@@ -88,110 +313,85 @@
     <section class="section">
         <div class="container">
             <div class="projects-grid">
-                <div class="project-card">
-                    <div class="project-image">
+                <article class="project-card-with-image">
+                    <div class="card-image">
                         <img src="images/spider robot.jpg" alt="四足蜘蛛机器人">
                     </div>
-                    <div class="project-content">
+                    <div class="card-content">
                         <h3>四足蜘蛛机器人设计与步态优化</h3>
-                        <p>开发了具有先进运动能力的仿生四足蜘蛛机器人。实现了包括小跑、跳跃和疾驰步态在内的多种步态模式，并配备动态稳定性控制。机器人具有自适应腿部柔顺性和地形适应算法，能够在各种表面上实现稳定运动，具有优化的能量效率和运动协调性。</p>
+                        <p>仿生四足机器人具有先进运动能力，多种步态模式和动态稳定性控制，可适应各种地形。</p>
                         <div class="project-tags">
                             <span class="tag">四足运动</span>
                             <span class="tag">步态优化</span>
                             <span class="tag">仿生设计</span>
-                            <span class="tag">MATLAB/Simulink</span>
-                            <span class="tag">动态控制</span>
                         </div>
-                        <div class="project-links">
-                            <a href="quadruped-spider-robot-zh.html" class="project-link">设计详情</a>
-                            <a href="quadruped-spider-robot-zh.html" class="project-link">仿真视频</a>
-                        </div>
+                        <a href="quadruped-spider-robot-zh.html" class="project-link">阅读文章</a>
                     </div>
-                </div>
+                </article>
 
-                <div class="project-card">
-                    <div class="project-image">
-                        <span>腱驱动机器人图片</span>
+                <article class="project-card-with-image">
+                    <div class="card-image">
+                        <img src="images/tendon-actuated robot/overall.png" alt="腱驱动机器人">
                     </div>
-                    <div class="project-content">
+                    <div class="card-content">
                         <h3>先进自适应腱驱动机器人操作臂关节设计</h3>
-                        <p>设计了具有自适应柔顺控制的腱驱动机器人操作臂创新关节机构。关节系统具有可变刚度控制、力反馈集成和对不同操作任务的实时适应能力。在保持人机协作安全交互能力的同时，实现了精确的定位精度。</p>
+                        <p>在中山大学开发了一种杠杆臂放大关节，用于提高太空应用中腱驱动机械臂的输出扭矩。优化了轻量化组件并进行运动学分析以实现精确控制。</p>
                         <div class="project-tags">
                             <span class="tag">腱驱动</span>
-                            <span class="tag">自适应控制</span>
-                            <span class="tag">关节设计</span>
-                            <span class="tag">SolidWorks</span>
-                            <span class="tag">力控制</span>
+                            <span class="tag">杠杆臂放大</span>
+                            <span class="tag">太空机器人</span>
                         </div>
-                        <div class="project-links">
-                            <a href="#" class="project-link">CAD模型</a>
-                            <a href="#" class="project-link">性能分析</a>
-                        </div>
+                        <a href="tendon-actuated-robot-zh.html" class="project-link">阅读文章</a>
                     </div>
-                </div>
+                </article>
 
-                <div class="project-card">
-                    <div class="project-image">
-                        <span>球形机器人图片</span>
+                <article class="project-card-with-image">
+                    <div class="card-image">
+                        <img src="images/Biomimetic Spherical Robot/robot.png" alt="球形机器人">
                     </div>
-                    <div class="project-content">
+                    <div class="card-content">
                         <h3>用于太空探索的多运动模式仿生球形机器人设计</h3>
-                        <p>创建了专为行星探索任务设计的多功能球形机器人，具有多种运动模式。机器人可以在各种地形上滚动、弹跳和翻滚，同时保持内部稳定。具有自主导航、环境感知和针对地外探索场景优化的自适应运动控制功能。</p>
+                        <p>多功能球形机器人用于行星探索，具有多种运动模式、自主导航和环境感知能力。</p>
                         <div class="project-tags">
                             <span class="tag">太空机器人</span>
-                            <span class="tag">球形设计</span>
                             <span class="tag">多模式运动</span>
                             <span class="tag">自主导航</span>
-                            <span class="tag">行星探索</span>
                         </div>
-                        <div class="project-links">
-                            <a href="#" class="project-link">任务场景</a>
-                            <a href="#" class="project-link">移动演示</a>
-                        </div>
+                        <a href="spherical-space-robot-zh.html" class="project-link">阅读文章</a>
                     </div>
-                </div>
+                </article>
 
-                <div class="project-card">
-                    <div class="project-image">
-                        <span>扑翼机器人图片</span>
+                <article class="project-card-with-image">
+                    <div class="card-image">
+                        <img src="images/Bionic Flapping-Wing Robot/bird.png" alt="扑翼机器人">
                     </div>
-                    <div class="project-content">
+                    <div class="card-content">
                         <h3>受鸟类启发的仿生扑翼机器人设计</h3>
-                        <p>设计了模仿鸟类飞行机制并具有先进空气动力学效率的仿生扑翼机器人。设计融合了柔性翼结构、优化的扑翼运动学和智能飞行控制系统。通过仿生设计原理实现了持续飞行能力，具有节能翼驱动和稳定悬停性能。</p>
+                        <p>仿生扑翼机器人模仿鸟类飞行机制，配备柔性翼结构和智能飞行控制系统。</p>
                         <div class="project-tags">
                             <span class="tag">扑翼飞行</span>
                             <span class="tag">仿生空气动力学</span>
-                            <span class="tag">鸟类生物力学</span>
                             <span class="tag">飞行控制</span>
-                            <span class="tag">柔性结构</span>
                         </div>
-                        <div class="project-links">
-                            <a href="#" class="project-link">飞行测试</a>
-                            <a href="#" class="project-link">空气动力学分析</a>
-                        </div>
+                        <a href="flapping-wing-robot-zh.html" class="project-link">阅读文章</a>
                     </div>
-                </div>
+                </article>
 
-                <div class="project-card">
-                    <div class="project-image">
-                        <span>立方体卫星机器人图片</span>
+                <article class="project-card-with-image">
+                    <div class="card-image">
+                        <img src="images/cubesat/fold state.jpg" alt="立方星">
                     </div>
-                    <div class="project-content">
-                        <h3>用于空间站操作的可折叠黏附爬行立方体卫星设计</h3>
-                        <p>开发了具有黏附爬行能力的紧凑可折叠立方体卫星机器人，用于空间站外部操作。机器人具有可展开机制、壁虎启发的黏附系统和微重力运动控制。专为卫星服务、检查任务和太空环境维护操作而设计，具有自主机动能力。</p>
+                    <div class="card-content">
+                        <h3>用于空间站操作的可折叠黏附爬行立方星设计</h3>
+                        <p>紧凑可折叠的立方星机器人，具有黏附爬行能力，用于空间站外部操作和卫星服务。</p>
                         <div class="project-tags">
-                            <span class="tag">立方体卫星设计</span>
-                            <span class="tag">太空机器人</span>
+                            <span class="tag">立方星设计</span>
                             <span class="tag">黏附运动</span>
-                            <span class="tag">可折叠机构</span>
                             <span class="tag">卫星服务</span>
                         </div>
-                        <div class="project-links">
-                            <a href="#" class="project-link">任务概况</a>
-                            <a href="#" class="project-link">部署演示</a>
-                        </div>
+                        <a href="cubesat-crawling-robot-zh.html" class="project-link">阅读文章</a>
                     </div>
-                </div>
+                </article>
             </div>
         </div>
     </section>

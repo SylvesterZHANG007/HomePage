@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>仿生扑翼机器人 - 张思远</title>
+    <link rel="icon" type="image/svg+xml" href="images/sylvester_robot_icon.svg">
+    <link rel="stylesheet" href="styles.css?v=2025010847">
+    <style>
+        .page-title {
+            font-size: clamp(2rem, 4vw, 3rem) !important;
+            line-height: 1.2 !important;
+        }
+        .article-meta {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 2rem;
+            padding: 20px 0;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        }
+        .article-date {
+            color: #666;
+            font-size: 1rem;
+            font-weight: 500;
+        }
+        .article-tags {
+            display: flex;
+            gap: 10px;
+        }
+        .tag {
+            background: linear-gradient(135deg, #007aff, #5856ff);
+            color: white;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+        .article-image {
+            width: 100%;
+            max-width: 1000px;
+            margin: 2rem auto;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+        .article-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        .figure-caption {
+            text-align: center;
+            color: #666;
+            font-size: 0.95rem;
+            font-style: italic;
+            margin-top: 0.8rem;
+            line-height: 1.4;
+        }
+        .highlight-box {
+            background: linear-gradient(135deg, rgba(0, 122, 255, 0.05), rgba(88, 86, 255, 0.05));
+            border-left: 4px solid #007aff;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-radius: 8px;
+        }
+        .article-content h2 {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin: 2.5rem 0 1.5rem 0;
+            line-height: 1.3;
+            letter-spacing: -0.02em;
+        }
+        .article-content h3 {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: #2d2d2d;
+            margin: 2rem 0 1rem 0;
+            line-height: 1.4;
+        }
+        .article-content p {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            color: #4a4a4a;
+            margin-bottom: 1.5rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="index-zh.html">
+                    <img src="images/sylvester_robot_icon.svg" alt="张思远">
+                </a>
+            </div>
+            <div class="nav-toggle" onclick="toggleMobileMenu()">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index-zh.html">首页</a></li>
+                <li class="resume-dropdown">
+                    <div class="resume-btn-container">
+                        <a href="research-zh.html" class="resume-btn-text">研究方向</a>
+                        <button class="resume-btn-arrow" type="button" aria-label="展开研究方向菜单"></button>
+                    </div>
+                    <div class="resume-dropdown-content">
+                        <a href="self-reproducing-robot-zh.html" class="resume-option">自复制机器人</a>
+                        <a href="rehabilitation-robot-zh.html" class="resume-option">康复机器人</a>
+                        <a href="soft-robotics-zh.html" class="resume-option">软体机器人</a>
+                    </div>
+                </li>
+                <li><a href="publications-zh.html">学术发表</a></li>
+                <li><a href="projects-zh.html" class="active">项目经历</a></li>
+                <li><a href="experience-zh.html">实践经验</a></li>
+                <li><a href="resume-en.html">简历</a></li>
+                <li><a href="contact-zh.html">联系方式</a></li>
+                <li class="language-switcher">
+                    <div class="lang-toggle zh" onclick="switchLanguage('flapping-wing-robot.html')">
+                        <div class="lang-slider"></div>
+                        <div class="lang-labels">
+                            <span class="lang-label en">EN</span>
+                            <span class="lang-label zh">中</span>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="nav-overlay" onclick="toggleMobileMenu()"></div>
+        <div class="resume-overlay" onclick="closeResumeMenu()"></div>
+    </nav>
+
+    <!-- Article Content -->
+    <section class="section">
+        <div class="container">
+            <!-- Breadcrumb -->
+            <div class="breadcrumb">
+                <a href="projects-zh.html">项目经历</a>
+                <span>›</span>
+                <span>仿生扑翼机器人</span>
+            </div>
+
+            <!-- Article Header -->
+            <header class="article-header">
+                <h1 class="page-title">受鸟类启发的仿生扑翼机器人设计</h1>
+                
+                <div class="article-meta">
+                    <div class="article-date">发表于：2024年1月</div>
+                    <div class="article-tags">
+                        <span class="tag">仿生设计</span>
+                        <span class="tag">扑翼飞行</span>
+                        <span class="tag">控制系统</span>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Article Content -->
+            <article class="article-content">
+                <div class="highlight-box">
+                    <p><strong>研究项目：</strong> 作为中山大学研究团队的成员，在卢镇波教授的指导下，我们团队开发了一款受小型鸟类启发的轻量化高效扑翼机器人。该设计将仿生学原理与先进控制系统相结合，实现稳定可控的飞行。</p>
+                </div>
+
+                <h2>项目概述</h2>
+                <p><strong>单位：</strong>中山大学（深圳）<br>
+                <strong>导师：</strong> <a href="https://scholar.google.com/citations?hl=en&user=iHkQ3IgAAAAJ" target="_blank" style="color: #007aff; text-decoration: none;">卢镇波 教授</a><br>
+                <strong>周期：</strong>2022年9月 - 2023年12月<br>
+                <strong>项目类型：</strong>团队研究项目<br>
+                <strong>团队角色：</strong>核心研究成员</p>
+
+                <div class="article-image">
+                    <img src="images/Bionic Flapping-Wing Robot/bird.png" alt="仿生扑翼机器人设计">
+                    <div class="figure-caption">图1：仿生扑翼机器人设计，展示了受小型鸟类启发的轻量化结构和创新翼机构。</div>
+                </div>
+
+                <h2>技术设计</h2>
+                <p>该扑翼机器人具有多项创新设计元素：</p>
+                <ul>
+                    <li>针对高效飞行优化的轻量化可折叠结构</li>
+                    <li>模仿鸟类飞行模式的仿生翼机构</li>
+                    <li>通过精心的机械设计实现低噪音运行</li>
+                    <li>集成传感器实现飞行稳定性控制</li>
+                </ul>
+
+                <h2>研究方法</h2>
+                <p>开发过程遵循系统化方法：</p>
+                <ul>
+                    <li>全面研究鸟类飞行力学和翼运动学</li>
+                    <li>基于SOLIDWORKS的机械设计与优化</li>
+                    <li>使用ANSYS进行结构和空气动力学分析</li>
+                    <li>实现闭环控制系统以保证飞行稳定性</li>
+                </ul>
+
+                <h2>主要特点</h2>
+                <p>本项目包含多项先进特性：</p>
+                <ul>
+                    <li>仿生翼设计提升空气动力学效率</li>
+                    <li>轻量化材料选择实现最佳功重比</li>
+                    <li>集成控制系统确保稳定飞行操作</li>
+                    <li>模块化设计便于维护和改进</li>
+                </ul>
+
+                <h2>控制系统实现</h2>
+                <p>闭环控制系统通过以下方式确保稳定飞行：</p>
+                <ul>
+                    <li>实时姿态和位置感知</li>
+                    <li>动态飞行路径调整</li>
+                    <li>自动稳定性控制</li>
+                    <li>适应环境条件的响应机制</li>
+                </ul>
+
+                <h2>项目成果</h2>
+                <p>研究取得了多项重要成果：</p>
+                <ul>
+                    <li>成功开发功能性扑翼原型</li>
+                    <li>验证仿生设计原理的有效性</li>
+                    <li>实现有效的飞行控制机制</li>
+                    <li>展示稳定悬停和前向飞行能力</li>
+                </ul>
+
+                <h2>未来发展</h2>
+                <p>潜在的改进方向包括：</p>
+                <ul>
+                    <li>进一步优化翼型几何和材料</li>
+                    <li>增强复杂机动的控制算法</li>
+                    <li>集成先进导航功能</li>
+                    <li>开发自主操作特性</li>
+                </ul>
+
+                <h2>结论</h2>
+                <p>本项目成功展示了仿生扑翼机器人设计的可行性。通过集成轻量化结构、高效机构和先进控制系统，实现了一个功能性原型，有效模仿鸟类飞行特性的同时保持稳定可控的运行。</p>
+
+                <!-- Back Navigation -->
+                <div style="text-align: center; margin-top: 2rem;">
+                    <a href="projects-zh.html" class="btn-secondary">← 返回项目列表</a>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-social-links">
+                <a href="https://github.com/SylvesterZHANG007" class="social-icon github-icon" title="GitHub" target="_blank">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="#4a4a4a">
+                        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html> 

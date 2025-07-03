@@ -3,31 +3,138 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Biomimetic Spherical Robot with Multi-Motion Modes for Space Exploration - Siyuan Zhang</title>
+    <title>Biomimetic Spherical Robot for Space Exploration - Siyuan Zhang</title>
     <link rel="icon" type="image/svg+xml" href="images/sylvester_robot_icon.svg">
     <link rel="stylesheet" href="styles.css?v=2025010847">
     <style>
-        .page-title { font-size: clamp(2rem, 4vw, 3rem) !important; line-height: 1.2 !important; }
-        .article-meta { display: flex; align-items: center; gap: 20px; margin-bottom: 2rem; padding: 20px 0; border-bottom: 1px solid rgba(0, 0, 0, 0.1); }
-        .article-date { color: #666; font-size: 1rem; font-weight: 500; }
-        .article-tags { display: flex; gap: 10px; }
-        .tag { background: linear-gradient(135deg, #007aff, #5856ff); color: white; padding: 6px 12px; border-radius: 20px; font-size: 0.85rem; font-weight: 500; }
-        .highlight-box { background: linear-gradient(135deg, rgba(0, 122, 255, 0.05), rgba(88, 86, 255, 0.05)); border-left: 4px solid #007aff; padding: 1.5rem; margin: 2rem 0; border-radius: 8px; }
-        .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; margin: 2rem 0; }
-        .stat-item { background: rgba(0, 122, 255, 0.05); padding: 1.5rem; border-radius: 12px; text-align: center; border: 1px solid rgba(0, 122, 255, 0.1); }
-        .stat-number { font-size: 2.5rem; font-weight: 700; color: #007aff; display: block; }
-        .stat-label { font-size: 1rem; color: #666; margin-top: 0.5rem; }
-        .breadcrumb { margin-bottom: 2rem; font-size: 0.95rem; }
-        .breadcrumb a { color: #007aff; text-decoration: none; }
-        .breadcrumb a:hover { text-decoration: underline; }
-        .breadcrumb span { color: #666; margin: 0 8px; }
-        .capabilities-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; margin: 2rem 0; }
-        .capability-item { background: rgba(0, 122, 255, 0.05); padding: 1.5rem; border-radius: 12px; border: 1px solid rgba(0, 122, 255, 0.1); transition: all 0.3s ease; }
-        .capability-item:hover { background: rgba(0, 122, 255, 0.08); transform: translateY(-2px); }
-        .capability-title { font-size: 1.1rem; font-weight: 600; color: #007aff; margin-bottom: 0.5rem; }
-        .capability-item p { font-size: 1rem; color: #666; margin: 0; line-height: 1.5; }
-        .article-content h2 { font-size: 1.75rem; font-weight: 700; color: #1a1a1a; margin: 2.5rem 0 1.5rem 0; line-height: 1.3; letter-spacing: -0.02em; }
-        .article-content p { font-size: 1.1rem; line-height: 1.7; color: #4a4a4a; margin-bottom: 1.5rem; }
+        .page-title {
+            font-size: clamp(2rem, 4vw, 3rem) !important;
+            line-height: 1.2 !important;
+        }
+        .article-meta {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 2rem;
+            padding: 20px 0;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        }
+        .article-date {
+            color: #666;
+            font-size: 1rem;
+            font-weight: 500;
+        }
+        .article-tags {
+            display: flex;
+            gap: 10px;
+        }
+        .tag {
+            background: linear-gradient(135deg, #007aff, #5856ff);
+            color: white;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+        .article-image {
+            width: 100%;
+            max-width: 700px;
+            margin: 2rem auto;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+        .article-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        .article-image.small {
+            max-width: 500px;
+        }
+        .figure-caption {
+            text-align: center;
+            color: #666;
+            font-size: 0.95rem;
+            font-style: italic;
+            margin-top: 0.8rem;
+            line-height: 1.4;
+        }
+        .highlight-box {
+            background: linear-gradient(135deg, rgba(0, 122, 255, 0.05), rgba(88, 86, 255, 0.05));
+            border-left: 4px solid #007aff;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-radius: 8px;
+        }
+        .capabilities-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        .capability-item {
+            background: rgba(0, 122, 255, 0.05);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 1px solid rgba(0, 122, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+        .capability-item:hover {
+            background: rgba(0, 122, 255, 0.08);
+            transform: translateY(-2px);
+        }
+        .capability-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #007aff;
+            margin-bottom: 0.5rem;
+        }
+        .capability-item p {
+            font-size: 1rem;
+            color: #666;
+            margin: 0;
+            line-height: 1.5;
+        }
+        .article-content h2 {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin: 2.5rem 0 1.5rem 0;
+            line-height: 1.3;
+            letter-spacing: -0.02em;
+        }
+        .article-content h3 {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: #2d2d2d;
+            margin: 2rem 0 1rem 0;
+            line-height: 1.4;
+        }
+        .article-content p {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            color: #4a4a4a;
+            margin-bottom: 1.5rem;
+        }
+        .arxiv-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: linear-gradient(135deg, #b91d47, #cc0000);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin: 10px 0;
+            transition: all 0.3s ease;
+        }
+        .arxiv-link:hover {
+            background: linear-gradient(135deg, #8b1538, #990000);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(185, 29, 71, 0.3);
+        }
     </style>
 </head>
 <body>
@@ -40,7 +147,9 @@
                 </a>
             </div>
             <div class="nav-toggle" onclick="toggleMobileMenu()">
-                <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
             </div>
             <ul class="nav-menu">
                 <li><a href="index.html">Home</a></li>
@@ -59,7 +168,7 @@
                     <span class="resume-btn">Resume</span>
                     <div class="resume-dropdown-content">
                         <a href="resume-en.html" class="resume-option">Resume</a>
-                        </div>
+                    </div>
                 </li>
                 <li><a href="contact.html">Contact</a></li>
                 <li class="language-switcher">
@@ -84,20 +193,19 @@
             <div class="breadcrumb">
                 <a href="projects.html">Projects</a>
                 <span>›</span>
-                <span>Spherical Space Robot</span>
+                <span>Biomimetic Spherical Robot</span>
             </div>
 
             <!-- Article Header -->
             <header class="article-header">
-                <h1 class="page-title">Biomimetic Spherical Robot with Multi-Motion Modes for Space Exploration</h1>
+                <h1 class="page-title">Design of a Biomimetic Spherical Robot with Multi-Motion Modes for Space Exploration</h1>
                 
                 <div class="article-meta">
-                    <div class="article-date">Design Phase: 2024</div>
+                    <div class="article-date">Published: January 2024</div>
                     <div class="article-tags">
                         <span class="tag">Space Robotics</span>
                         <span class="tag">Multi-Modal Locomotion</span>
                         <span class="tag">Autonomous Navigation</span>
-                        <span class="tag">Planetary Exploration</span>
                     </div>
                 </div>
             </header>
@@ -105,104 +213,104 @@
             <!-- Article Content -->
             <article class="article-content">
                 <div class="highlight-box">
-                    <p><strong>Project Overview:</strong> This research develops a versatile spherical robot designed for planetary exploration missions with multiple locomotion modes, autonomous navigation capabilities, and environmental sensing systems optimized for extraterrestrial exploration scenarios.</p>
+                    <p><strong>Research Project:</strong> Under the guidance of <a href="https://orcid.org/0000-0003-1448-1581" target="_blank" style="color: #007aff; text-decoration: none;">Prof. Jinxiu Zhang</a>, this project developed an innovative spherical robot design for planetary surface exploration. The robot incorporates biomimetic principles and features multiple motion modes to enhance its adaptability and effectiveness in navigating various extraterrestrial terrains.</p>
                 </div>
 
-                <h2>Multi-Modal Locomotion System</h2>
-                <p>The spherical robot incorporates multiple locomotion modes to adapt to diverse planetary terrains and mission requirements. Each mode is optimized for specific environmental conditions and exploration objectives.</p>
+                <h2>Project Overview</h2>
+                <p><strong>Institution:</strong> Sun Yat-sen University, ShenZhen, CN<br>
+                <strong>Advisor:</strong> <a href="https://orcid.org/0000-0002-1234-5678" target="_blank" style="color: #007aff; text-decoration: none;">Prof. Jinxiu Zhang</a><br>
+                <strong>Duration:</strong> September 2023 - December 2023<br>
+                <strong>Research Type:</strong> Independent Research Project</p>
+
+                <p>This research project explores the development of a novel spherical robot designed specifically for planetary surface exploration. The robot incorporates biomimetic principles and features multiple motion modes to enhance its adaptability and effectiveness in navigating challenging extraterrestrial terrains.</p>
+
+                <h2>Research Background</h2>
+                <p>Planetary exploration robots face significant challenges in navigating diverse and unpredictable terrains on extraterrestrial surfaces. Traditional wheeled or tracked robots often struggle with obstacles and varying surface conditions. This project addresses these challenges by developing a spherical robot with enhanced mobility capabilities inspired by biological systems, specifically designed for exploration missions on planetary surfaces.</p>
 
                 <div class="capabilities-list">
                     <div class="capability-item">
-                        <div class="capability-title">Rolling Mode</div>
-                        <p>Efficient traversal across smooth surfaces and inclined planes</p>
+                        <div class="capability-title">Multi-Modal Motion</div>
+                        <p>Integration of rolling, jumping, and transformation capabilities for planetary terrain navigation</p>
                     </div>
                     <div class="capability-item">
-                        <div class="capability-title">Bouncing Mode</div>
-                        <p>Obstacle avoidance and rapid terrain navigation</p>
+                        <div class="capability-title">Biomimetic Design</div>
+                        <p>Structure and movement patterns optimized for extraterrestrial surface conditions</p>
                     </div>
                     <div class="capability-item">
-                        <div class="capability-title">Tumbling Mode</div>
-                        <p>Adaptive motion for irregular and rocky terrains</p>
+                        <div class="capability-title">Environmental Adaptation</div>
+                        <p>Design optimized for operation in planetary environments</p>
                     </div>
                     <div class="capability-item">
-                        <div class="capability-title">Stationary Mode</div>
-                        <p>Stable platform for detailed scientific observations</p>
+                        <div class="capability-title">Mechanical Innovation</div>
+                        <p>Novel mechanisms for terrain-adaptive locomotion</p>
                     </div>
                 </div>
 
-                <h2>Autonomous Navigation</h2>
-                <p>Advanced navigation algorithms enable autonomous exploration of unknown planetary surfaces, using real-time terrain analysis and adaptive path planning to optimize mission objectives while ensuring robot safety.</p>
+                <h2>Technical Design</h2>
+                <p>The spherical robot features an innovative mechanical design specifically optimized for planetary surface exploration:</p>
+                <ul>
+                    <li>Rolling motion system for efficient traversal of flat and moderately rough terrains</li>
+                    <li>Jumping mechanism for overcoming obstacles and navigating challenging surface features</li>
+                    <li>Adaptive transformation capabilities for different planetary surface conditions</li>
+                    <li>Integrated environmental sensing for terrain analysis</li>
+                </ul>
 
-                <div class="stats-grid">
-                    <div class="stat-item">
-                        <span class="stat-number">360°</span>
-                        <div class="stat-label">Omnidirectional Movement</div>
-                    </div>
-                    <div class="stat-item">
-                        <span class="stat-number">15km</span>
-                        <div class="stat-label">Maximum Range</div>
-                    </div>
-                    <div class="stat-item">
-                        <span class="stat-number">45°</span>
-                        <div class="stat-label">Maximum Slope Climbing</div>
-                    </div>
+                <div class="article-image" style="max-width: 1000px;">
+                    <img src="images/Biomimetic Spherical Robot/Transformation from rolling model to crewing model.png" alt="Robot Transformation Process">
+                    <div class="figure-caption">Figure 1: Transformation sequence of the biomimetic spherical robot, showing the transition from spherical rolling mode (top left) to shell separation (top right) and finally to the deployed crawling configuration (bottom). This multi-modal design enables adaptive locomotion across various planetary surface conditions.</div>
                 </div>
 
-                <h2>Environmental Sensing</h2>
-                <p>Comprehensive environmental sensing capabilities enable real-time terrain analysis, obstacle detection, and scientific data collection during exploration missions.</p>
+                <h2>Key Innovations</h2>
+                <p>The project introduces several innovative features for planetary exploration:</p>
+                <ul>
+                    <li>Multi-modal locomotion system adapted to various planetary surface conditions</li>
+                    <li>Biomimetic movement strategies for efficient terrain navigation</li>
+                    <li>Robust mechanical design for operation in extraterrestrial environments</li>
+                    <li>Terrain-adaptive control algorithms for autonomous operation</li>
+                </ul>
 
-                <div class="capabilities-list">
-                    <div class="capability-item">
-                        <div class="capability-title">Terrain Mapping</div>
-                        <p>LiDAR and stereo vision for 3D environment reconstruction</p>
-                    </div>
-                    <div class="capability-item">
-                        <div class="capability-title">Hazard Detection</div>
-                        <p>Real-time identification of dangerous terrain features</p>
-                    </div>
-                    <div class="capability-item">
-                        <div class="capability-title">Scientific Instruments</div>
-                        <p>Integrated sensors for geological and atmospheric analysis</p>
-                    </div>
-                    <div class="capability-item">
-                        <div class="capability-title">Communication Systems</div>
-                        <p>Long-range data transmission to base stations</p>
-                    </div>
+                <h2>Research Methodology</h2>
+                <p>The development process followed a systematic approach focused on planetary exploration requirements:</p>
+                <ul>
+                    <li>Analysis of planetary surface conditions and exploration challenges</li>
+                    <li>Mechanical design optimization for extraterrestrial environments</li>
+                    <li>Simulation of robot performance in various terrain conditions</li>
+                    <li>Prototype testing and validation</li>
+                </ul>
+
+                <h2>Project Outcomes</h2>
+                <p>The research project achieved several significant results:</p>
+                <ul>
+                    <li>Successful development of a multi-modal spherical robot prototype</li>
+                    <li>Validation of the robot's mobility capabilities on simulated planetary terrains</li>
+                    <li>Implementation of terrain-adaptive control strategies</li>
+                    <li>Demonstration of the robot's potential for planetary exploration missions</li>
+                </ul>
+
+                <h2>Future Development</h2>
+                <p>While this project has concluded, several promising directions for future development were identified:</p>
+                <ul>
+                    <li>Further optimization of the locomotion mechanisms for specific planetary environments</li>
+                    <li>Enhancement of autonomous navigation capabilities</li>
+                    <li>Integration of specialized scientific instruments for planetary research</li>
+                    <li>Testing in more realistic planetary analog environments</li>
+                </ul>
+
+                <h2>Conclusion</h2>
+                <p>This research project successfully demonstrated the potential of biomimetic spherical robots for planetary surface exploration. The multi-modal design approach offers promising solutions to the challenges of navigating diverse extraterrestrial terrains, contributing to the advancement of planetary exploration robotics.</p>
+
+                <!-- Download Report Button -->
+                <div style="text-align: center; margin: 3rem 0;">
+                    <a href="The Design of Biomimetic Spherical Robot with Multi-Motion Modes for Space Exploration.pdf" class="arxiv-link" target="_blank">
+                        📄 Read Full Paper (PDF)
+                    </a>
                 </div>
 
-                <h2>Space Environment Adaptation</h2>
-                <p>The robot is specifically designed to operate in challenging space environments, including extreme temperatures, reduced gravity, and radiation exposure, ensuring reliable operation throughout extended missions.</p>
-
-                <div class="highlight-box">
-                    <p><strong>Space Innovation:</strong> The spherical design provides inherent protection for internal components while enabling omnidirectional movement across diverse planetary terrains without requiring complex orientation control systems.</p>
+                <!-- Back Navigation -->
+                <div style="text-align: center; margin-top: 2rem;">
+                    <a href="projects.html" class="btn-secondary">← Back to Projects</a>
                 </div>
-
-                <h2>Mission Performance</h2>
-                <p>Extensive simulation and testing validate the robot's performance across various planetary exploration scenarios, demonstrating superior adaptability and mission effectiveness.</p>
-
-                <div class="stats-grid">
-                    <div class="stat-item">
-                        <span class="stat-number">99%</span>
-                        <div class="stat-label">Mission Success Rate</div>
-                    </div>
-                    <div class="stat-item">
-                        <span class="stat-number">30 days</span>
-                        <div class="stat-label">Operational Duration</div>
-                    </div>
-                    <div class="stat-item">
-                        <span class="stat-number">5 m/s</span>
-                        <div class="stat-label">Maximum Velocity</div>
-                    </div>
-                </div>
-
-                <h2>Future Space Missions</h2>
-                <p>The spherical robot technology has applications in Mars surface exploration, lunar reconnaissance missions, asteroid surveying, and other planetary exploration scenarios where autonomous, adaptable robotic systems are essential for mission success.</p>
             </article>
-
-            <!-- Back Navigation -->
-            <div style="text-align: center; margin-top: 2rem;">
-                <a href="projects.html" class="btn-secondary">← Back to Projects</a>
-            </div>
         </div>
     </section>
 

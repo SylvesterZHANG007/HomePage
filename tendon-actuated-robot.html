@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Advanced Adaptive Tendon-Actuated Robot Manipulator Joint Design - Siyuan Zhang</title>
+    <title>Advanced Adaptive Tendon-Actuated Robot Manipulator - Siyuan Zhang</title>
     <link rel="icon" type="image/svg+xml" href="images/sylvester_robot_icon.svg">
     <link rel="stylesheet" href="styles.css?v=2025010847">
     <style>
@@ -35,6 +35,29 @@
             border-radius: 20px;
             font-size: 0.85rem;
             font-weight: 500;
+        }
+        .article-image {
+            width: 100%;
+            max-width: 700px;
+            margin: 2rem auto;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+        .article-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        .article-image.small {
+            max-width: 500px;
+        }
+        .figure-caption {
+            text-align: center;
+            color: #666;
+            font-size: 0.95rem;
+            font-style: italic;
+            margin-top: 0.8rem;
+            line-height: 1.4;
         }
         .highlight-box {
             background: linear-gradient(135deg, rgba(0, 122, 255, 0.05), rgba(88, 86, 255, 0.05));
@@ -195,15 +218,15 @@
 
             <!-- Article Header -->
             <header class="article-header">
-                <h1 class="page-title">Advanced Adaptive Tendon-Actuated Robot Manipulator Joint Design</h1>
+                <h1 class="page-title">Design of the joint of an advanced adaptive Tendon-Actuated robot manipulator</h1>
                 
                 <div class="article-meta">
-                    <div class="article-date">Design Phase: 2024</div>
+                    <div class="article-date">Published: September 2023</div>
                     <div class="article-tags">
                         <span class="tag">Tendon Actuation</span>
-                        <span class="tag">Adaptive Control</span>
-                        <span class="tag">Joint Design</span>
-                        <span class="tag">SolidWorks</span>
+                        <span class="tag">Lever Arm Amplification</span>
+                        <span class="tag">Space Robotics</span>
+                        <span class="tag">Kinematic Analysis</span>
                     </div>
                 </div>
             </header>
@@ -211,110 +234,112 @@
             <!-- Article Content -->
             <article class="article-content">
                 <div class="highlight-box">
-                    <p><strong>Project Overview:</strong> This research focuses on designing innovative joint mechanisms for tendon-actuated robot manipulators with adaptive compliance control, featuring variable stiffness control and force feedback integration for safe human-robot collaboration scenarios.</p>
+                    <p><strong>Sun Yat-sen University Thesis Project:</strong> Under the guidance of <a href="https://scholar.google.com/citations?user=7f-n_k4AAAAJ&hl=en&oi=ao" target="_blank" style="color: #007aff; text-decoration: none;">Prof. Deshan Meng</a>, I explored the design of a lever arm amplification joint mechanism for tendon-driven robotic systems. This undergraduate thesis project focused on improving torque output capabilities while maintaining a lightweight design.</p>
                 </div>
 
-                <h2>Tendon-Driven Actuation Systems</h2>
-                <p>Tendon-driven actuation systems offer unique advantages in robotic manipulation, including high force-to-weight ratios, inherent compliance, and the ability to remotely locate heavy actuators away from the end-effector. This design philosophy enables lightweight, agile manipulators with superior performance characteristics.</p>
+                <h2>Project Overview</h2>
+                <p><strong>Institution:</strong> Sun Yat-sen University, ShenZhen, CN<br>
+                <strong>Advisor:</strong> <a href="https://scholar.google.com/citations?user=7f-n_k4AAAAJ&hl=en&oi=ao" target="_blank" style="color: #007aff; text-decoration: none;">Prof. Deshan Meng</a><br>
+                <strong>Duration:</strong> March 2023 - August 2023<br>
+                <strong>Research Type:</strong> Undergraduate Thesis Project</p>
+
+                <p>This undergraduate research project investigated the design and implementation of a novel joint mechanism for tendon-driven robotic systems. The focus was on developing a lightweight joint design that could achieve improved torque output through lever arm amplification principles.</p>
+
+                <h2>Research Background and Problem Statement</h2>
+                <p>Tendon-driven robotic systems offer advantages in terms of lightweight design and remote actuation capabilities. However, achieving high torque output while maintaining system compactness remains a challenge. This research explored a potential solution through the design of a lever arm amplification joint mechanism.</p>
+
+                <p>The project aimed to address the following key challenges:</p>
+                <ul>
+                    <li>Designing a compact joint mechanism that can effectively amplify output torque</li>
+                    <li>Maintaining lightweight characteristics while ensuring structural stability</li>
+                    <li>Developing a practical prototype for experimental validation</li>
+                </ul>
+
+                <div class="article-image">
+                    <img src="images/tendon-actuated robot/overall.png" alt="Tendon-Actuated Robot Overall Design">
+                    <div class="figure-caption">Figure 1: Overall design of the advanced adaptive tendon-actuated robot manipulator joint showing the innovative lever arm amplification mechanism optimized for space applications.</div>
+                </div>
+
+                <h2>Technical Approach: Lever Arm Amplification Joint</h2>
+                <p>The core focus of this undergraduate thesis was the development of a lever arm amplification joint mechanism. The design aimed to enhance torque output capabilities in tendon-driven systems through mechanical advantage principles, while maintaining a compact and lightweight structure.</p>
+
+                <div class="article-image">
+                    <img src="images/tendon-actuated robot/texie.png" alt="Joint Mechanism Before and After Turning">
+                    <div class="figure-caption">Figure 2: Illustration of the joint mechanism's operation, showing the configuration before and after actuation. The red lines indicate the tendon routing path and demonstrate how the lever arm mechanism influences force transmission.</div>
+                </div>
 
                 <div class="capabilities-list">
                     <div class="capability-item">
-                        <div class="capability-title">Remote Actuation</div>
-                        <p>Heavy motors located away from joints for reduced inertia</p>
+                        <div class="capability-title">Mechanism Design</div>
+                        <p>Development of a joint mechanism utilizing lever arm principles for torque amplification</p>
                     </div>
                     <div class="capability-item">
-                        <div class="capability-title">Inherent Compliance</div>
-                        <p>Natural elasticity provides safety in human interaction</p>
+                        <div class="capability-title">Prototype Development</div>
+                        <p>Creation and testing of a functional prototype to validate the design concept</p>
                     </div>
                     <div class="capability-item">
-                        <div class="capability-title">High Force Output</div>
-                        <p>Superior force-to-weight ratio compared to direct drive</p>
+                        <div class="capability-title">Performance Analysis</div>
+                        <p>Evaluation of the joint mechanism's behavior under various operating conditions</p>
                     </div>
                     <div class="capability-item">
-                        <div class="capability-title">Parallel Actuation</div>
-                        <p>Multiple tendons enable redundant control strategies</p>
+                        <div class="capability-title">Design Optimization</div>
+                        <p>Iterative refinement of the mechanism design based on test results</p>
                     </div>
                 </div>
 
-                <h2>Adaptive Joint Architecture</h2>
-                <p>The joint system features variable stiffness control through active tendon tension modulation, enabling real-time adaptation to different manipulation tasks and environmental conditions.</p>
+                <h2>Research Methodology</h2>
+                <p>The project followed a systematic approach combining theoretical analysis with practical implementation:</p>
+                <ul>
+                    <li>Initial concept development and mechanical design of the lever arm mechanism</li>
+                    <li>Kinematic analysis to understand joint behavior and force transmission</li>
+                    <li>Prototype fabrication using appropriate materials and manufacturing techniques</li>
+                    <li>Experimental testing to validate the mechanism's performance</li>
+                </ul>
 
-                <div class="stats-grid">
-                    <div class="stat-item">
-                        <span class="stat-number">6</span>
-                        <div class="stat-label">Degrees of Freedom</div>
-                    </div>
-                    <div class="stat-item">
-                        <span class="stat-number">95%</span>
-                        <div class="stat-label">Positioning Accuracy</div>
-                    </div>
-                    <div class="stat-item">
-                        <span class="stat-number">50N</span>
-                        <div class="stat-label">Maximum Force Output</div>
-                    </div>
+                <h2>Prototype Development</h2>
+                <p>A functional prototype was developed to validate the lever arm amplification concept. The prototype allowed for testing of the joint mechanism under various conditions and provided valuable insights for design optimization. Key aspects of the prototype development included:</p>
+                <ul>
+                    <li>Component design and selection for the joint mechanism</li>
+                    <li>Assembly and integration of the mechanical systems</li>
+                    <li>Implementation of the tendon routing system</li>
+                    <li>Testing setup for performance evaluation</li>
+                </ul>
+
+                <div class="article-image">
+                    <img src="images/tendon-actuated robot/prototype demonstration.png" alt="Prototype Demonstration in Different Configurations">
+                    <div class="figure-caption">Figure 3: Demonstration of the prototype's range of motion, showing the joint mechanism in various configurations from fully extended to different bending angles. The physical prototype (bottom) validates the design concept illustrated in the schematic diagrams (top).</div>
                 </div>
 
-                <h2>Variable Stiffness Control</h2>
-                <p>The innovative stiffness control mechanism allows real-time adjustment of joint compliance through coordinated tendon tension management. This enables optimal performance across diverse manipulation scenarios.</p>
+                <h2>Research Results</h2>
+                <p>The research successfully developed and tested a prototype of the lever arm amplification joint mechanism. The experimental results demonstrated the feasibility of the design concept for improving torque output in tendon-driven systems while maintaining lightweight characteristics.</p>
 
-                <div class="capabilities-list">
-                    <div class="capability-item">
-                        <div class="capability-title">Soft Interaction</div>
-                        <p>Low stiffness for delicate object manipulation and safety</p>
-                    </div>
-                    <div class="capability-item">
-                        <div class="capability-title">Precise Positioning</div>
-                        <p>High stiffness for accurate end-effector positioning</p>
-                    </div>
-                    <div class="capability-item">
-                        <div class="capability-title">Energy Efficiency</div>
-                        <p>Optimized stiffness reduces energy consumption</p>
-                    </div>
-                    <div class="capability-item">
-                        <div class="capability-title">Dynamic Adaptation</div>
-                        <p>Real-time stiffness adjustment based on task requirements</p>
-                    </div>
+                <h2>Applications</h2>
+                <p>While the research was conducted with space robotics applications in mind, the developed joint mechanism could potentially be adapted for various robotic applications where high torque output and lightweight design are important considerations.</p>
+
+                <h2>Future Research Directions</h2>
+                <p>This undergraduate thesis project laid groundwork for potential future research in tendon-driven robotic systems. Future work could explore:</p>
+                <ul>
+                    <li>Advanced control algorithms for precise joint angle control</li>
+                    <li>Integration of multiple joints into a complete robotic arm system</li>
+                    <li>Further optimization of the lever arm mechanism for specific application requirements</li>
+                    <li>Experimental validation under various loading conditions</li>
+                </ul>
+
+                <h2>Conclusion</h2>
+                <p>This undergraduate thesis project successfully explored the design and implementation of a lever arm amplification joint mechanism for tendon-driven robotic systems. The work combined theoretical analysis with practical prototyping, providing valuable hands-on experience in mechanical design and robotics research.</p>
+
+                <h2>System Optimization and Future Research Directions</h2>
+                <p>Through comprehensive system optimization of space-domain driven robotic arms, this research successfully achieved intelligent adjustment for cable-driven robotic arm systems. The optimization process focused on enhancing overall system performance while maintaining the core advantages of lightweight design and high torque output capabilities.</p>
+
+                <p>The success of this undergraduate thesis opens several avenues for future exploration. Advanced control algorithms, multi-joint systems, and integration with autonomous navigation could further enhance the capabilities of tendon-driven space robotics. Future research could explore adaptive control strategies that dynamically adjust lever arm configurations based on task requirements.</p>
+
+                <p>The principles developed in this research could also be applied to terrestrial robotics where high force-to-weight ratios are crucial, such as search and rescue operations, medical robotics, and industrial automation in weight-sensitive applications. The mathematical modeling framework and 3D manufacturing techniques developed could be extended to create more complex multi-degree-of-freedom systems.</p>
+
+                <!-- Back Navigation -->
+                <div style="text-align: center; margin-top: 2rem;">
+                    <a href="projects.html" class="btn-secondary">← Back to Projects</a>
                 </div>
-
-                <h2>Force Feedback Integration</h2>
-                <p>Advanced force sensing capabilities are integrated throughout the joint system, providing comprehensive feedback for precise force control and safe interaction with humans and fragile objects.</p>
-
-                <div class="highlight-box">
-                    <p><strong>Safety Innovation:</strong> The integrated force feedback system enables immediate detection of unexpected contact forces, triggering protective responses within milliseconds to ensure operator safety during collaboration.</p>
-                </div>
-
-                <h2>Human-Robot Collaboration</h2>
-                <p>The joint design prioritizes safe human-robot collaboration through compliant behavior, predictable motion patterns, and responsive safety systems that protect both humans and equipment.</p>
-
-                <div class="stats-grid">
-                    <div class="stat-item">
-                        <span class="stat-number">10ms</span>
-                        <div class="stat-label">Safety Response Time</div>
-                    </div>
-                    <div class="stat-item">
-                        <span class="stat-number">±0.1mm</span>
-                        <div class="stat-label">Positioning Precision</div>
-                    </div>
-                    <div class="stat-item">
-                        <span class="stat-number">1000Hz</span>
-                        <div class="stat-label">Control Frequency</div>
-                    </div>
-                </div>
-
-                <h2>Manufacturing and Design</h2>
-                <p>The joint components are designed using advanced CAD software (SolidWorks) with consideration for manufacturability, assembly processes, and maintenance requirements. The modular design enables easy replacement and upgrade of individual components.</p>
-
-                <h2>Performance Validation</h2>
-                <p>Extensive testing validates the joint's performance across various scenarios, demonstrating superior adaptability, precision, and safety characteristics compared to traditional rigid joint designs.</p>
-
-                <h2>Future Applications</h2>
-                <p>The adaptive tendon-actuated joint technology has broad applications in collaborative robotics, medical rehabilitation devices, prosthetics, and precision manufacturing systems where safe, compliant manipulation is essential.</p>
             </article>
-
-            <!-- Back Navigation -->
-            <div style="text-align: center; margin-top: 2rem;">
-                <a href="projects.html" class="btn-secondary">← Back to Projects</a>
-            </div>
         </div>
     </section>
 
@@ -334,7 +359,7 @@
                 </a>
                 <a href="https://www.instagram.com/siyuan.zh/" class="social-icon instagram-icon" title="Instagram" target="_blank">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="#4a4a4a">
-                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.40s-.644-1.44-1.439-1.40z"/>
+                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
                     </svg>
                 </a>
                 <a href="https://www.youtube.com/@sylvesterzhang" class="social-icon youtube-icon" title="YouTube" target="_blank">

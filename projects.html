@@ -35,7 +35,7 @@
             width: 100%;
             height: 200px;
             overflow: hidden;
-            background: transparent;
+            background: linear-gradient(135deg, #f8faff 0%, #f0f4ff 100%);
             border-bottom: 1px solid rgba(0, 0, 0, 0.06);
             border-radius: 20px;
             margin: 8px;
@@ -46,19 +46,87 @@
             justify-content: center;
             color: #999;
             font-size: 1rem;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        
+        .card-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, 
+                rgba(0, 123, 255, 0.05) 0%, 
+                rgba(88, 86, 255, 0.05) 50%,
+                rgba(0, 123, 255, 0.05) 100%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            border-radius: 20px;
+        }
+        
+        .project-card-with-image:hover .card-image::before {
+            opacity: 1;
         }
         
         .card-image img {
             width: 100%;
             height: 100%;
-            object-fit: contain;
+            object-fit: cover;
             object-position: center;
-            transition: transform 0.3s ease;
+            transition: all 0.3s ease;
             border-radius: 20px;
+            filter: brightness(1) contrast(1.05) saturate(1.1);
+            opacity: 0;
+            animation: imageLoad 0.6s ease-out 0.2s forwards;
+        }
+        
+        @keyframes imageLoad {
+            from {
+                opacity: 0;
+                transform: scale(1.1);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+        
+        .card-image img:not([src]),
+        .card-image img[src=""] {
+            display: none;
         }
         
         .project-card-with-image:hover .card-image img {
-            transform: scale(1.05);
+            transform: scale(1.08);
+            filter: brightness(1.05) contrast(1.1) saturate(1.2);
+        }
+        
+        /* Placeholder styling for cards without images */
+        .card-image span {
+            font-size: 0.9rem;
+            color: #6b7280;
+            text-align: center;
+            padding: 20px;
+            line-height: 1.5;
+            font-weight: 500;
+            background: linear-gradient(135deg, #e2e8f0 0%, #cbd5e1 100%);
+            border-radius: 15px;
+            width: 90%;
+            height: 70%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        
+        .project-card-with-image:hover .card-image span {
+            background: linear-gradient(135deg, #d1d9e5 0%, #b8c4d1 100%);
+            color: #4a5568;
+            transform: scale(1.02);
+            box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.15);
         }
         
         .card-content {
@@ -88,10 +156,10 @@
         
         .project-tags {
             display: flex;
-            flex-wrap: wrap;
+            flex-direction: column;
             gap: 8px;
             margin-bottom: 20px;
-            justify-content: center;
+            align-items: center;
         }
         
         .tag {
@@ -138,13 +206,19 @@
         /* Responsive adjustments */
         @media (max-width: 768px) {
             .card-image {
-                height: 144px;
+                height: 160px;
                 margin: 6px;
                 width: calc(100% - 12px);
             }
             
+            .card-image span {
+                font-size: 0.85rem;
+                padding: 15px;
+                height: 75%;
+            }
+            
             .card-content {
-                padding: 20px 18px 18px 18px;
+                padding: 18px 16px 16px 16px;
             }
             
             .project-card-with-image h3 {
@@ -153,6 +227,41 @@
             
             .project-card-with-image p {
                 font-size: 0.95rem !important;
+            }
+            
+            .project-card-with-image:hover .card-image img {
+                transform: scale(1.05);
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .card-image {
+                height: 140px;
+                margin: 4px;
+                width: calc(100% - 8px);
+            }
+            
+            .card-image span {
+                font-size: 0.8rem;
+                padding: 12px;
+                height: 80%;
+            }
+            
+            .card-content {
+                padding: 16px 14px 14px 14px;
+            }
+            
+            .project-tags {
+                display: flex;
+                flex-direction: column;
+                gap: 6px;
+                margin-bottom: 16px;
+                align-items: center;
+            }
+            
+            .tag {
+                padding: 5px 10px;
+                font-size: 0.75rem;
             }
         }
     </style>
@@ -234,15 +343,15 @@
 
                 <article class="project-card-with-image">
                     <div class="card-image">
-                        <span>Tendon-Actuated Robot Image</span>
+                        <img src="images/tendon-actuated robot/overall.png" alt="Tendon-Actuated Robot Manipulator">
                     </div>
                     <div class="card-content">
-                        <h3>Advanced Adaptive Tendon-Actuated Robot Manipulator Joint Design</h3>
-                        <p>Innovative joint mechanisms with adaptive compliance control, variable stiffness, and force feedback for human-robot collaboration.</p>
+                        <h3>Design of the joint of an advanced adaptive Tendon-Actuated robot manipulator</h3>
+                        <p>Developed a lever arm amplification joint to improve torque output for tendon-driven robotic arms in space applications. Optimized lightweight components and conducted kinematic analysis for precise control at Sun Yat-sen University.</p>
                         <div class="project-tags">
                             <span class="tag">Tendon Actuation</span>
-                            <span class="tag">Adaptive Control</span>
-                            <span class="tag">Joint Design</span>
+                            <span class="tag">Lever Arm Amplification</span>
+                            <span class="tag">Space Robotics</span>
                         </div>
                         <a href="tendon-actuated-robot.html" class="project-link">Read Full Article</a>
                         </div>
@@ -250,7 +359,7 @@
 
                 <article class="project-card-with-image">
                     <div class="card-image">
-                        <span>Spherical Robot Image</span>
+                        <img src="images/Biomimetic Spherical Robot/robot.png" alt="Biomimetic Spherical Robot">
                     </div>
                     <div class="card-content">
                         <h3>Biomimetic Spherical Robot with Multi-Motion Modes for Space Exploration</h3>
@@ -266,7 +375,7 @@
 
                 <article class="project-card-with-image">
                     <div class="card-image">
-                        <span>Flapping-Wing Robot Image</span>
+                        <img src="images/Bionic Flapping-Wing Robot/bird.png" alt="Bionic Flapping-Wing Robot">
                     </div>
                     <div class="card-content">
                         <h3>Bionic Flapping-Wing Robot Inspired by Birds</h3>
@@ -282,7 +391,7 @@
 
                 <article class="project-card-with-image">
                     <div class="card-image">
-                        <span>CubeSat Robot Image</span>
+                        <img src="images/cubesat/fold state.jpg" alt="Foldable Crawling CubeSat">
                     </div>
                     <div class="card-content">
                         <h3>Foldable, Adhesive Crawling CubeSat for Space Station Operations</h3>

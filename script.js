@@ -178,7 +178,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     submitBtn.innerHTML = '✓ Message Sent Successfully!';
                     submitBtn.style.background = '#34c759';
                     submitBtn.style.opacity = '1';
-                    
+            
                     // Reset form
                     this.reset();
                     
@@ -204,18 +204,18 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (nextField) nextField.remove();
                 
                 // Submit the form normally
-                const tempForm = document.createElement('form');
-                tempForm.action = this.action;
-                tempForm.method = 'POST';
+            const tempForm = document.createElement('form');
+            tempForm.action = this.action;
+            tempForm.method = 'POST';
                 tempForm.target = '_blank'; // Open in new tab to prevent navigation away
                 
                 // Copy all form data
                 for (let [key, value] of formData.entries()) {
-                    const input = document.createElement('input');
-                    input.type = 'hidden';
-                    input.name = key;
+                const input = document.createElement('input');
+                input.type = 'hidden';
+                input.name = key;
                     input.value = value;
-                    tempForm.appendChild(input);
+                tempForm.appendChild(input);
                 }
                 
                 document.body.appendChild(tempForm);

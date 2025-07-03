@@ -3,25 +3,110 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Foldable, Adhesive Crawling CubeSat for Space Station Operations - Siyuan Zhang</title>
+    <title>Foldable Crawling CubeSat - Siyuan Zhang</title>
     <link rel="icon" type="image/svg+xml" href="images/sylvester_robot_icon.svg">
     <link rel="stylesheet" href="styles.css?v=2025010847">
     <style>
-        .page-title { font-size: clamp(2rem, 4vw, 3rem) !important; line-height: 1.2 !important; }
-        .article-meta { display: flex; align-items: center; gap: 20px; margin-bottom: 2rem; padding: 20px 0; border-bottom: 1px solid rgba(0, 0, 0, 0.1); }
-        .article-date { color: #666; font-size: 1rem; font-weight: 500; }
-        .article-tags { display: flex; gap: 10px; }
-        .tag { background: linear-gradient(135deg, #007aff, #5856ff); color: white; padding: 6px 12px; border-radius: 20px; font-size: 0.85rem; font-weight: 500; }
-        .highlight-box { background: linear-gradient(135deg, rgba(0, 122, 255, 0.05), rgba(88, 86, 255, 0.05)); border-left: 4px solid #007aff; padding: 1.5rem; margin: 2rem 0; border-radius: 8px; }
-        .breadcrumb { margin-bottom: 2rem; font-size: 0.95rem; }
-        .breadcrumb a { color: #007aff; text-decoration: none; }
-        .breadcrumb a:hover { text-decoration: underline; }
-        .breadcrumb span { color: #666; margin: 0 8px; }
-        .article-content h2 { font-size: 1.75rem; font-weight: 700; color: #1a1a1a; margin: 2.5rem 0 1.5rem 0; }
-        .article-content p { font-size: 1.1rem; line-height: 1.7; color: #4a4a4a; margin-bottom: 1.5rem; }
+        .page-title {
+            font-size: clamp(2rem, 4vw, 3rem) !important;
+            line-height: 1.2 !important;
+        }
+        .article-meta {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 2rem;
+            padding: 20px 0;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        }
+        .article-date {
+            color: #666;
+            font-size: 1rem;
+            font-weight: 500;
+        }
+        .article-tags {
+            display: flex;
+            gap: 10px;
+        }
+        .tag {
+            background: linear-gradient(135deg, #007aff, #5856ff);
+            color: white;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+        .article-image {
+            width: 100%;
+            max-width: 1000px;
+            margin: 2rem auto;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+        .article-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        .figure-caption {
+            text-align: center;
+            color: #666;
+            font-size: 0.95rem;
+            font-style: italic;
+            margin-top: 0.8rem;
+            line-height: 1.4;
+        }
+        .highlight-box {
+            background: linear-gradient(135deg, rgba(0, 122, 255, 0.05), rgba(88, 86, 255, 0.05));
+            border-left: 4px solid #007aff;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-radius: 8px;
+        }
+        .article-content h2 {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin: 2.5rem 0 1.5rem 0;
+            line-height: 1.3;
+            letter-spacing: -0.02em;
+        }
+        .article-content h3 {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: #2d2d2d;
+            margin: 2rem 0 1rem 0;
+            line-height: 1.4;
+        }
+        .article-content p {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            color: #4a4a4a;
+            margin-bottom: 1.5rem;
+        }
+        .arxiv-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: linear-gradient(135deg, #b91d47, #cc0000);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin: 10px 0;
+            transition: all 0.3s ease;
+        }
+        .arxiv-link:hover {
+            background: linear-gradient(135deg, #8b1538, #990000);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(185, 29, 71, 0.3);
+        }
     </style>
 </head>
 <body>
+    <!-- Navigation -->
     <nav class="navbar">
         <div class="nav-container">
             <div class="nav-logo">
@@ -29,59 +114,143 @@
                     <img src="images/sylvester_robot_icon.svg" alt="Sylvester Zhang">
                 </a>
             </div>
+            <div class="nav-toggle" onclick="toggleMobileMenu()">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
             <ul class="nav-menu">
                 <li><a href="index.html">Home</a></li>
-                <li><a href="research.html">Research</a></li>
+                <li class="resume-dropdown">
+                    <a href="research.html" class="resume-btn">Research</a>
+                    <div class="resume-dropdown-content">
+                        <a href="self-reproducing-robot.html" class="resume-option">Self-Reproducing Robot</a>
+                        <a href="rehabilitation-robot.html" class="resume-option">Rehabilitation Robot</a>
+                        <a href="soft-robotics.html" class="resume-option">Soft Robotics</a>
+                    </div>
+                </li>
                 <li><a href="publications.html">Publication</a></li>
                 <li><a href="projects.html" class="active">Project</a></li>
                 <li><a href="experience.html">Experience</a></li>
+                <li class="resume-dropdown">
+                    <span class="resume-btn">Resume</span>
+                    <div class="resume-dropdown-content">
+                        <a href="resume-en.html" class="resume-option">Resume</a>
+                    </div>
+                </li>
                 <li><a href="contact.html">Contact</a></li>
+                <li class="language-switcher">
+                    <div class="lang-toggle" onclick="switchLanguage('cubesat-crawling-robot-zh.html')">
+                        <div class="lang-slider"></div>
+                        <div class="lang-labels">
+                            <span class="lang-label en">EN</span>
+                            <span class="lang-label zh">中</span>
+                        </div>
+                    </div>
+                </li>
             </ul>
         </div>
+        <div class="nav-overlay" onclick="toggleMobileMenu()"></div>
+        <div class="resume-overlay" onclick="closeResumeMenu()"></div>
     </nav>
 
+    <!-- Article Content -->
     <section class="section">
         <div class="container">
+            <!-- Breadcrumb -->
             <div class="breadcrumb">
                 <a href="projects.html">Projects</a>
                 <span>›</span>
-                <span>CubeSat Crawling Robot</span>
+                <span>Foldable Crawling CubeSat</span>
             </div>
 
+            <!-- Article Header -->
             <header class="article-header">
-                <h1 class="page-title">Foldable, Adhesive Crawling CubeSat for Space Station Operations</h1>
+                <h1 class="page-title">Design of a Foldable, Adhesive Crawling CubeSat for Space Station Operations</h1>
                 
                 <div class="article-meta">
-                    <div class="article-date">Design Phase: 2024</div>
+                    <div class="article-date">Published: September 2023</div>
                     <div class="article-tags">
-                        <span class="tag">CubeSat Design</span>
-                        <span class="tag">Adhesive Locomotion</span>
-                        <span class="tag">Satellite Servicing</span>
+                        <span class="tag">CubeSat</span>
+                        <span class="tag">Space Robotics</span>
+                        <span class="tag">Mechanical Design</span>
                     </div>
                 </div>
             </header>
 
+            <!-- Article Content -->
             <article class="article-content">
                 <div class="highlight-box">
-                    <p><strong>Project Overview:</strong> Compact foldable CubeSat robot with adhesive crawling capabilities for external space station operations, featuring deployable mechanisms and gecko-inspired adhesion systems for satellite servicing missions.</p>
+                    <p><strong>Project Leadership:</strong> Led a team of 5 in designing a spider-inspired CubeSat with foldable claws, mechanical legs, and detection modules for surface inspection, debris removal, and damage repair. The project was awarded 3rd prize in the IAF-CSA Space Universities CubeSat Challenge 2.0 for its innovative design and engineering solutions.</p>
                 </div>
 
-                <h2>Adhesive Locomotion System</h2>
-                <p>The robot features gecko-inspired adhesion systems enabling secure attachment and movement across spacecraft surfaces in micro-gravity environments, with deployable mechanisms for autonomous maneuvering.</p>
+                <h2>Project Overview</h2>
+                <p><strong>Institution:</strong> Sun Yat-sen University, ShenZhen, CN<br>
+                <strong>Advisor:</strong> <a href="https://scholar.google.com/citations?hl=en&user=IIYWr00AAAAJ" target="_blank" style="color: #007aff; text-decoration: none;">Prof. Jianing Wu</a><br>
+                <strong>Duration:</strong> March 2022 - August 2023<br>
+                <strong>Research Type:</strong> Team Research Project</p>
 
-                <h2>Space Operations</h2>
-                <p>Designed for satellite servicing, inspection tasks, and maintenance operations in the challenging space environment with autonomous crawling capabilities for external space station operations.</p>
+                <div class="article-image">
+                    <img src="images/cubesat/fold state.jpg" alt="CubeSat Folded State">
+                    <div class="figure-caption">Figure 1: CubeSat in folded state, showing compact configuration for launch or stowage.</div>
+                </div>
+                <div class="article-image">
+                    <img src="images/cubesat/spread state.jpg" alt="CubeSat Spread State">
+                    <div class="figure-caption">Figure 2: CubeSat in spread (deployed) state, showing extended legs and operational configuration.</div>
+                </div>
 
-                <h2>Mission Applications</h2>
-                <p>The CubeSat robot has applications in spacecraft inspection, satellite repair missions, space debris removal, and maintenance operations requiring compact, deployable robotic systems.</p>
+                <h2>Technical Design</h2>
+                <p>The CubeSat features several innovative design elements:</p>
+                <ul>
+                    <li>Spider-inspired foldable claws and mechanical legs for versatile movement</li>
+                    <li>Detection modules for surface inspection, debris removal, and damage repair</li>
+                    <li>Electrostatic adsorption system for secure attachment in microgravity</li>
+                    <li>Lightweight and modular structure for easy deployment and maintenance</li>
+                </ul>
+
+                <h2>Research Methodology</h2>
+                <p>The development process included:</p>
+                <ul>
+                    <li>Mechanical design and optimization using SOLIDWORKS</li>
+                    <li>Simulation and analysis of structural performance</li>
+                    <li>Exploration of electrostatic adhesion techniques for space environments</li>
+                    <li>Iterative prototyping and testing for reliability</li>
+                </ul>
+
+                <h2>Key Achievements</h2>
+                <ul>
+                    <li>3rd prize in the IAF-CSA Space Universities CubeSat Challenge 2.0</li>
+                    <li>Successful demonstration of foldable, adhesive crawling mechanism</li>
+                    <li>Innovative integration of detection and repair modules</li>
+                    <li>Optimized design for space station surface operations</li>
+                </ul>
+
+                <div class="article-image" style="max-width: 1000px;">
+                    <video controls style="width: 100%; border-radius: 12px;">
+                        <source src="basic introduction of the CubeSat.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <div class="figure-caption">Video 1: Basic introduction and demonstration of the Foldable Crawling CubeSat project.</div>
+                </div>
+
+                <h2>Conclusion</h2>
+                <p>This project demonstrated the feasibility and effectiveness of a foldable, adhesive crawling CubeSat for space station operations. The innovative mechanical design, combined with advanced adhesion and detection capabilities, provides a robust solution for inspection, debris removal, and repair tasks in space environments.</p>
+
+                <!-- Download Report Button -->
+                <div style="text-align: center; margin: 3rem 0;">
+                    <a href="The Design for a Space Station's Foldable, Adhesive Crawling CubeSat with Fixed-point Operations-work-template.pdf" class="arxiv-link" target="_blank">
+                        📄 Read Full Report (PDF)
+                    </a>
+                </div>
+                <!-- Back Navigation -->
+                <div style="text-align: center; margin-top: 2rem;">
+                    <a href="projects.html" class="btn-secondary">← Back to Projects</a>
+                </div>
             </article>
-
-            <div style="text-align: center; margin-top: 2rem;">
-                <a href="projects.html" class="btn-secondary">← Back to Projects</a>
-            </div>
         </div>
     </section>
 
+    <!-- Footer -->
     <footer class="footer">
         <div class="container">
             <div class="footer-social-links">
