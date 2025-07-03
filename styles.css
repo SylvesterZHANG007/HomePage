@@ -339,10 +339,6 @@ body {
     display: block;
 }
 
-.nav-menu a::after {
-    display: none;
-}
-
 .nav-menu a:hover,
 .nav-menu a.active {
     color: #00d4ff;
@@ -2060,7 +2056,7 @@ body {
 }
 
 .nav-menu a.active::after {
-    display: none;
+    width: 100%;
 }
 
 /* Overview Grid for Home Page */
@@ -3980,10 +3976,6 @@ input[type="checkbox"] {
         display: block;
         color: #1a1a1a;
         transition: all 0.3s ease;
-    }
-    
-    .nav-menu a::after {
-        display: none;
     }
 
     .nav-menu a:hover,
